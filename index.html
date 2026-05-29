@@ -6,29 +6,31 @@
 <title>Shira Kates — AI/UX Strategy & Design Leadership</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #F7F2EC;
-    --warm-white: #FDFAF6;
-    --terracotta: #B85C38;
-    --terracotta-light: #D4795A;
-    --charcoal: #2C2420;
-    --warm-mid: #6B5B52;
-    --warm-light: #C4B5A8;
-    --rule: #E0D5CC;
-    --section-bg: #F0E9E0;
+    --white: #FFFFFF;
+    --near-black: #111111;
+    --dark: #1A1A1A;
+    --mid: #444444;
+    --light: #888888;
+    --rule: #DDDDDD;
+    --accent: #C4622D;
+    --accent-light: #E07A45;
+    --bg-dark: #0F0F0F;
+    --bg-section: #F2F2F0;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--warm-white);
-    color: var(--charcoal);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
+    background: var(--white);
+    color: var(--dark);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
     line-height: 1.6;
+    font-size: 18px;
     overflow-x: hidden;
   }
 
@@ -40,32 +42,46 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
-    background: rgba(253,250,246,0.92);
+    background: rgba(255,255,255,0.95);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--rule);
   }
 
   .nav-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--charcoal);
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem;
+    color: var(--near-black);
     text-decoration: none;
   }
 
-  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-right { display: flex; align-items: center; gap: 40px; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
 
   .nav-links a {
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--warm-mid);
+    color: var(--mid);
     text-decoration: none;
     transition: color 0.2s;
   }
 
-  .nav-links a:hover { color: var(--terracotta); }
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-resume {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1.5px solid var(--accent);
+    padding: 8px 20px;
+    transition: all 0.2s;
+  }
+
+  .nav-resume:hover { background: var(--accent); color: white; }
 
   .hero {
     min-height: 100vh;
@@ -79,45 +95,43 @@
     flex-direction: column;
     justify-content: center;
     padding: 80px 60px;
-    background: var(--warm-white);
   }
 
   .hero-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0.2em;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 24px;
+    color: var(--accent);
+    margin-bottom: 28px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.2s;
   }
 
   .hero-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(4rem, 7vw, 7rem);
-    font-weight: 300;
-    line-height: 0.95;
-    color: var(--charcoal);
-    margin-bottom: 32px;
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(4.5rem, 7vw, 7.5rem);
+    font-weight: 400;
+    line-height: 0.92;
+    color: var(--near-black);
+    margin-bottom: 36px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.4s;
   }
 
-  .hero-name em { font-style: italic; color: var(--terracotta); }
+  .hero-name em { font-style: italic; color: var(--accent); }
 
   .hero-bio {
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: var(--warm-mid);
-    line-height: 1.75;
-    max-width: 480px;
+    font-size: 1.15rem;
+    color: var(--mid);
+    line-height: 1.8;
+    max-width: 500px;
     margin-bottom: 48px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.6s;
   }
 
-  .hero-bio strong { color: var(--charcoal); font-weight: 500; }
+  .hero-bio strong { color: var(--near-black); font-weight: 600; }
 
   .hero-cta {
     display: flex;
@@ -129,59 +143,48 @@
 
   .btn-primary {
     display: inline-block;
-    padding: 14px 32px;
-    background: var(--terracotta);
+    padding: 15px 32px;
+    background: var(--near-black);
     color: white;
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
     transition: background 0.2s, transform 0.2s;
   }
 
-  .btn-primary:hover { background: var(--terracotta-light); transform: translateY(-2px); }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-2px); }
 
   .btn-secondary {
     display: inline-block;
-    padding: 14px 32px;
-    border: 1px solid var(--warm-light);
-    color: var(--warm-mid);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    padding: 15px 32px;
+    border: 1.5px solid var(--rule);
+    color: var(--mid);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     text-decoration: none;
-    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    transition: all 0.2s;
   }
 
-  .btn-secondary:hover { border-color: var(--terracotta); color: var(--terracotta); transform: translateY(-2px); }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
   .hero-right {
-    background: var(--section-bg);
+    background: var(--bg-section);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 80px 60px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero-right::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 400px; height: 400px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(184,92,56,0.08) 0%, transparent 70%);
+    gap: 48px;
   }
 
   .photo-frame {
-    width: 280px;
-    height: 340px;
+    width: 260px;
+    height: 320px;
     position: relative;
-    margin-bottom: 40px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.5s;
   }
@@ -189,15 +192,14 @@
   .photo-frame::after {
     content: '';
     position: absolute;
-    bottom: -8px; right: -8px;
+    bottom: -10px; right: -10px;
     width: 100%; height: 100%;
-    border: 1px solid var(--terracotta);
+    border: 2px solid var(--accent);
     z-index: 0;
   }
 
   .photo-frame img {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     object-fit: cover;
     object-position: center top;
     display: block;
@@ -208,242 +210,256 @@
   .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 2px;
     width: 100%;
-    max-width: 360px;
+    max-width: 380px;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards 0.7s;
   }
 
   .stat {
     text-align: center;
-    padding: 20px;
+    padding: 24px 16px;
     background: white;
-    border-top: 2px solid var(--terracotta);
   }
 
   .stat-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 600;
-    color: var(--terracotta);
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.4rem;
+    color: var(--accent);
     line-height: 1;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .stat-label {
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--warm-mid);
+    color: var(--mid);
+    line-height: 1.4;
   }
 
   .tracks {
-    background: var(--charcoal);
-    padding: 80px 60px;
+    background: var(--bg-dark);
+    padding: 100px 60px;
   }
 
-  .tracks-header { text-align: center; margin-bottom: 60px; }
+  .tracks-header { margin-bottom: 60px; }
 
   .tracks-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 16px;
+    color: var(--accent);
+    margin-bottom: 20px;
   }
 
   .tracks-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    font-weight: 300;
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
     color: white;
-    line-height: 1.2;
+    line-height: 1.15;
+    max-width: 600px;
   }
+
+  .tracks-title em { font-style: italic; color: var(--accent); }
 
   .tracks-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    max-width: 1000px;
-    margin: 0 auto;
+    gap: 24px;
+    max-width: 1100px;
   }
 
   .track-card {
     padding: 56px 48px;
     background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.1);
     text-decoration: none;
     transition: background 0.3s, transform 0.3s;
     display: block;
     position: relative;
-    overflow: hidden;
   }
 
-  .track-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--terracotta);
-    transform: scaleX(0);
-    transition: transform 0.3s;
-  }
-
-  .track-card:hover { background: rgba(255,255,255,0.07); transform: translateY(-4px); }
-  .track-card:hover::before { transform: scaleX(1); }
+  .track-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
 
   .track-number {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Instrument Serif', serif;
     font-size: 4rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.06);
     line-height: 1;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
   }
 
   .track-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 400;
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.9rem;
     color: white;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     line-height: 1.2;
   }
 
   .track-desc {
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.5);
-    line-height: 1.7;
-    margin-bottom: 32px;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
+    margin-bottom: 36px;
   }
 
   .track-skills { display: flex; flex-wrap: wrap; gap: 8px; }
 
   .skill-tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--terracotta);
-    border: 1px solid rgba(184,92,56,0.4);
-    padding: 4px 10px;
+    color: var(--accent);
+    border: 1px solid rgba(196,98,45,0.35);
+    padding: 5px 12px;
   }
 
   .track-arrow {
     position: absolute;
     top: 48px; right: 48px;
-    font-size: 1.5rem;
-    color: rgba(255,255,255,0.2);
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.15);
     transition: color 0.3s, transform 0.3s;
   }
 
-  .track-card:hover .track-arrow { color: var(--terracotta); transform: translate(4px, -4px); }
+  .track-card:hover .track-arrow { color: var(--accent); transform: translate(4px,-4px); }
 
-  .case-studies { padding: 100px 60px; background: var(--warm-white); }
-
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 24px;
-    margin-bottom: 64px;
+  .case-studies {
+    padding: 120px 60px;
+    background: var(--white);
   }
 
+  .section-header { margin-bottom: 80px; }
+
   .section-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: block;
   }
 
   .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.8rem;
-    font-weight: 300;
-    color: var(--charcoal);
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    color: var(--near-black);
+    line-height: 1.1;
   }
 
-  .case-study {
+  .case-study { margin-bottom: 120px; }
+  .case-study:last-child { margin-bottom: 0; }
+
+  .case-top {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    border-top: 1px solid var(--rule);
-    padding: 64px 0;
+    gap: 60px;
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--rule);
   }
 
-  .case-study:last-child { border-bottom: 1px solid var(--rule); }
-
-  .case-meta { padding-right: 60px; }
-
   .case-number {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Instrument Serif', serif;
     font-size: 5rem;
-    font-weight: 300;
     color: var(--rule);
     line-height: 1;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
   }
 
   .case-company {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--accent);
     margin-bottom: 8px;
   }
 
-  .case-tags { display: flex; flex-direction: column; gap: 6px; margin-top: 24px; }
+  .case-tags { display: flex; flex-direction: column; gap: 8px; margin-top: 20px; }
 
   .case-tag {
-    font-size: 0.65rem;
-    letter-spacing: 0.08em;
-    color: var(--warm-mid);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--mid);
     text-transform: uppercase;
   }
 
   .case-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2rem;
-    font-weight: 400;
-    color: var(--charcoal);
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    color: var(--near-black);
     line-height: 1.2;
     margin-bottom: 24px;
   }
 
   .case-summary {
-    font-size: 1rem;
-    color: var(--warm-mid);
-    line-height: 1.8;
-    margin-bottom: 32px;
-    max-width: 640px;
+    font-size: 1.05rem;
+    color: var(--mid);
+    line-height: 1.85;
+    margin-bottom: 36px;
+    max-width: 680px;
   }
 
-  .case-metrics { display: flex; gap: 40px; margin-bottom: 32px; flex-wrap: wrap; }
+  .case-metrics {
+    display: flex;
+    gap: 48px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
 
-  .metric { border-left: 2px solid var(--terracotta); padding-left: 16px; }
+  .metric { border-left: 3px solid var(--accent); padding-left: 18px; }
 
   .metric-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: var(--charcoal);
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    color: var(--near-black);
     line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
 
   .metric-label {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
+    font-weight: 500;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--warm-mid);
+    color: var(--light);
+  }
+
+  .case-images { display: grid; gap: 2px; }
+  .case-images.two-col { grid-template-columns: 1fr 1fr; }
+  .case-images.one-col { grid-template-columns: 1fr; }
+
+  .case-img {
+    width: 100%;
+    display: block;
+    border: 1px solid var(--rule);
+  }
+
+  .img-caption {
+    font-size: 0.8rem;
+    color: var(--light);
+    margin-top: 12px;
+    font-style: italic;
+    line-height: 1.5;
   }
 
   .case-link {
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--accent);
     text-decoration: none;
-    border-bottom: 1px solid var(--terracotta);
+    border-bottom: 1.5px solid var(--accent);
     padding-bottom: 2px;
     transition: opacity 0.2s;
   }
@@ -451,152 +467,156 @@
   .case-link:hover { opacity: 0.7; }
 
   .about {
-    background: var(--section-bg);
-    padding: 100px 60px;
+    background: var(--bg-section);
+    padding: 120px 60px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
+    gap: 100px;
+    align-items: start;
   }
 
   .about-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--terracotta);
+    color: var(--accent);
     margin-bottom: 24px;
   }
 
   .about-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 3rem;
-    font-weight: 300;
-    color: var(--charcoal);
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+    color: var(--near-black);
     line-height: 1.15;
-    margin-bottom: 32px;
+    margin-bottom: 36px;
   }
 
-  .about-title em { font-style: italic; color: var(--terracotta); }
+  .about-title em { font-style: italic; color: var(--accent); }
 
   .about-body {
-    font-size: 1rem;
-    color: var(--warm-mid);
-    line-height: 1.85;
+    font-size: 1.05rem;
+    color: var(--mid);
+    line-height: 1.9;
     margin-bottom: 40px;
   }
 
-  .about-body p + p { margin-top: 20px; }
-  .about-body strong { color: var(--charcoal); font-weight: 500; }
+  .about-body p + p { margin-top: 22px; }
+  .about-body strong { color: var(--near-black); font-weight: 600; }
 
   .expertise-list { display: flex; flex-direction: column; }
 
   .expertise-item {
-    padding: 24px 0;
+    padding: 22px 0;
     border-bottom: 1px solid var(--rule);
     display: grid;
-    grid-template-columns: 140px 1fr;
+    grid-template-columns: 120px 1fr;
     gap: 24px;
     align-items: start;
   }
 
   .expertise-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--terracotta);
-    padding-top: 4px;
+    color: var(--accent);
+    padding-top: 3px;
   }
 
-  .expertise-items { font-size: 0.9rem; color: var(--warm-mid); line-height: 1.7; }
+  .expertise-items { font-size: 0.95rem; color: var(--mid); line-height: 1.7; }
 
-  .recognition { background: var(--warm-white); padding: 80px 60px; border-top: 1px solid var(--rule); }
+  .recognition {
+    background: var(--white);
+    padding: 100px 60px;
+    border-top: 1px solid var(--rule);
+  }
 
   .recognition-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 2px;
     margin-top: 60px;
   }
 
   .recognition-item {
-    padding: 32px;
-    background: var(--section-bg);
-    border-top: 2px solid var(--terracotta);
+    padding: 36px 32px;
+    background: var(--bg-section);
+    border-top: 3px solid var(--accent);
   }
 
   .recognition-year {
-    font-size: 0.65rem;
+    font-size: 0.72rem;
+    font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 12px;
+    color: var(--accent);
+    margin-bottom: 14px;
   }
 
   .recognition-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--charcoal);
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.25rem;
+    color: var(--near-black);
     margin-bottom: 8px;
     line-height: 1.3;
   }
 
-  .recognition-org { font-size: 0.8rem; color: var(--warm-mid); }
+  .recognition-org { font-size: 0.85rem; color: var(--light); }
 
   .contact {
-    background: var(--charcoal);
-    padding: 100px 60px;
+    background: var(--bg-dark);
+    padding: 120px 60px;
     text-align: center;
   }
 
   .contact-eyebrow {
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--terracotta);
-    margin-bottom: 24px;
+    color: var(--accent);
+    margin-bottom: 28px;
   }
 
   .contact-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    font-weight: 300;
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(3rem, 6vw, 6rem);
     color: white;
-    line-height: 1.1;
-    margin-bottom: 20px;
+    line-height: 1.05;
+    margin-bottom: 24px;
   }
 
-  .contact-title em { font-style: italic; color: var(--terracotta); }
+  .contact-title em { font-style: italic; color: var(--accent); }
 
   .contact-sub {
-    font-size: 1.2rem;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 48px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.5rem;
     font-style: italic;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 56px;
   }
 
-  .contact-links { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
   .contact-link {
     display: inline-block;
-    padding: 16px 40px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    padding: 16px 44px;
+    font-size: 0.82rem;
+    font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
     transition: all 0.2s;
   }
 
-  .contact-link-primary { background: var(--terracotta); color: white; }
-  .contact-link-primary:hover { background: var(--terracotta-light); transform: translateY(-2px); }
-
-  .contact-link-secondary { border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); }
-  .contact-link-secondary:hover { border-color: var(--terracotta); color: var(--terracotta); transform: translateY(-2px); }
+  .contact-link-primary { background: var(--accent); color: white; }
+  .contact-link-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+  .contact-link-secondary { border: 1.5px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.7); }
+  .contact-link-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
   footer {
-    background: var(--charcoal);
+    background: var(--bg-dark);
     border-top: 1px solid rgba(255,255,255,0.06);
     padding: 32px 60px;
     display: flex;
@@ -604,7 +624,7 @@
     align-items: center;
   }
 
-  footer span { font-size: 0.75rem; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
+  footer span { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -619,21 +639,20 @@
 
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
-  @media (max-width: 900px) {
+  @media (max-width: 960px) {
     nav { padding: 16px 24px; }
-    .nav-links { gap: 20px; }
+    .nav-links { display: none; }
     .hero { grid-template-columns: 1fr; }
     .hero-right { display: none; }
     .hero-left { padding: 100px 24px 60px; }
     .tracks { padding: 60px 24px; }
-    .tracks-grid { grid-template-columns: 1fr; gap: 16px; }
+    .tracks-grid { grid-template-columns: 1fr; }
     .case-studies { padding: 60px 24px; }
-    .case-study { grid-template-columns: 1fr; }
-    .case-meta { padding-right: 0; padding-bottom: 24px; }
-    .case-number { font-size: 3rem; }
+    .case-top { grid-template-columns: 1fr; gap: 24px; }
+    .case-images.two-col { grid-template-columns: 1fr; }
     .about { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
     .recognition { padding: 60px 24px; }
-    .recognition-grid { grid-template-columns: 1fr; }
+    .recognition-grid { grid-template-columns: 1fr; gap: 2px; }
     .contact { padding: 60px 24px; }
     footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
   }
@@ -643,11 +662,14 @@
 
 <nav>
   <a href="#" class="nav-name">Shira Kates</a>
-  <ul class="nav-links">
-    <li><a href="#work">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="Shira_Kates_Resume_2026.pdf" download class="nav-resume">Resume</a>
+  </div>
 </nav>
 
 <section class="hero">
@@ -655,7 +677,7 @@
     <p class="hero-eyebrow">AI/UX · Design Leadership · Where Impact Gets Made</p>
     <h1 class="hero-name">Shira<br><em>Kates</em></h1>
     <p class="hero-bio">
-      I build high-performing, happy teams that achieve real impact. I work cross-functionally to align vision and create epic 0-1 products. I'm a catalyst for innovation who understands the big picture and the user's world well enough to give them something they'll actually love to use, <strong>even when they have no choice but to use it.</strong>
+      I build high-performing, happy teams that achieve real impact. I work cross-functionally to align vision and create epic 0-1 products. I&rsquo;m a catalyst for innovation who understands the big picture and the user&rsquo;s world well enough to give them something they&rsquo;ll actually love to use, <strong>even when they have no choice but to use it.</strong>
     </p>
     <div class="hero-cta">
       <a href="#platform" class="btn-primary">Platform &amp; UX Leadership</a>
@@ -688,12 +710,12 @@
 </section>
 
 <section class="tracks">
-  <div class="tracks-header">
+  <div class="tracks-header reveal">
     <p class="tracks-eyebrow">Two ways to work with me</p>
-    <h2 class="tracks-title">As a leader and as a hands-on builder</h2>
+    <h2 class="tracks-title">As a leader and as a<br><em>hands-on builder</em></h2>
   </div>
   <div class="tracks-grid">
-    <a href="#work" class="track-card" id="platform">
+    <a href="#work" class="track-card reveal" id="platform">
       <span class="track-arrow">&#8599;</span>
       <div class="track-number">01</div>
       <h3 class="track-title">Platform, UX &amp; Leadership</h3>
@@ -706,11 +728,11 @@
         <span class="skill-tag">Team Leadership</span>
       </div>
     </a>
-    <a href="#work" class="track-card" id="conversational">
+    <a href="#work" class="track-card reveal" id="conversational">
       <span class="track-arrow">&#8599;</span>
       <div class="track-number">02</div>
       <h3 class="track-title">AI &amp; Conversational Design</h3>
-      <p class="track-desc">For organizations building or using AI platforms where adoption could be better. Let's talk about what makes agents habit-forming.</p>
+      <p class="track-desc">For organizations building or using AI platforms where adoption could be better. Let&rsquo;s talk about what makes agents habit-forming.</p>
       <div class="track-skills">
         <span class="skill-tag">Agentic UX</span>
         <span class="skill-tag">Conversational Design</span>
@@ -729,104 +751,128 @@
   </div>
 
   <div class="case-study reveal">
-    <div class="case-meta">
-      <div class="case-number">01</div>
-      <div class="case-company">Google AppSheet</div>
-      <div class="case-tags">
-        <span class="case-tag">Vision &amp; Strategy</span>
-        <span class="case-tag">Team Leadership</span>
-        <span class="case-tag">Enterprise UX</span>
-        <span class="case-tag">AI Product</span>
+    <div class="case-top">
+      <div class="case-meta">
+        <div class="case-number">01</div>
+        <div class="case-company">Google AppSheet</div>
+        <div class="case-tags">
+          <span class="case-tag">Vision &amp; Strategy</span>
+          <span class="case-tag">Team Leadership</span>
+          <span class="case-tag">Enterprise UX</span>
+          <span class="case-tag">AI Product</span>
+        </div>
+      </div>
+      <div class="case-content">
+        <h3 class="case-title">Building a Vision Inside the Ambiguity</h3>
+        <p class="case-summary">AppSheet had been acquired by Google but was operating without a long-term product direction. The UX team was structurally broken, the platform was mid-transition from technical to business users, and product leadership kept deferring the Northstar question. I rebuilt the team, claimed the vision work that was sitting unclaimed, and ran a participatory design process that turned the team&rsquo;s own thinking into a compelling strategic direction. Then we stress-tested it with real enterprise customers at Google Cloud NEXT before roadmap planning.</p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-value">200%</div>
+            <div class="metric-label">AI Verbs usage increase</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">27K</div>
+            <div class="metric-label">License deal unlocked</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">7</div>
+            <div class="metric-label">EQ Week projects to roadmap</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">1M+</div>
+            <div class="metric-label">Users monetized</div>
+          </div>
+        </div>
+        <a href="#contact" class="case-link">Request full case study &#8594;</a>
       </div>
     </div>
-    <div class="case-content">
-      <h3 class="case-title">Building the Vision Nobody Else Would Own</h3>
-      <p class="case-summary">
-        AppSheet had been acquired by Google but was operating without a long-term product direction. The UX team was structurally broken, the platform was mid-transition from technical to business users, and product leadership kept deferring the Northstar question. I rebuilt the team, claimed the vision work that was sitting unclaimed, and ran a participatory design process that turned the team's own thinking into a compelling strategic direction. Then I stress-tested it with real enterprise customers at Google Cloud NEXT before anyone presented it internally.
-      </p>
-      <div class="case-metrics">
-        <div class="metric">
-          <div class="metric-value">200%</div>
-          <div class="metric-label">AI Verbs usage increase</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">27K</div>
-          <div class="metric-label">License deal unlocked</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">7</div>
-          <div class="metric-label">EQ Week projects to roadmap</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">1M+</div>
-          <div class="metric-label">Users monetized</div>
-        </div>
-      </div>
-      <a href="#contact" class="case-link">Request full case study &#8594;</a>
-    </div>
-  </div>
-
-  <div class="case-study reveal">
-    <div class="case-meta">
-      <div class="case-number">02</div>
-      <div class="case-company">Google Cloud AI</div>
-      <div class="case-tags">
-        <span class="case-tag">Agentic UX</span>
-        <span class="case-tag">AI Vision</span>
-        <span class="case-tag">Frontline Workers</span>
-        <span class="case-tag">Original Research</span>
-      </div>
-    </div>
-    <div class="case-content">
-      <h3 class="case-title">The Future of Agentic Democratization in the Enterprise</h3>
-      <p class="case-summary">
-        As AI agents began reshaping enterprise software, the entire industry was designing for knowledge workers and ignoring a billion-person global frontline workforce. I asked the question nobody else was asking, built the research case, and developed a framework for how agentic experiences need to evolve: from channel-specific chat to adaptive UI, from static to personalized, and the idea that was purely mine: from a clear creator/user boundary to democratized authoring, where workers shape their own tools through interaction rather than waiting for someone else to build for them.
-      </p>
-      <div class="case-metrics">
-        <div class="metric">
-          <div class="metric-value">1B+</div>
-          <div class="metric-label">Global frontline workers</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">3</div>
-          <div class="metric-label">Industry-shifting frameworks</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">VP</div>
-          <div class="metric-label">Strategy level influence</div>
-        </div>
-      </div>
-      <a href="#contact" class="case-link">Request full case study &#8594;</a>
+    <div class="case-images one-col">
+      <img src="slide-strategies.jpg" alt="AppSheet UX Vision: Strategic framework" class="case-img">
+      <p class="img-caption">AppSheet 3-Year UX Vision: Strategic framework defining how we might democratize app creation for every user type</p>
     </div>
   </div>
 
   <div class="case-study reveal">
-    <div class="case-meta">
-      <div class="case-number">03</div>
-      <div class="case-company">Course Hero + Google AppSheet</div>
-      <div class="case-tags">
-        <span class="case-tag">Conversational Design</span>
-        <span class="case-tag">AI Voice &amp; Tone</span>
-        <span class="case-tag">Brand Strategy</span>
-        <span class="case-tag">GenAI Product</span>
+    <div class="case-top">
+      <div class="case-meta">
+        <div class="case-number">02</div>
+        <div class="case-company">Google Cloud AI</div>
+        <div class="case-tags">
+          <span class="case-tag">Agentic UX</span>
+          <span class="case-tag">AI Vision</span>
+          <span class="case-tag">Frontline Workers</span>
+          <span class="case-tag">Original Research</span>
+        </div>
+      </div>
+      <div class="case-content">
+        <h3 class="case-title">The Future of Agentic Democratization in the Enterprise</h3>
+        <p class="case-summary">As AI agents began reshaping enterprise software, the entire industry was designing for knowledge workers and ignoring a billion-person global frontline workforce. I asked the question nobody else was asking, built the research case, and developed a framework for how agentic experiences need to evolve: from channel-specific chat to adaptive UI, from static to personalized, and the idea that was purely mine: from a clear creator/user boundary to democratized authoring, where workers shape their own tools through interaction rather than waiting for someone else to build for them.</p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-value">1B+</div>
+            <div class="metric-label">Global frontline workers</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">3</div>
+            <div class="metric-label">Industry-shifting frameworks</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">VP</div>
+            <div class="metric-label">Strategy level influence</div>
+          </div>
+        </div>
+        <a href="#contact" class="case-link">Request full case study &#8594;</a>
       </div>
     </div>
-    <div class="case-content">
-      <h3 class="case-title">Voice as Strategy: Designing AI That People Actually Want to Use</h3>
-      <p class="case-summary">
-        Most companies treat conversational AI as a protocol problem. Get the rules right, keep humans in the loop, handle the edge cases. All of that matters. But adoption lives or dies on something simpler: is this agent worth talking to? In 2021 I was pushing back on hiding AI from users when that was the industry default. At Google I was arguing that the prompt is not how humans naturally think. They start from problems, questions, documents. The companies that win on AI adoption will be the ones that treated the voice and personality of their agents as a strategic asset, not an afterthought. Almost nobody is doing this yet.
-      </p>
-      <div class="case-metrics">
-        <div class="metric">
-          <div class="metric-value">2021</div>
-          <div class="metric-label">Ahead of industry on AI transparency</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">1st</div>
-          <div class="metric-label">GenAI feature out of Google Cloud</div>
+    <div class="case-images two-col">
+      <div>
+        <img src="slide-exec-summary.jpg" alt="Evolution of Agents framework" class="case-img">
+        <p class="img-caption">Evolution of Agents: Three fundamental shifts in how agentic enterprise experiences need to evolve</p>
+      </div>
+      <div>
+        <img src="slide-cymbal.jpg" alt="Cymbal Superstore scenario" class="case-img">
+        <p class="img-caption">Hero scenario: Cymbal Superstore, showing how evolved agents serve both knowledge workers and frontline workers</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-study reveal">
+    <div class="case-top">
+      <div class="case-meta">
+        <div class="case-number">03</div>
+        <div class="case-company">Course Hero + Google AppSheet</div>
+        <div class="case-tags">
+          <span class="case-tag">Conversational Design</span>
+          <span class="case-tag">AI Voice &amp; Tone</span>
+          <span class="case-tag">Brand Strategy</span>
+          <span class="case-tag">GenAI Product</span>
         </div>
       </div>
-      <a href="#contact" class="case-link">Request full case study &#8594;</a>
+      <div class="case-content">
+        <h3 class="case-title">Voice as Strategy: Delightful AI Interactions Cement Trust and Adoption</h3>
+        <p class="case-summary">Most companies treat conversational AI as a technology and protocol problem. Get the rules right, keep humans in the loop, handle the edge cases. All of that matters. But adoption lives or dies on something simpler too: is this agent worth talking to? In 2021 I was pushing back on hiding AI from users when that was the industry default. At Google I was arguing that the prompt is not how humans naturally think. They start from problems, questions, documents. The companies that win on AI adoption will be the ones that treated the voice and personality of their agents as a strategic asset, not an afterthought.</p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-value">2021</div>
+            <div class="metric-label">Ahead of industry on AI transparency</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">1st</div>
+            <div class="metric-label">GenAI feature out of Google Cloud</div>
+          </div>
+        </div>
+        <a href="#contact" class="case-link">Request full case study &#8594;</a>
+      </div>
+    </div>
+    <div class="case-images two-col">
+      <div>
+        <img src="slide-personalized.jpg" alt="Personalized agent guidance" class="case-img">
+        <p class="img-caption">Personalized agent guidance: evolved agents adapt instructions to each user&rsquo;s experience level and context</p>
+      </div>
+      <div>
+        <img src="slide-ai-views.jpg" alt="Highly personalized views generated by AI" class="case-img">
+        <p class="img-caption">AI-generated personalized views: Generative UI that adapts to user needs and context in real time</p>
+      </div>
     </div>
   </div>
 </section>
@@ -836,15 +882,9 @@
     <p class="about-eyebrow">About</p>
     <h2 class="about-title">I care about<br>getting it <em>right</em></h2>
     <div class="about-body">
-      <p>
-        I'm a design executive and AI/UX strategist with 20 years leading products from 0 to 1 across enterprise, consumer, and AI-powered experiences. I've been a CDO, a UX manager, a researcher, a content designer, a product manager, and a founder. The through-line is always the same: <strong>I find the hard problem and figure out what it actually needs.</strong>
-      </p>
-      <p>
-        At Google AppSheet I inherited a struggling team, rebuilt it, and built a product vision that influenced roadmaps at the VP level across Google Cloud AI. Before that I won a $25M federal contract as design lead at CivicActions. Before that I led a UX team through a $640M acquisition at BrightRoll. Before that I ran my own design consultancy for a decade.
-      </p>
-      <p>
-        I want to work on AI products that make people's lives genuinely better, with teams that bring real craft and genuine curiosity to the table.
-      </p>
+      <p>I&rsquo;m a design executive and AI/UX strategist with 20 years leading products from 0 to 1 across enterprise, consumer, and AI-powered experiences. I&rsquo;ve been a CDO, a UX manager, a researcher, a content designer, a product manager, and a founder. The through-line is always the same: <strong>I find the hard problem and figure out what it actually needs.</strong></p>
+      <p>At Google AppSheet I inherited a struggling team, rebuilt it, and built a product vision that influenced roadmaps at the VP level across Google Cloud AI. Before that I won a $25M federal contract as design lead at CivicActions. Before that I led a UX team through a $640M acquisition at BrightRoll. Before that I ran my own design consultancy for a decade.</p>
+      <p>I want to work on AI products that make people&rsquo;s lives genuinely better, with teams that bring real craft and genuine curiosity to the table.</p>
     </div>
     <a href="mailto:shiradee@gmail.com" class="btn-primary">Get in touch</a>
   </div>
@@ -910,12 +950,13 @@
 </section>
 
 <section class="contact" id="contact">
-  <p class="contact-eyebrow">Let's talk</p>
+  <p class="contact-eyebrow">Let&rsquo;s talk</p>
   <h2 class="contact-title">Always open to<br><em>new challenges.</em></h2>
-  <p class="contact-sub">What's on your plate?</p>
+  <p class="contact-sub">What&rsquo;s on your plate?</p>
   <div class="contact-links">
     <a href="mailto:shiradee@gmail.com" class="contact-link contact-link-primary">Email me</a>
     <a href="https://linkedin.com/in/shirakatesux" target="_blank" class="contact-link contact-link-secondary">LinkedIn</a>
+    <a href="Shira_Kates_Resume_2026.pdf" download class="contact-link contact-link-secondary">Download Resume</a>
   </div>
 </section>
 
