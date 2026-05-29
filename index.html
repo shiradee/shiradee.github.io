@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shira Kates — AI/UX Strategy & Design Leadership</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F2EC;
+    --warm-white: #FDFAF6;
+    --terracotta: #B85C38;
+    --terracotta-light: #D4795A;
+    --charcoal: #2C2420;
+    --warm-mid: #6B5B52;
+    --warm-light: #C4B5A8;
+    --rule: #E0D5CC;
+    --section-bg: #F0E9E0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background: rgba(253, 250, 246, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--charcoal);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--terracotta); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px 80px 60px;
+    background: var(--warm-white);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 7vw, 7rem);
+    font-weight: 300;
+    line-height: 0.95;
+    color: var(--charcoal);
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .hero-bio {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--warm-mid);
+    line-height: 1.75;
+    max-width: 480px;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .hero-bio strong {
+    color: var(--charcoal);
+    font-weight: 500;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--terracotta);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--terracotta-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 1px solid var(--warm-light);
+    color: var(--warm-mid);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--terracotta);
+    color: var(--terracotta);
+    transform: translateY(-2px);
+  }
+
+  .hero-right {
+    background: var(--section-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,92,56,0.08) 0%, transparent 70%);
+  }
+
+  .photo-placeholder {
+    width: 280px;
+    height: 340px;
+    background: var(--rule);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.5s;
+  }
+
+  .photo-placeholder::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--terracotta);
+    z-index: -1;
+  }
+
+  .photo-placeholder span {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+  }
+
+  .photo-placeholder svg {
+    width: 48px;
+    height: 48px;
+    opacity: 0.3;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    width: 100%;
+    max-width: 360px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.7s;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-top: 2px solid var(--terracotta);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+  }
+
+  /* TRACKS */
+  .tracks {
+    background: var(--charcoal);
+    padding: 80px 60px;
+  }
+
+  .tracks-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .tracks-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 16px;
+  }
+
+  .tracks-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: white;
+    line-height: 1.2;
+  }
+
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .track-card {
+    padding: 56px 48px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .track-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--terracotta);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+  .track-card:hover {
+    background: rgba(255,255,255,0.07);
+    transform: translateY(-4px);
+  }
+
+  .track-card:hover::before { transform: scaleX(1); }
+
+  .track-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.08);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .track-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .track-desc {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .track-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .skill-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    border: 1px solid rgba(184,92,56,0.4);
+    padding: 4px 10px;
+  }
+
+  .track-arrow {
+    position: absolute;
+    top: 48px;
+    right: 48px;
+    font-size: 1.5rem;
+    color: rgba(255,255,255,0.2);
+    transition: color 0.3s, transform 0.3s;
+  }
+
+  .track-card:hover .track-arrow {
+    color: var(--terracotta);
+    transform: translate(4px, -4px);
+  }
+
+  /* CASE STUDIES */
+  .case-studies {
+    padding: 100px 60px;
+    background: var(--warm-white);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    margin-bottom: 64px;
+  }
+
+  .section-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--charcoal);
+  }
+
+  .case-study {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+    padding: 64px 0;
+    transition: opacity 0.3s;
+  }
+
+  .case-study:last-child { border-bottom: 1px solid var(--rule); }
+
+  .case-meta {
+    padding-right: 60px;
+  }
+
+  .case-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: var(--rule);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+
+  .case-company {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 8px;
+  }
+
+  .case-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 24px;
+  }
+
+  .case-tag {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--warm-mid);
+    text-transform: uppercase;
+  }
+
+  .case-content {}
+
+  .case-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    line-height: 1.2;
+    margin-bottom: 24px;
+  }
+
+  .case-summary {
+    font-size: 1rem;
+    color: var(--warm-mid);
+    line-height: 1.8;
+    margin-bottom: 32px;
+    max-width: 640px;
+  }
+
+  .case-metrics {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .metric {
+    border-left: 2px solid var(--terracotta);
+    padding-left: 16px;
+  }
+
+  .metric-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .metric-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--warm-mid);
+  }
+
+  .case-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    text-decoration: none;
+    border-bottom: 1px solid var(--terracotta);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+
+  .case-link:hover { opacity: 0.7; }
+
+  /* ABOUT */
+  .about {
+    background: var(--section-bg);
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text {}
+
+  .about-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 24px;
+  }
+
+  .about-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.15;
+    margin-bottom: 32px;
+  }
+
+  .about-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .about-body {
+    font-size: 1rem;
+    color: var(--warm-mid);
+    line-height: 1.85;
+    margin-bottom: 40px;
+  }
+
+  .about-body p + p { margin-top: 20px; }
+
+  .about-body strong { color: var(--charcoal); font-weight: 500; }
+
+  .about-right {}
+
+  .expertise-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .expertise-item {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  .expertise-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    padding-top: 4px;
+  }
+
+  .expertise-items {
+    font-size: 0.9rem;
+    color: var(--warm-mid);
+    line-height: 1.7;
+  }
+
+  /* RECOGNITION */
+  .recognition {
+    background: var(--warm-white);
+    padding: 80px 60px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .recognition-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .recognition-item {
+    padding: 32px;
+    background: var(--section-bg);
+    border-top: 2px solid var(--terracotta);
+  }
+
+  .recognition-year {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+  }
+
+  .recognition-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .recognition-org {
+    font-size: 0.8rem;
+    color: var(--warm-mid);
+  }
+
+  /* CONTACT */
+  .contact {
+    background: var(--charcoal);
+    padding: 100px 60px;
+    text-align: center;
+  }
+
+  .contact-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 24px;
+  }
+
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 300;
+    color: white;
+    line-height: 1.1;
+    margin-bottom: 32px;
+  }
+
+  .contact-title em {
+    font-style: italic;
+    color: var(--terracotta);
+  }
+
+  .contact-sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 48px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: inline-block;
+    padding: 16px 40px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .contact-link-primary {
+    background: var(--terracotta);
+    color: white;
+  }
+
+  .contact-link-primary:hover {
+    background: var(--terracotta-light);
+    transform: translateY(-2px);
+  }
+
+  .contact-link-secondary {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.7);
+  }
+
+  .contact-link-secondary:hover {
+    border-color: var(--terracotta);
+    color: var(--terracotta);
+    transform: translateY(-2px);
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 32px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer span {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.05em;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
+
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 100px 24px 60px; }
+
+    .tracks { padding: 60px 24px; }
+    .tracks-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    .case-studies { padding: 60px 24px; }
+    .case-study { grid-template-columns: 1fr; }
+    .case-meta { padding-right: 0; padding-bottom: 24px; }
+    .case-number { font-size: 3rem; }
+
+    .about { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
+
+    .recognition { padding: 60px 24px; }
+    .recognition-grid { grid-template-columns: 1fr; }
+
+    .contact { padding: 60px 24px; }
+
+    footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Shira Kates</a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">AI/UX Strategy · Design Leadership · Human-AI Interaction</p>
+    <h1 class="hero-name">Shira<br><em>Kates</em></h1>
+    <p class="hero-bio">
+      I'm a design leader and AI/UX strategist <strong>who does the work.</strong> I build visions that land, teams that thrive, and AI experiences that people actually want to use. Twenty years across enterprise, consumer, and AI-powered products — and I'm still the one with the strongest opinions in the room about what matters.
+    </p>
+    <div class="hero-cta">
+      <a href="#platform" class="btn-primary">Platform & UX Leadership</a>
+      <a href="#conversational" class="btn-secondary">AI & Conversational Design</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="photo-placeholder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+        <circle cx="12" cy="7" r="4"/>
+      </svg>
+      <span>Photo coming soon</span>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Years Leading</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">4×</div>
+        <div class="stat-label">MAU Growth</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">$25M</div>
+        <div class="stat-label">Contract Won</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2×</div>
+        <div class="stat-label">Cloud Impact Awards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRACKS -->
+<section class="tracks">
+  <div class="tracks-header">
+    <p class="tracks-eyebrow">Two ways to work with me</p>
+    <h2 class="tracks-title">Choose your lens</h2>
+  </div>
+  <div class="tracks-grid">
+    <a href="#platform" class="track-card" id="platform">
+      <span class="track-arrow">↗</span>
+      <div class="track-number">01</div>
+      <h3 class="track-title">Platform, UX & Leadership</h3>
+      <p class="track-desc">For organizations that need someone to build the vision, lead the team, and make sure design has a seat at the table where strategy gets made.</p>
+      <div class="track-skills">
+        <span class="skill-tag">Design Executive</span>
+        <span class="skill-tag">Head of UX</span>
+        <span class="skill-tag">VP Design</span>
+        <span class="skill-tag">Product Strategy</span>
+        <span class="skill-tag">Team Leadership</span>
+      </div>
+    </a>
+    <a href="#conversational" class="track-card" id="conversational">
+      <span class="track-arrow">↗</span>
+      <div class="track-number">02</div>
+      <h3 class="track-title">AI & Conversational Design</h3>
+      <p class="track-desc">For organizations building AI products that need someone who has been thinking about how humans and AI communicate — and what makes agents worth talking to.</p>
+      <div class="track-skills">
+        <span class="skill-tag">Agentic UX</span>
+        <span class="skill-tag">Conversational Design</span>
+        <span class="skill-tag">AI Strategy</span>
+        <span class="skill-tag">Human-AI Interaction</span>
+        <span class="skill-tag">LLM Product Design</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="case-studies" id="work">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Selected work</span>
+    <h2 class="section-title">Case Studies</h2>
+  </div>
+
+  <!-- Case Study 1 -->
+  <div class="case-study reveal">
+    <div class="case-meta">
+      <div class="case-number">01</div>
+      <div class="case-company">Google AppSheet</div>
+      <div class="case-tags">
+        <span class="case-tag">Vision & Strategy</span>
+        <span class="case-tag">Team Leadership</span>
+        <span class="case-tag">Enterprise UX</span>
+        <span class="case-tag">AI Product</span>
+      </div>
+    </div>
+    <div class="case-content">
+      <h3 class="case-title">Building the Vision Nobody Else Would Own</h3>
+      <p class="case-summary">
+        AppSheet had been acquired by Google but was operating without a long-term product direction. The UX team was structurally broken, the platform was mid-transition from technical to business users, and product leadership kept deferring the Northstar question. I rebuilt the team, claimed the vision work that was sitting unclaimed, and ran a participatory design process that turned the team's own thinking into a compelling strategic direction. Then I stress-tested it with real enterprise customers at Google Cloud NEXT before anyone presented it internally.
+      </p>
+      <div class="case-metrics">
+        <div class="metric">
+          <div class="metric-value">200%</div>
+          <div class="metric-label">AI Verbs usage increase</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">27K</div>
+          <div class="metric-label">License deal unlocked</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">7</div>
+          <div class="metric-label">EQ Week projects to roadmap</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">1M+</div>
+          <div class="metric-label">Users monetized</div>
+        </div>
+      </div>
+      <a href="#contact" class="case-link">Request full case study →</a>
+    </div>
+  </div>
+
+  <!-- Case Study 2 -->
+  <div class="case-study reveal">
+    <div class="case-meta">
+      <div class="case-number">02</div>
+      <div class="case-company">Google Cloud AI</div>
+      <div class="case-tags">
+        <span class="case-tag">Agentic UX</span>
+        <span class="case-tag">AI Vision</span>
+        <span class="case-tag">Frontline Workers</span>
+        <span class="case-tag">Original Research</span>
+      </div>
+    </div>
+    <div class="case-content">
+      <h3 class="case-title">The Future of Agentic Democratization in the Enterprise</h3>
+      <p class="case-summary">
+        As AI agents began reshaping enterprise software, the entire industry was designing for knowledge workers and ignoring a billion-person global frontline workforce. I asked the question nobody else was asking, built the research case, and developed a framework for how agentic experiences need to evolve: from channel-specific chat to adaptive UI, from static to personalized, and — the idea that was purely mine — from a clear creator/user boundary to democratized authoring, where workers shape their own tools through interaction rather than waiting for someone else to build for them.
+      </p>
+      <div class="case-metrics">
+        <div class="metric">
+          <div class="metric-value">1B+</div>
+          <div class="metric-label">Global frontline workers</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">3</div>
+          <div class="metric-label">Industry-shifting frameworks</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">VP</div>
+          <div class="metric-label">Strategy level influence</div>
+        </div>
+      </div>
+      <a href="#contact" class="case-link">Request full case study →</a>
+    </div>
+  </div>
+
+  <!-- Case Study 3 -->
+  <div class="case-study reveal">
+    <div class="case-meta">
+      <div class="case-number">03</div>
+      <div class="case-company">Course Hero + Google AppSheet</div>
+      <div class="case-tags">
+        <span class="case-tag">Conversational Design</span>
+        <span class="case-tag">AI Voice & Tone</span>
+        <span class="case-tag">Brand Strategy</span>
+        <span class="case-tag">GenAI Product</span>
+      </div>
+    </div>
+    <div class="case-content">
+      <h3 class="case-title">Voice as Strategy: Designing AI That People Actually Want to Use</h3>
+      <p class="case-summary">
+        Most companies treat conversational AI as a protocol problem. Get the rules right, keep humans in the loop, handle the edge cases. All of that matters. But adoption lives or dies on something simpler: is this agent worth talking to? In 2021 I was pushing back on hiding AI from users when that was the industry default. At Google I was arguing that the prompt is not how humans naturally think — they start from problems, questions, documents. The companies that win on AI adoption will be the ones that treated the voice and personality of their agents as a strategic asset, not an afterthought. Almost nobody is doing this yet.
+      </p>
+      <div class="case-metrics">
+        <div class="metric">
+          <div class="metric-value">2021</div>
+          <div class="metric-label">Ahead of industry on AI transparency</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">1st</div>
+          <div class="metric-label">GenAI feature out of Google Cloud</div>
+        </div>
+      </div>
+      <a href="#contact" class="case-link">Request full case study →</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text reveal">
+    <p class="about-eyebrow">About</p>
+    <h2 class="about-title">I care about<br>getting it <em>right</em></h2>
+    <div class="about-body">
+      <p>
+        I'm a design executive and AI/UX strategist with 20 years leading products from 0 to 1 across enterprise, consumer, and AI-powered experiences. I've been a CDO, a UX manager, a researcher, a content designer, a product manager, and a founder. The through-line is always the same: <strong>I find the hard problem and I figure out what it actually needs.</strong>
+      </p>
+      <p>
+        At Google AppSheet I inherited a struggling team, rebuilt it, and built a product vision that influenced roadmaps at the VP level across Google Cloud AI. Before that I won a $25M federal contract as design lead at CivicActions. Before that I led a UX team through a $640M acquisition at BrightRoll. Before that I ran my own design consultancy for a decade.
+      </p>
+      <p>
+        I want to work on AI products that make people's lives genuinely better, with teams that bring real craft and genuine curiosity to the table. I thrive in environments that are non-hierarchical, transparent, and serious about the work.
+      </p>
+    </div>
+    <a href="mailto:shiradee@gmail.com" class="btn-primary">Get in touch</a>
+  </div>
+  <div class="about-right reveal">
+    <div class="expertise-list">
+      <div class="expertise-item">
+        <span class="expertise-label">AI & Product</span>
+        <span class="expertise-items">Generative AI · Agentic UX · Human-AI Interaction · LLM Product Design · Hypothesis-Driven 0-1 Development</span>
+      </div>
+      <div class="expertise-item">
+        <span class="expertise-label">UX Practice</span>
+        <span class="expertise-items">Enterprise UX · UX Research · Conversational Design · UX Writing · Design Systems · Accessibility</span>
+      </div>
+      <div class="expertise-item">
+        <span class="expertise-label">Leadership</span>
+        <span class="expertise-items">Cross-functional Alignment · Executive Storytelling · OKR Planning · Design Sprints · Team Development</span>
+      </div>
+      <div class="expertise-item">
+        <span class="expertise-label">Experience</span>
+        <span class="expertise-items">Google · CivicActions · Yahoo/BrightRoll · Accenture · AT&T Interactive · Independent Practice</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECOGNITION -->
+<section class="recognition reveal">
+  <div class="section-header">
+    <span class="section-eyebrow">Recognition</span>
+    <h2 class="section-title">Awards & Community</h2>
+  </div>
+  <div class="recognition-grid">
+    <div class="recognition-item">
+      <div class="recognition-year">2023</div>
+      <div class="recognition-title">Cloud Tech Impact Award ×2</div>
+      <div class="recognition-org">Google Cloud</div>
+    </div>
+    <div class="recognition-item">
+      <div class="recognition-year">2025</div>
+      <div class="recognition-title">Hudson Executive Coaching Certification</div>
+      <div class="recognition-org">Hudson Institute</div>
+    </div>
+    <div class="recognition-item">
+      <div class="recognition-year">2026</div>
+      <div class="recognition-title">Speaker: AI Talks</div>
+      <div class="recognition-org">One Club for Creativity</div>
+    </div>
+    <div class="recognition-item">
+      <div class="recognition-year">2015</div>
+      <div class="recognition-title">US Patent: Mobile Ad Campaign Management</div>
+      <div class="recognition-org">US 077693-8019</div>
+    </div>
+    <div class="recognition-item">
+      <div class="recognition-year">2014–16</div>
+      <div class="recognition-title">Professional Mentor, TechWomen Program</div>
+      <div class="recognition-org">US State Department</div>
+    </div>
+    <div class="recognition-item">
+      <div class="recognition-year">2011</div>
+      <div class="recognition-title">Design Award: Social Impact</div>
+      <div class="recognition-org">Core77</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="contact-eyebrow">Let's talk</p>
+  <h2 class="contact-title">Ready for the<br>next <em>hard problem</em></h2>
+  <p class="contact-sub">Open to design leadership, AI/UX strategy, and senior IC roles at companies building things that matter.</p>
+  <div class="contact-links">
+    <a href="mailto:shiradee@gmail.com" class="contact-link contact-link-primary">Email me</a>
+    <a href="https://linkedin.com/in/shirakatesux" target="_blank" class="contact-link contact-link-secondary">LinkedIn</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Shira Kates</span>
+  <span>AI/UX Strategy · Design Leadership · Human-AI Interaction</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
