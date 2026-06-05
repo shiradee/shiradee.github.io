@@ -558,7 +558,7 @@
     color: var(--light);
   }
 
-  .case-images { display: grid; gap: 20px; }
+  .case-images { display: grid; gap: 2px; }
   .case-images.one-col { grid-template-columns: 1fr; }
   .case-images.two-col { grid-template-columns: 1fr 1fr; }
   .case-images.three-col { grid-template-columns: 1fr 1fr 1fr; }
@@ -569,13 +569,7 @@
     border: 1px solid var(--rule);
     object-fit: cover;
     max-height: 280px;
-    padding: 8px;
-    background: var(--bg-section);
-    cursor: zoom-in;
-    transition: opacity 0.2s;
   }
-
-  .case-img:hover { opacity: 0.85; }
 
   .img-caption {
     font-size: 0.8rem;
@@ -807,35 +801,140 @@
     footer { padding: 24px; flex-direction: column; gap: 8px; text-align: center; }
   }
 
-  /* Lightbox */
-  .lightbox-overlay {
-    display: none;
-    position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background: rgba(0,0,0,0.92);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-    cursor: zoom-out;
+  /* Side Projects & Obsessions */
+  .side-projects {
+    background: var(--white);
+    padding: 120px 60px;
+    border-top: 1px solid var(--rule);
   }
-  .lightbox-overlay.active { display: flex; }
-  .lightbox-overlay img {
-    max-width: 90vw;
-    max-height: 90vh;
-    object-fit: contain;
-    box-shadow: 0 0 60px rgba(0,0,0,0.5);
+
+  .side-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 60px;
   }
-  .lightbox-close {
-    position: absolute;
-    top: 24px; right: 32px;
-    color: white;
-    font-size: 2.5rem;
+
+  .project-card {
+    background: var(--bg-section);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid transparent;
+    transition: border-color 0.2s;
+  }
+
+  .project-card:hover { border-color: var(--accent); }
+
+  .project-card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
     cursor: pointer;
-    line-height: 1;
-    opacity: 0.7;
     transition: opacity 0.2s;
   }
-  .lightbox-close:hover { opacity: 1; }
+
+  .project-card-img:hover { opacity: 0.85; }
+
+  .project-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .project-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.4rem;
+    color: var(--near-black);
+    line-height: 1.2;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--mid);
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .project-meta {
+    font-size: 0.8rem;
+    color: var(--light);
+    font-style: italic;
+  }
+
+  .project-stat {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .project-stat-number {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.2rem;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .project-stat-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+
+  .project-link {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+    align-self: flex-start;
+    transition: opacity 0.2s;
+  }
+
+  .project-link:hover { opacity: 0.7; }
+
+  .duo-loading { color: var(--light); font-size: 0.85rem; font-style: italic; }
+
+  @media (max-width: 960px) {
+    .side-projects { padding: 60px 24px; }
+    .side-projects-grid { grid-template-columns: 1fr 1fr; gap: 2px; }
+  }
+
+  @media (max-width: 600px) {
+    .side-projects-grid { grid-template-columns: 1fr; }
+  }
+
+  .book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin: 4px 0;
+  }
+
+  .book-cover {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.2s, transform 0.2s;
+    border: 1px solid var(--rule);
+  }
+
+  .book-cover:hover {
+    opacity: 0.8;
+    transform: scale(1.03);
+  }
 </style>
 </head>
 <body>
@@ -1092,6 +1191,78 @@
     </article>
   </section>
 
+
+  <!-- SIDE PROJECTS & OBSESSIONS -->
+  <section aria-label="Side projects and obsessions" class="side-projects">
+    <div class="section-header reveal">
+      <span class="section-eyebrow">Beyond the brief</span>
+      <h2 class="section-title">Side Projects &amp; Obsessions</h2>
+    </div>
+    <div class="side-projects-grid">
+
+      <!-- Floral Design -->
+      <div class="project-card reveal">
+        <span class="project-label">Craft</span>
+        <img
+          src="images/floral.jpg"
+          alt="A bouquet of peach carnations, lavender roses, alstroemeria and greenery in a white ribbed vase"
+          class="project-card-img"
+          onclick="openLightbox(this)"
+        >
+        <h3 class="project-title">Floral Design</h3>
+        <p class="project-desc">Flowers are my analog antidote to screens. I design and arrange bouquets for the pleasure of working with something that doesn&rsquo;t have a backlog.</p>
+      </div>
+
+      <!-- Duolingo -->
+      <div class="project-card reveal">
+        <span class="project-label">Language Learning</span>
+        <h3 class="project-title">Duolingo</h3>
+        <p class="project-desc">Keeping the streak alive. There&rsquo;s something about a gamified daily habit that appeals to the UX person in me almost as much as the language nerd.</p>
+        <div id="duo-stats">
+          <p class="duo-loading">Loading streak&hellip;</p>
+        </div>
+        <a href="https://invite.duolingo.com/profile-share/shiradee?via=share_profile_qr" target="_blank" rel="noopener noreferrer" class="project-link">Be my friend &rarr;</a>
+      </div>
+
+      <!-- Audible / Books -->
+      <div class="project-card reveal">
+        <span class="project-label">Reading</span>
+        <h3 class="project-title">Currently Listening</h3>
+        <p class="project-desc">Books on repeat: design, psychology, business, the occasional sweeping biography. Always on walks, always on Audible.</p>
+        <div class="book-grid">
+          <a href="https://www.goodreads.com/book/show/18050143-zero-to-one" target="_blank" rel="noopener noreferrer" title="Zero to One — Peter Thiel">
+            <img src="https://covers.openlibrary.org/b/isbn/0804139296-L.jpg" alt="Zero to One by Peter Thiel" class="book-cover" onerror="this.style.display='none'">
+          </a>
+          <a href="https://www.goodreads.com/search?q=A+World+Appears+Michael+Pollan" target="_blank" rel="noopener noreferrer" title="A World Appears — Michael Pollan">
+            <img src="https://covers.openlibrary.org/b/isbn/9780593856192-L.jpg" alt="A World Appears by Michael Pollan" class="book-cover" onerror="this.style.display='none'">
+          </a>
+          <a href="https://www.goodreads.com/book/show/1280502.Zero_Limits" target="_blank" rel="noopener noreferrer" title="Zero Limits — Joe Vitale">
+            <img src="https://covers.openlibrary.org/b/isbn/0470402563-L.jpg" alt="Zero Limits by Joe Vitale" class="book-cover" onerror="this.style.display='none'">
+          </a>
+          <a href="https://www.goodreads.com/book/show/25457082-the-surrender-experiment" target="_blank" rel="noopener noreferrer" title="The Surrender Experiment — Michael A. Singer">
+            <img src="https://covers.openlibrary.org/b/isbn/0804141489-L.jpg" alt="The Surrender Experiment by Michael A. Singer" class="book-cover" onerror="this.style.display='none'">
+          </a>
+          <a href="https://www.goodreads.com/search?q=Heretical+Fishing+Haylock+Jobson" target="_blank" rel="noopener noreferrer" title="Heretical Fishing — Haylock Jobson">
+            <img src="https://covers.openlibrary.org/b/isbn/9781399730754-L.jpg" alt="Heretical Fishing by Haylock Jobson" class="book-cover" onerror="this.style.display='none'">
+          </a>
+          <a href="https://www.goodreads.com/search?q=The+Land+and+Its+People+David+Sedaris" target="_blank" rel="noopener noreferrer" title="The Land and Its People — David Sedaris">
+            <img src="https://covers.openlibrary.org/b/isbn/9780316578059-L.jpg" alt="The Land and Its People by David Sedaris" class="book-cover" onerror="this.style.display='none'">
+          </a>
+        </div>
+        <a href="https://www.goodreads.com/user/show/25920204" target="_blank" rel="noopener noreferrer" class="project-link">See all on Goodreads &rarr;</a>
+      </div>
+
+      <!-- Cheddar -->
+      <div class="project-card reveal">
+        <span class="project-label">AI Agent</span>
+        <h3 class="project-title">Meet Cheddar</h3>
+        <p class="project-desc">An AI agent I built to explore what delightful, habit-forming conversational UX actually feels like from the inside. Best experienced in full screen.</p>
+        <a href="https://claude.ai/public/artifacts/2c5bf74a-da74-4570-b918-49a6287daf0d" target="_blank" rel="noopener noreferrer" class="project-link">Try it &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section aria-label="About Shira Kates" class="about" id="about">
     <div class="about-text reveal">
@@ -1196,27 +1367,44 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+
+  // Duolingo stats
+  (async () => {
+    try {
+      const res = await fetch('https://www.duolingo.com/2017-06-30/users?username=shiradee&fields=streak,totalXp,courses');
+      const data = await res.json();
+      const user = data.users?.[0];
+      if (!user) throw new Error('No user');
+      const streak = user.streak ?? 0;
+      const totalXp = user.totalXp ?? 0;
+      const xpFormatted = totalXp >= 1000 ? (totalXp / 1000).toFixed(1) + 'k' : totalXp;
+      document.getElementById('duo-stats').innerHTML = `
+        <div style="display:flex; gap:24px; flex-wrap:wrap;">
+          <div class="project-stat">
+            <span class="project-stat-number">${streak}</span>
+            <span class="project-stat-label">Day streak</span>
+          </div>
+          <div class="project-stat">
+            <span class="project-stat-number">${xpFormatted}</span>
+            <span class="project-stat-label">Total XP</span>
+          </div>
+        </div>
+      `;
+    } catch(e) {
+      document.getElementById('duo-stats').innerHTML = '<p class="duo-loading">Streak data unavailable</p>';
+    }
+  })();
+
+  // Lightbox helper for floral image
+  function openLightbox(img) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('active');
+  }
+
 </script>
 
-
-<!-- Lightbox -->
-<div class="lightbox-overlay" id="lightbox">
-  <span class="lightbox-close" id="lightbox-close">&times;</span>
-  <img id="lightbox-img" src="" alt="">
-</div>
-<script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  document.querySelectorAll('.case-img').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightbox.classList.add('active');
-    });
-  });
-  document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('active'));
-  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('active'); });
-</script>
 </body>
 </html>
