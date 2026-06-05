@@ -558,7 +558,7 @@
     color: var(--light);
   }
 
-  .case-images { display: grid; gap: 2px; }
+  .case-images { display: grid; gap: 20px; }
   .case-images.one-col { grid-template-columns: 1fr; }
   .case-images.two-col { grid-template-columns: 1fr 1fr; }
   .case-images.three-col { grid-template-columns: 1fr 1fr 1fr; }
@@ -569,7 +569,13 @@
     border: 1px solid var(--rule);
     object-fit: cover;
     max-height: 280px;
+    padding: 8px;
+    background: var(--bg-section);
+    cursor: zoom-in;
+    transition: opacity 0.2s;
   }
+
+  .case-img:hover { opacity: 0.85; }
 
   .img-caption {
     font-size: 0.8rem;
@@ -935,6 +941,36 @@
     opacity: 0.8;
     transform: scale(1.03);
   }
+
+  /* Lightbox */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+  }
+  .lightbox-overlay.active { display: flex; }
+  .lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 0 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 24px; right: 32px;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .lightbox-close:hover { opacity: 1; }
 </style>
 </head>
 <body>
@@ -1234,19 +1270,19 @@
             <img src="https://covers.openlibrary.org/b/isbn/0804139296-L.jpg" alt="Zero to One by Peter Thiel" class="book-cover" onerror="this.style.display='none'">
           </a>
           <a href="https://www.goodreads.com/search?q=A+World+Appears+Michael+Pollan" target="_blank" rel="noopener noreferrer" title="A World Appears — Michael Pollan">
-            <img src="https://covers.openlibrary.org/b/isbn/9780593856192-L.jpg" alt="A World Appears by Michael Pollan" class="book-cover" onerror="this.style.display='none'">
+            <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1757559798i/241471051.jpg" alt="A World Appears by Michael Pollan" class="book-cover" onerror="this.style.display='none'">
           </a>
           <a href="https://www.goodreads.com/book/show/1280502.Zero_Limits" target="_blank" rel="noopener noreferrer" title="Zero Limits — Joe Vitale">
-            <img src="https://covers.openlibrary.org/b/isbn/0470402563-L.jpg" alt="Zero Limits by Joe Vitale" class="book-cover" onerror="this.style.display='none'">
+            <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1484851488i/29513878.jpg" alt="Zero Limits by Joe Vitale" class="book-cover" onerror="this.style.display='none'">
           </a>
           <a href="https://www.goodreads.com/book/show/25457082-the-surrender-experiment" target="_blank" rel="noopener noreferrer" title="The Surrender Experiment — Michael A. Singer">
             <img src="https://covers.openlibrary.org/b/isbn/0804141489-L.jpg" alt="The Surrender Experiment by Michael A. Singer" class="book-cover" onerror="this.style.display='none'">
           </a>
           <a href="https://www.goodreads.com/search?q=Heretical+Fishing+Haylock+Jobson" target="_blank" rel="noopener noreferrer" title="Heretical Fishing — Haylock Jobson">
-            <img src="https://covers.openlibrary.org/b/isbn/9781399730754-L.jpg" alt="Heretical Fishing by Haylock Jobson" class="book-cover" onerror="this.style.display='none'">
+            <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1423601289i/23164946.jpg" alt="Heretical Fishing by Haylock Jobson" class="book-cover" onerror="this.style.display='none'">
           </a>
           <a href="https://www.goodreads.com/search?q=The+Land+and+Its+People+David+Sedaris" target="_blank" rel="noopener noreferrer" title="The Land and Its People — David Sedaris">
-            <img src="https://covers.openlibrary.org/b/isbn/9780316578059-L.jpg" alt="The Land and Its People by David Sedaris" class="book-cover" onerror="this.style.display='none'">
+            <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1707524477i/208099994.jpg" alt="The Land and Its People by David Sedaris" class="book-cover" onerror="this.style.display='none'">
           </a>
         </div>
         <a href="https://www.goodreads.com/user/show/25920204" target="_blank" rel="noopener noreferrer" class="project-link">See all on Goodreads &rarr;</a>
@@ -1406,5 +1442,24 @@
 
 </script>
 
+
+<div class="lightbox-overlay" id="lightbox">
+  <span class="lightbox-close" id="lightbox-close">&times;</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  document.querySelectorAll('.case-img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+    });
+  });
+  document.getElementById('lightbox-close').addEventListener('click', () => lightbox.classList.remove('active'));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('active'); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('active'); });
+</script>
 </body>
 </html>
