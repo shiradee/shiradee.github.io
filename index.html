@@ -209,6 +209,11 @@
     padding-top: 80px;
   }
 
+  /* Mobile photo shown above hero text */
+  .hero-photo-mobile {
+    display: none;
+  }
+
   .hero-left {
     display: flex;
     flex-direction: column;
@@ -554,13 +559,16 @@
   }
 
   .case-images { display: grid; gap: 2px; }
-  .case-images.two-col { grid-template-columns: 1fr 1fr; }
   .case-images.one-col { grid-template-columns: 1fr; }
+  .case-images.two-col { grid-template-columns: 1fr 1fr; }
+  .case-images.three-col { grid-template-columns: 1fr 1fr 1fr; }
 
   .case-img {
     width: 100%;
     display: block;
     border: 1px solid var(--rule);
+    object-fit: cover;
+    max-height: 280px;
   }
 
   .img-caption {
@@ -767,12 +775,25 @@
     .nav-links { display: none; }
     .hero { grid-template-columns: 1fr; }
     .hero-right { display: none; }
-    .hero-left { padding: 100px 24px 60px; }
+    .hero-photo-mobile {
+      display: flex;
+      justify-content: center;
+      padding: 80px 24px 0;
+      background: var(--bg-section);
+    }
+    .hero-photo-mobile .photo-frame {
+      width: 160px;
+      height: 200px;
+      opacity: 1;
+      animation: none;
+    }
+    .hero-left { padding: 32px 24px 60px; }
     .tracks { padding: 60px 24px; }
     .tracks-grid { grid-template-columns: 1fr; }
     .case-studies { padding: 60px 24px; }
     .case-top { grid-template-columns: 1fr; gap: 24px; }
     .case-images.two-col { grid-template-columns: 1fr; }
+    .case-images.three-col { grid-template-columns: 1fr; }
     .about { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
     .recognition { padding: 60px 24px; }
     .recognition-grid { grid-template-columns: 1fr; gap: 2px; }
@@ -802,6 +823,13 @@
 
 <main id="main">
 
+<!-- Mobile photo (shown on small screens only) -->
+<div class="hero-photo-mobile" aria-hidden="true">
+  <div class="photo-frame">
+    <img src="photo.jpg" alt="Shira Kates">
+  </div>
+</div>
+
   <!-- HERO -->
   <section aria-label="Introduction" class="hero">
     <div class="hero-left">
@@ -817,7 +845,8 @@
     </div>
     <div class="hero-right" aria-hidden="true">
       <div class="photo-frame">
-        <img src="photo.jpg">
+        <img src="photo.jpg" alt="Shira Kates">
+      </div>
       <div class="hero-stats">
         <div class="stat">
           <div class="stat-number">20+</div>
@@ -918,9 +947,19 @@
           <a href="#contact" class="case-link">Request full case study &#8594;</a>
         </div>
       </div>
-      <figure class="case-images one-col">
-        <img src="slide-strategies.jpg" alt="AppSheet 3-Year UX Vision strategic framework showing how might we strategies across creator, user and admin personas" class="case-img" loading="lazy">
-        <figcaption class="img-caption">AppSheet 3-Year UX Vision: Strategic framework defining how we might democratize app creation for every user type</figcaption>
+      <figure class="case-images three-col">
+        <div>
+          <img src="images/case1a.jpg" alt="AI-generated personalized views in AppSheet showing Gemini-powered generative UI that adapts to each user's needs and context" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Generative UI: AppSheet + Gemini generate personalized views tailored to each user's role and context</figcaption>
+        </div>
+        <div>
+          <img src="images/case1b.jpg" alt="Seamless collaboration between AppSheet and Google Workspace showing blurred boundaries between the two ecosystems" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Blurred boundaries: AppSheet solutions and Workspace products seamlessly interconnected through data</figcaption>
+        </div>
+        <div>
+          <img src="images/case1c.jpg" alt="Single pane of glass admin console for AppSheet Enterprise showing centralized governance and monitoring" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Single pane of glass: Centralized admin console for governance, licensing, and usage across the org</figcaption>
+        </div>
       </figure>
     </article>
 
@@ -956,14 +995,18 @@
           <a href="#contact" class="case-link">Request full case study &#8594;</a>
         </div>
       </div>
-      <figure class="case-images two-col">
+      <figure class="case-images three-col">
         <div>
-          <img src="slide-exec-summary.jpg" alt="Evolution of Agents framework showing three fundamental shifts: channel-specific to adaptive UI, static to personalized, creator-user boundary to democratized authoring" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Evolution of Agents: Three fundamental shifts in how agentic enterprise experiences need to evolve</figcaption>
+          <img src="images/case2a.jpg" alt="Evolution of Agents executive summary showing three fundamental shifts: channel-specific to adaptive UI, static to personalized, creator-user boundary to democratized authoring" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Evolution of Agents: Three fundamental shifts redefining how enterprise agentic experiences need to evolve</figcaption>
         </div>
         <div>
-          <img src="slide-cymbal.jpg" alt="Cymbal Superstore hero scenario showing how evolved agents serve knowledge workers and frontline workers across different devices and contexts" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Hero scenario: Cymbal Superstore, showing how evolved agents serve both knowledge workers and frontline workers</figcaption>
+          <img src="images/case2b.jpg" alt="Adaptive UI showing agent interactions seamlessly adapting across mobile device, conversational interface while driving, and AR glasses in the field" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Adaptive UI in action: Agent interactions that meet users across mobile, voice, and AR — wherever work happens</figcaption>
+        </div>
+        <div>
+          <img src="images/case2d.jpg" alt="Frontline worker opportunity showing 70% of global workforce are frontline workers, with Gen Z adoption data and UXR study findings" class="case-img" loading="lazy">
+          <figcaption class="img-caption">The frontline opportunity: 1B+ workers, underserved by enterprise AI — and already reaching for workarounds</figcaption>
         </div>
       </figure>
     </article>
@@ -996,14 +1039,18 @@
           <a href="#contact" class="case-link">Request full case study &#8594;</a>
         </div>
       </div>
-      <figure class="case-images two-col">
+      <figure class="case-images three-col">
         <div>
-          <img src="slide-personalized.jpg" alt="Personalized agent guidance showing how evolved agents adapt instructions to each user's experience level and context" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Personalized agent guidance: evolved agents adapt instructions to each user&rsquo;s experience level and context</figcaption>
+          <img src="images/case3a.png" alt="Duet AI in AppSheet showing conversational app creation where users describe their idea and the AI generates an app structure" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Duet AI in AppSheet: Natural language app creation — describe your idea, get a working app structure</figcaption>
         </div>
         <div>
-          <img src="slide-ai-views.jpg" alt="AI-generated highly personalized views showing generative UI that adapts to user needs and context in real time" class="case-img" loading="lazy">
-          <figcaption class="img-caption">AI-generated personalized views: Generative UI that adapts to user needs and context in real time</figcaption>
+          <img src="images/case3b.gif" alt="Animated demo of Gemini-powered AI interaction in Google Chat showing the in-platform conversational experience" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Gemini in Google Chat: The first GenAI feature shipped out of Google Cloud — showing the platform-native experience</figcaption>
+        </div>
+        <div>
+          <img src="images/case3e.jpg" alt="Side-by-side comparison of conversational UI versus GUI showing how chat-only interfaces lack efficiency and helpful at-a-glance visuals" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Conversational UI vs GUI: Why chat-only agents fail at complex tasks — and what hybrid interaction solves</figcaption>
         </div>
       </figure>
     </article>
