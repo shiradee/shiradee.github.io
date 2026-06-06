@@ -692,7 +692,10 @@
 
   @media (max-width: 960px) {
     nav { padding: 16px 24px; }
-    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--rule); padding: 20px 24px; flex-direction: column; gap: 20px; z-index: 999; }
+    .nav-links.open { display: flex; }
+    nav { position: relative; }
     .hero { grid-template-columns: 1fr; }
     .hero-right { display: none; }
     .hero-photo-mobile {
@@ -858,6 +861,29 @@
     transition: opacity 0.2s;
   }
   .lightbox-close:hover { opacity: 1; }
+
+  /* Mobile nav */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--near-black);
+    transition: all 0.25s;
+  }
+
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 </style>
 </head>
 <body>
@@ -1273,6 +1299,22 @@
   reveals.forEach(el => observer.observe(el));
 
   // Duolingo: using static screenshot
+
+
+  // Mobile nav toggle
+  const hamburger = document.getElementById('nav-hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  // Close on link click
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
 
   // Lightbox helper for floral image
   function openLightbox(img) {
