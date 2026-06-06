@@ -113,7 +113,7 @@
     {
       "@type": "CreativeWork",
       "@id": "https://www.shirakates.com/#case3",
-      "name": "Voice as Strategy: Delightful AI Interactions Cement Trust and Adoption",
+      "name": "Voice as Strategy: Delightful AI Interactions for Trust and Adoption",
       "description": "How treating conversational AI voice and personality as a strategic asset drives adoption and builds brand trust.",
       "author": {"@id": "https://www.shirakates.com/#person"},
       "about": ["Conversational Design", "AI Voice and Tone", "Human-AI Interaction", "Brand Strategy"]
@@ -137,7 +137,7 @@
     --accent: #C4622D;
     --accent-light: #E07A45;
     --bg-dark: #0F0F0F;
-    --bg-section: #F2F2F0;
+    --bg-section: #F5EDE8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -364,96 +364,6 @@
     line-height: 1.4;
   }
 
-  .tracks {
-    background: var(--bg-dark);
-    padding: 100px 60px;
-  }
-
-  .tracks-header { margin-bottom: 60px; }
-
-  .tracks-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 20px;
-  }
-
-  .tracks-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
-    color: white;
-    line-height: 1.15;
-    max-width: 600px;
-  }
-
-  .tracks-title em { font-style: italic; color: var(--accent); }
-
-  .tracks-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 1100px;
-  }
-
-  .track-card {
-    padding: 56px 48px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    text-decoration: none;
-    transition: background 0.3s, transform 0.3s;
-    display: block;
-    position: relative;
-  }
-
-  .track-card:hover { background: rgba(255,255,255,0.08); transform: translateY(-4px); }
-
-  .track-number {
-    font-family: 'Instrument Serif', serif;
-    font-size: 4rem;
-    color: rgba(255,255,255,0.06);
-    line-height: 1;
-    margin-bottom: 28px;
-  }
-
-  .track-title {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.9rem;
-    color: white;
-    margin-bottom: 18px;
-    line-height: 1.2;
-  }
-
-  .track-desc {
-    font-size: 1rem;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.75;
-    margin-bottom: 36px;
-  }
-
-  .track-skills { display: flex; flex-wrap: wrap; gap: 8px; }
-
-  .skill-tag {
-    font-size: 0.7rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    border: 1px solid rgba(196,98,45,0.35);
-    padding: 5px 12px;
-  }
-
-  .track-arrow {
-    position: absolute;
-    top: 48px; right: 48px;
-    font-size: 1.4rem;
-    color: rgba(255,255,255,0.15);
-    transition: color 0.3s, transform 0.3s;
-  }
-
-  .track-card:hover .track-arrow { color: var(--accent); transform: translate(4px,-4px); }
-
   .case-studies {
     padding: 120px 60px;
     background: var(--white);
@@ -462,9 +372,9 @@
   .section-header { margin-bottom: 80px; }
 
   .section-eyebrow {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--accent);
     margin-bottom: 16px;
@@ -670,6 +580,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2px;
     margin-top: 60px;
+    list-style: none;
   }
 
   .recognition-item {
@@ -794,8 +705,6 @@
       animation: none;
     }
     .hero-left { padding: 32px 24px 60px; }
-    .tracks { padding: 60px 24px; }
-    .tracks-grid { grid-template-columns: 1fr; }
     .case-studies { padding: 60px 24px; }
     .case-top { grid-template-columns: 1fr; gap: 24px; }
     .case-images.two-col { grid-template-columns: 1fr; }
@@ -983,8 +892,9 @@
     <a href="/" class="nav-name" aria-label="Shira Kates home">Shira Kates</a>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#nerdy">Nerdy</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="Shira_Kates_Resume_2026.pdf" download class="nav-resume" aria-label="Download Shira Kates resume PDF">Resume</a>
@@ -1010,8 +920,8 @@
         I build high-performing, happy teams that achieve real impact. I work cross-functionally to align vision and create epic 0-1 products. I&rsquo;m a catalyst for innovation who understands the big picture and the user&rsquo;s world well enough to give them something they&rsquo;ll actually love to use, <strong>even when they have no choice but to use it.</strong>
       </p>
       <div class="hero-cta">
-        <a href="#platform" class="btn-primary">Platform &amp; UX Leadership</a>
-        <a href="#conversational" class="btn-secondary">AI &amp; Conversational Design</a>
+        <a href="#work" class="btn-secondary">See My Work</a>
+        <a href="#about" class="btn-secondary">About Me</a>
       </div>
     </div>
     <div class="hero-right" aria-hidden="true">
@@ -1039,47 +949,86 @@
     </div>
   </section>
 
-  <!-- TRACKS -->
-  <section aria-label="Areas of expertise" class="tracks">
-    <div class="tracks-header reveal">
-      <p class="tracks-eyebrow">Two ways to work with me</p>
-      <h2 class="tracks-title">As a leader and as a<br><em>hands-on builder</em></h2>
+  <!-- ABOUT -->
+  <section aria-label="About Shira Kates" class="about" id="about">
+    <div class="about-text reveal">
+      <p class="about-eyebrow">About</p>
+      <h2 class="about-title">I care about<br>getting it <em>right</em></h2>
+      <div class="about-body">
+        <p>I&rsquo;m a design executive and AI/UX strategist with 20 years leading products from 0 to 1 across enterprise, consumer, and AI-powered experiences. I&rsquo;ve been a CDO, a UX manager, a researcher, a content designer, a product manager, and a founder. The through-line is always the same: <strong>I find the hard problem and figure out what it actually needs.</strong></p>
+        <p>At Google AppSheet I inherited a struggling team, rebuilt it, and built a product vision that influenced roadmaps at the VP level across Google Cloud AI. Before that I won a $25M federal contract as design lead at CivicActions. Before that I led a UX team through a $640M acquisition at BrightRoll. Before that I ran my own design consultancy for a decade.</p>
+        <p>I want to work on AI products that make people&rsquo;s lives genuinely better, with teams that bring real craft and genuine curiosity to the table.</p>
+      </div>
+      <a href="Shira_Kates_Resume_2026.pdf" download class="btn-primary">Download Resume</a>
     </div>
-    <div class="tracks-grid">
-      <article class="track-card reveal" id="platform">
-        <span class="track-arrow" aria-hidden="true">&#8599;</span>
-        <div class="track-number" aria-hidden="true">01</div>
-        <h3 class="track-title">Platform, UX &amp; Leadership</h3>
-        <p class="track-desc">For organizations that need someone to build the vision, lead the team, and make sure design has a seat at the table where impact gets made.</p>
-        <ul class="track-skills" aria-label="Leadership skills">
-          <li class="skill-tag">Design Executive</li>
-          <li class="skill-tag">Head of UX</li>
-          <li class="skill-tag">VP Design</li>
-          <li class="skill-tag">Product Strategy</li>
-          <li class="skill-tag">Team Leadership</li>
-        </ul>
-      </article>
-      <article class="track-card reveal" id="conversational">
-        <span class="track-arrow" aria-hidden="true">&#8599;</span>
-        <div class="track-number" aria-hidden="true">02</div>
-        <h3 class="track-title">AI &amp; Conversational Design</h3>
-        <p class="track-desc">For organizations building or using AI platforms where adoption could be better. Let&rsquo;s talk about what makes agents habit-forming.</p>
-        <ul class="track-skills" aria-label="AI and conversational design skills">
-          <li class="skill-tag">Agentic UX</li>
-          <li class="skill-tag">Conversational Design</li>
-          <li class="skill-tag">AI Strategy</li>
-          <li class="skill-tag">Human-AI Interaction</li>
-          <li class="skill-tag">LLM Product Design</li>
-        </ul>
-      </article>
+    <div class="about-right reveal">
+      <dl class="expertise-list">
+        <div class="expertise-item">
+          <dt class="expertise-label">AI &amp; Product</dt>
+          <dd class="expertise-items">Generative AI · Agentic UX · Human-AI Interaction · LLM Product Design · Hypothesis-Driven 0-1 Development</dd>
+        </div>
+        <div class="expertise-item">
+          <dt class="expertise-label">UX Practice</dt>
+          <dd class="expertise-items">Enterprise UX · UX Research · Conversational Design · UX Writing · Design Systems · Accessibility</dd>
+        </div>
+        <div class="expertise-item">
+          <dt class="expertise-label">Leadership</dt>
+          <dd class="expertise-items">Cross-functional Alignment · Executive Storytelling · OKR Planning · Design Sprints · Team Development</dd>
+        </div>
+        <div class="expertise-item">
+          <dt class="expertise-label">Experience</dt>
+          <dd class="expertise-items">Google · CivicActions · Yahoo/BrightRoll · Accenture · AT&amp;T Interactive · Entrepreneur · Coach</dd>
+        </div>
+      </dl>
     </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section aria-label="Awards and recognition" class="recognition reveal">
+    <div class="section-header">
+      <span class="section-eyebrow">Recognition</span>
+      <h2 class="section-title">Awards &amp; Community</h2>
+    </div>
+    <ul class="recognition-grid">
+      <li class="recognition-item">
+        <p class="recognition-year">2023</p>
+        <h3 class="recognition-title">Cloud Tech Impact Award x2</h3>
+        <p class="recognition-org">Google Cloud</p>
+      </li>
+      <li class="recognition-item">
+        <p class="recognition-year">2025</p>
+        <h3 class="recognition-title">Hudson Executive Coaching Certification</h3>
+        <p class="recognition-org">Hudson Institute</p>
+      </li>
+      <li class="recognition-item">
+        <p class="recognition-year">2025–2026</p>
+        <h3 class="recognition-title">Speaking: UX and AI Talks</h3>
+        <p class="recognition-org">One Club for Creativity</p>
+        <p class="recognition-org" style="margin-top:4px;">SDXD San Diego</p>
+      </li>
+      <li class="recognition-item">
+        <p class="recognition-year">2015</p>
+        <h3 class="recognition-title">US Patent Application: Mobile Ad Campaign Management</h3>
+        <p class="recognition-org">US 077693-8019</p>
+      </li>
+      <li class="recognition-item">
+        <p class="recognition-year">2014-16</p>
+        <h3 class="recognition-title">Professional Mentor, TechWomen Program</h3>
+        <p class="recognition-org">US State Department</p>
+      </li>
+      <li class="recognition-item">
+        <p class="recognition-year">2011</p>
+        <h3 class="recognition-title">Design Award: Social Impact</h3>
+        <p class="recognition-org">Core77</p>
+      </li>
+    </ul>
   </section>
 
   <!-- CASE STUDIES -->
   <section aria-label="Case studies and selected work" class="case-studies" id="work">
     <div class="section-header reveal">
-      <span class="section-eyebrow">Selected work</span>
-      <h2 class="section-title">Case Studies</h2>
+      <span class="section-eyebrow">Case Studies</span>
+      <h2 class="section-title">Work</h2>
     </div>
 
     <article class="case-study reveal" aria-labelledby="case1-title">
@@ -1195,7 +1144,7 @@
           </ul>
         </div>
         <div class="case-content">
-          <h3 class="case-title" id="case3-title">Voice as Strategy: Delightful AI Interactions Cement Trust and Adoption</h3>
+          <h3 class="case-title" id="case3-title">Voice as Strategy: Delightful AI Interactions for Trust and Adoption</h3>
           <p class="case-summary">Most companies treat conversational AI as a technology and protocol problem. Get the rules right, keep humans in the loop, handle the edge cases. All of that matters. But adoption lives or dies on something simpler too: is this agent worth talking to? In 2021 I was pushing back on hiding AI from users when that was the industry default. At Google I was arguing that the prompt is not how humans naturally think. They start from problems, questions, documents. The companies that win on AI adoption will be the ones that treated the voice and personality of their agents as a strategic asset, not an afterthought.</p>
           <dl class="case-metrics">
             <div class="metric">
@@ -1229,24 +1178,22 @@
 
 
   <!-- SIDE PROJECTS & OBSESSIONS -->
-  <section aria-label="Side projects and obsessions" class="side-projects">
+  <section aria-label="Side projects and obsessions" class="side-projects" id="nerdy">
     <div class="section-header reveal">
-      <span class="section-eyebrow">Beyond the brief</span>
-      <h2 class="section-title">Side Projects &amp; Obsessions</h2>
+      <span class="section-eyebrow">Current Obsessions</span>
+      <h2 class="section-title">Nerdy</h2>
     </div>
     <div class="side-projects-grid">
 
-      <!-- Floral Design -->
+      <!-- AI Agents -->
       <div class="project-card reveal">
-        <span class="project-label">Craft</span>
-        <img
-          src="images/floral.jpg"
-          alt="A bouquet of peach carnations, lavender roses, alstroemeria and greenery in a white ribbed vase"
-          class="project-card-img"
-          onclick="openLightbox(this)"
-        >
-        <h3 class="project-title">Floral Design</h3>
-        <p class="project-desc">Flowers are my analog antidote to screens. I design and arrange bouquets for the pleasure of working with something that doesn&rsquo;t have a backlog.</p>
+        <span class="project-label">AI Agents</span>
+        <h3 class="project-title">Agents I&rsquo;ve Built</h3>
+        <div style="display:flex; flex-direction:column; gap:8px; margin-top:4px; margin-bottom: 4px;">
+          <a href="https://claude.ai/public/artifacts/2c5bf74a-da74-4570-b918-49a6287daf0d" target="_blank" rel="noopener noreferrer" class="project-link">Try Cheddar &rarr;</a>
+          <a href="karen.html" target="_blank" rel="noopener noreferrer" class="project-link">Try Karen &rarr;</a>
+        </div>
+        <p class="project-desc">I build agents to feel what it&rsquo;s like on the other side of the UX decisions I make. <strong>Cheddar</strong> explores delightful, habit-forming conversational design. <strong>Karen</strong> is a real-time co-pilot for retail store associates &mdash; built on a frontline worker agent playbook I developed at Google.</p>
       </div>
 
       <!-- Duolingo -->
@@ -1254,13 +1201,11 @@
         <span class="project-label">Language Learning</span>
         <h3 class="project-title">Duolingo</h3>
         <p class="project-desc">Keeping the streak alive. There&rsquo;s something about a gamified daily habit that appeals to the UX person in me almost as much as the language nerd.</p>
-        <div id="duo-stats">
-          <p class="duo-loading">Loading streak&hellip;</p>
-        </div>
+        <img src="images/duolingo.jpg" alt="1011 day streak on Duolingo" style="width:100%; border-radius:8px; margin:4px 0;">
         <a href="https://invite.duolingo.com/profile-share/shiradee?via=share_profile_qr" target="_blank" rel="noopener noreferrer" class="project-link">Be my friend &rarr;</a>
       </div>
 
-      <!-- Audible / Books -->
+      <!-- Reading -->
       <div class="project-card reveal">
         <span class="project-label">Reading</span>
         <h3 class="project-title">Currently Listening</h3>
@@ -1288,89 +1233,20 @@
         <a href="https://www.goodreads.com/user/show/25920204" target="_blank" rel="noopener noreferrer" class="project-link">See all on Goodreads &rarr;</a>
       </div>
 
-      <!-- Cheddar -->
+      <!-- Floral Design -->
       <div class="project-card reveal">
-        <span class="project-label">AI Agent</span>
-        <h3 class="project-title">Meet Cheddar</h3>
-        <p class="project-desc">An AI agent I built to explore what delightful, habit-forming conversational UX actually feels like from the inside. Best experienced in full screen.</p>
-        <a href="https://claude.ai/public/artifacts/2c5bf74a-da74-4570-b918-49a6287daf0d" target="_blank" rel="noopener noreferrer" class="project-link">Try it &rarr;</a>
+        <span class="project-label">Craft</span>
+        <img
+          src="images/floral.jpg"
+          alt="A bouquet of peach carnations, lavender roses, alstroemeria and greenery in a white ribbed vase"
+          class="project-card-img"
+          onclick="openLightbox(this)"
+        >
+        <h3 class="project-title">Floral Design</h3>
+        <p class="project-desc">Flowers are my analog antidote to screens. I design and arrange bouquets for the pleasure of working with something that doesn&rsquo;t have a backlog.</p>
       </div>
 
     </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section aria-label="About Shira Kates" class="about" id="about">
-    <div class="about-text reveal">
-      <p class="about-eyebrow">About</p>
-      <h2 class="about-title">I care about<br>getting it <em>right</em></h2>
-      <div class="about-body">
-        <p>I&rsquo;m a design executive and AI/UX strategist with 20 years leading products from 0 to 1 across enterprise, consumer, and AI-powered experiences. I&rsquo;ve been a CDO, a UX manager, a researcher, a content designer, a product manager, and a founder. The through-line is always the same: <strong>I find the hard problem and figure out what it actually needs.</strong></p>
-        <p>At Google AppSheet I inherited a struggling team, rebuilt it, and built a product vision that influenced roadmaps at the VP level across Google Cloud AI. Before that I won a $25M federal contract as design lead at CivicActions. Before that I led a UX team through a $640M acquisition at BrightRoll. Before that I ran my own design consultancy for a decade.</p>
-        <p>I want to work on AI products that make people&rsquo;s lives genuinely better, with teams that bring real craft and genuine curiosity to the table.</p>
-      </div>
-      <a href="mailto:shiradee@gmail.com" class="btn-primary">Get in touch</a>
-    </div>
-    <div class="about-right reveal">
-      <dl class="expertise-list">
-        <div class="expertise-item">
-          <dt class="expertise-label">AI &amp; Product</dt>
-          <dd class="expertise-items">Generative AI · Agentic UX · Human-AI Interaction · LLM Product Design · Hypothesis-Driven 0-1 Development</dd>
-        </div>
-        <div class="expertise-item">
-          <dt class="expertise-label">UX Practice</dt>
-          <dd class="expertise-items">Enterprise UX · UX Research · Conversational Design · UX Writing · Design Systems · Accessibility</dd>
-        </div>
-        <div class="expertise-item">
-          <dt class="expertise-label">Leadership</dt>
-          <dd class="expertise-items">Cross-functional Alignment · Executive Storytelling · OKR Planning · Design Sprints · Team Development</dd>
-        </div>
-        <div class="expertise-item">
-          <dt class="expertise-label">Experience</dt>
-          <dd class="expertise-items">Google · CivicActions · Yahoo/BrightRoll · Accenture · AT&amp;T Interactive · Entrepreneur · Coach</dd>
-        </div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- RECOGNITION -->
-  <section aria-label="Awards and recognition" class="recognition reveal">
-    <div class="section-header">
-      <span class="section-eyebrow">Recognition</span>
-      <h2 class="section-title">Awards &amp; Community</h2>
-    </div>
-    <ul class="recognition-grid">
-      <li class="recognition-item">
-        <p class="recognition-year">2023</p>
-        <h3 class="recognition-title">Cloud Tech Impact Award x2</h3>
-        <p class="recognition-org">Google Cloud</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2025</p>
-        <h3 class="recognition-title">Hudson Executive Coaching Certification</h3>
-        <p class="recognition-org">Hudson Institute</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2026</p>
-        <h3 class="recognition-title">Speaker: AI Talks</h3>
-        <p class="recognition-org">One Club for Creativity</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2015</p>
-        <h3 class="recognition-title">US Patent Application: Mobile Ad Campaign Management</h3>
-        <p class="recognition-org">US 077693-8019</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2014-16</p>
-        <h3 class="recognition-title">Professional Mentor, TechWomen Program</h3>
-        <p class="recognition-org">US State Department</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2011</p>
-        <h3 class="recognition-title">Design Award: Social Impact</h3>
-        <p class="recognition-org">Core77</p>
-      </li>
-    </ul>
   </section>
 
   <!-- CONTACT -->
@@ -1380,6 +1256,8 @@
     <p class="contact-sub">What&rsquo;s on your plate?</p>
     <div class="contact-links">
       <a href="mailto:shiradee@gmail.com" class="contact-link contact-link-primary">Email me</a>
+    </div>
+    <div class="contact-links" style="margin-top: 16px;">
       <a href="https://www.linkedin.com/in/shirakates" target="_blank" rel="noopener noreferrer" class="contact-link contact-link-secondary" aria-label="Shira Kates LinkedIn profile">LinkedIn</a>
       <a href="Shira_Kates_Resume_2026.pdf" download class="contact-link contact-link-secondary" aria-label="Download Shira Kates resume">Download Resume</a>
     </div>
@@ -1404,32 +1282,7 @@
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
 
-  // Duolingo stats
-  (async () => {
-    try {
-      const res = await fetch('https://www.duolingo.com/2017-06-30/users?username=shiradee&fields=streak,totalXp,courses');
-      const data = await res.json();
-      const user = data.users?.[0];
-      if (!user) throw new Error('No user');
-      const streak = user.streak ?? 0;
-      const totalXp = user.totalXp ?? 0;
-      const xpFormatted = totalXp >= 1000 ? (totalXp / 1000).toFixed(1) + 'k' : totalXp;
-      document.getElementById('duo-stats').innerHTML = `
-        <div style="display:flex; gap:24px; flex-wrap:wrap;">
-          <div class="project-stat">
-            <span class="project-stat-number">${streak}</span>
-            <span class="project-stat-label">Day streak</span>
-          </div>
-          <div class="project-stat">
-            <span class="project-stat-number">${xpFormatted}</span>
-            <span class="project-stat-label">Total XP</span>
-          </div>
-        </div>
-      `;
-    } catch(e) {
-      document.getElementById('duo-stats').innerHTML = '<p class="duo-loading">Streak data unavailable</p>';
-    }
-  })();
+  // Duolingo: using static screenshot
 
   // Lightbox helper for floral image
   function openLightbox(img) {

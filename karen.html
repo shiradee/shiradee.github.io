@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karen — Likee Store Assistant</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0A0A0A;
+    --white: #F5F4F0;
+    --green: #00E676;
+    --green-dim: #00C853;
+    --orange: #FF6D00;
+    --red: #FF1744;
+    --blue: #2979FF;
+    --yellow: #FFD600;
+    --surface: #141414;
+    --surface2: #1E1E1E;
+    --border: #2A2A2A;
+    --mid: #666;
+    --tag-on-it: #00E676;
+    --tag-check: #FFD600;
+    --tag-heads-up: #2979FF;
+    --tag-escalate: #FF1744;
+    --tag-de-escalate: #FF6D00;
+    --tag-real-talk: #AA00FF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; overflow: hidden; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    flex-shrink: 0;
+  }
+
+  .karen-avatar {
+    width: 36px;
+    height: 36px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--black);
+    flex-shrink: 0;
+  }
+
+  .karen-info { flex: 1; }
+
+  .karen-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+
+  .karen-status {
+    font-size: 0.72rem;
+    color: var(--green);
+    font-family: 'DM Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--mid);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    scroll-behavior: smooth;
+  }
+
+  .messages::-webkit-scrollbar { width: 4px; }
+  .messages::-webkit-scrollbar-track { background: transparent; }
+  .messages::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .message {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 85%;
+    animation: slideIn 0.2s ease;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .message.user { align-self: flex-end; align-items: flex-end; }
+  .message.karen { align-self: flex-start; align-items: flex-start; }
+
+  .bubble {
+    padding: 12px 16px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .user .bubble {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-bottom-right-radius: 4px;
+    color: var(--white);
+  }
+
+  .karen .bubble {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 4px;
+    color: var(--white);
+  }
+
+  .response-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .tag-on-it { background: rgba(0,230,118,0.15); color: var(--tag-on-it); border: 1px solid rgba(0,230,118,0.3); }
+  .tag-check { background: rgba(255,214,0,0.15); color: var(--tag-check); border: 1px solid rgba(255,214,0,0.3); }
+  .tag-heads-up { background: rgba(41,121,255,0.15); color: var(--tag-heads-up); border: 1px solid rgba(41,121,255,0.3); }
+  .tag-escalate { background: rgba(255,23,68,0.15); color: var(--tag-escalate); border: 1px solid rgba(255,23,68,0.3); }
+  .tag-de-escalate { background: rgba(255,109,0,0.15); color: var(--tag-de-escalate); border: 1px solid rgba(255,109,0,0.3); }
+  .tag-real-talk { background: rgba(170,0,255,0.15); color: var(--tag-real-talk); border: 1px solid rgba(170,0,255,0.3); }
+
+  .bubble-text { white-space: pre-wrap; }
+
+  .typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+  }
+
+  .typing span {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: bounce 1.2s infinite;
+  }
+  .typing span:nth-child(2) { animation-delay: 0.2s; }
+  .typing span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-5px); opacity: 1; }
+  }
+
+  .quick-prompts {
+    padding: 0 20px 12px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+  }
+
+  .quick-prompt {
+    font-size: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    padding: 5px 12px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--mid);
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+
+  .quick-prompt:hover {
+    border-color: var(--green);
+    color: var(--green);
+    background: rgba(0,230,118,0.05);
+  }
+
+  .input-area {
+    padding: 12px 20px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    flex-shrink: 0;
+    background: var(--surface);
+  }
+
+  textarea {
+    flex: 1;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 14px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    resize: none;
+    outline: none;
+    max-height: 120px;
+    min-height: 42px;
+    line-height: 1.5;
+    transition: border-color 0.15s;
+  }
+
+  textarea:focus { border-color: var(--green); }
+  textarea::placeholder { color: var(--mid); }
+
+  button.send {
+    width: 42px;
+    height: 42px;
+    background: var(--green);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.15s, transform 0.1s;
+  }
+
+  button.send:hover { background: var(--green-dim); }
+  button.send:active { transform: scale(0.95); }
+  button.send:disabled { background: var(--border); cursor: not-allowed; }
+
+  button.send svg { width: 18px; height: 18px; fill: var(--black); }
+
+  .intro-message {
+    align-self: flex-start;
+    max-width: 85%;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="karen-avatar">K</div>
+  <div class="karen-info">
+    <div class="karen-name">Karen</div>
+    <div class="karen-status"><span class="status-dot"></span> On the floor</div>
+  </div>
+  <div class="tagline">Likee · Do what?</div>
+</header>
+
+<div class="messages" id="messages">
+  <div class="message karen intro-message">
+    <div class="bubble">
+      <div class="response-tag tag-on-it">[ON IT]</div>
+      <div class="bubble-text">Karen here. Your co-pilot on the floor.
+
+Got a customer asking about fit? Checkout acting up? Someone unhappy and you need a play? Hit me.
+
+I know the shoes cold — GrayDay, Blootik, Sinnimon. I know the rules. And I'll keep it short because you're in a live situation.</div>
+    </div>
+  </div>
+</div>
+
+<div class="quick-prompts" id="quick-prompts">
+  <button class="quick-prompt" onclick="sendQuick(this)">What shoes do we carry?</button>
+  <button class="quick-prompt" onclick="sendQuick(this)">Customer wants a refund, no receipt</button>
+  <button class="quick-prompt" onclick="sendQuick(this)">Blootik sizing?</button>
+  <button class="quick-prompt" onclick="sendQuick(this)">Customer is getting aggressive</button>
+</div>
+
+<div class="input-area">
+  <textarea id="input" placeholder="What's happening on the floor..." rows="1" onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+  <button class="send" id="send-btn" onclick="sendMessage()">
+    <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+  </button>
+</div>
+
+<script>
+const SYSTEM_PROMPT = `You are Karen, an AI assistant for Likee store associates. You are their real-time co-pilot on the floor — helping them move fast, serve customers well, and never get caught without an answer.
+
+You speak to the ASSOCIATE, not the customer. Always frame responses as guidance for the associate. Keep answers tight — associates are in live customer interactions. Likee tagline: "Do what?"
+
+LIKEE PRODUCT CATALOG — Karen knows these cold:
+GrayDay — $130. Low profile city shoe for blending in on the subway. Matte gray upper, gum sole, minimal branding. Runs true to size. Best for: commuters, light walkers, people who hate attention but have great taste.
+Blootik — $160. Blue alien shoe with hidden laces. Impossibly light. Iridescent blue upper shifts color in different light. Hidden lace system keeps the silhouette clean. Runs half a size small — recommend sizing up. Best for: runners, people who want to be noticed while pretending they don't.
+Sinnimon — $150. Jamaican flag themed soccer cleat. Black, gold and green colorway. Lightweight synthetic upper, aggressive stud pattern, reinforced toe box. True to size. Best for: outdoor play on firm ground, five-a-side, people who take their footwear as seriously as their game.
+Fit guidance: GrayDay true to size, Blootik size up half, Sinnimon true to size.
+
+VOICE PRINCIPLES:
+Low-key competitive. Reluctant exhibitionist. Undeniably charming.
+- You know your stuff and you're quietly proud of it
+- You don't volunteer how smart you are — but when you know, you KNOW
+- You're never robotic, never stiff, never corporate
+- Short sentences. Real language. A little personality is allowed.
+
+DETERMINISTIC RULES — never deviate:
+- INVENTORY: Always check the system before telling a customer something is out of stock. Never guess on inventory.
+- PRICING: Never quote a price from memory. Always verify in the system. Promotions change daily.
+- RETURNS WITHOUT RECEIPT: Store credit only for returns without proof of purchase. No exceptions without manager approval.
+- ONLINE ORDER PICKUP: Verify order confirmation and customer ID before releasing any order. No ID, no order.
+- DAMAGED GOODS: Never sell a damaged item at full price. Flag it immediately.
+- LOSS PREVENTION: If you suspect theft or see something off, do not confront the customer. Alert the manager immediately.
+
+RESPONSE FORMAT — open EVERY response with exactly ONE of these tags on its own line:
+[ON IT] — routine task, Karen has the answer, associate can act now
+[CHECK THIS] — needs a system lookup before acting
+[HEADS UP] — something the associate should know before they proceed
+[ESCALATE] — get the manager involved now
+[DE-ESCALATE] — customer situation needs careful handling
+[REAL TALK] — Karen doesn't know, here's who does
+
+Then 2-3 sentences max. Plain language. Always end with what the associate should DO next.`;
+
+let history = [];
+let isLoading = false;
+
+function getTagClass(text) {
+  if (text.includes('[ON IT]')) return 'tag-on-it';
+  if (text.includes('[CHECK THIS]')) return 'tag-check';
+  if (text.includes('[HEADS UP]')) return 'tag-heads-up';
+  if (text.includes('[ESCALATE]')) return 'tag-escalate';
+  if (text.includes('[DE-ESCALATE]')) return 'tag-de-escalate';
+  if (text.includes('[REAL TALK]')) return 'tag-real-talk';
+  return null;
+}
+
+function getTagText(text) {
+  const match = text.match(/\[(ON IT|CHECK THIS|HEADS UP|ESCALATE|DE-ESCALATE|REAL TALK)\]/);
+  return match ? match[0] : null;
+}
+
+function renderKarenMessage(text) {
+  const tag = getTagText(text);
+  const tagClass = getTagClass(text);
+  const body = text.replace(/\[(ON IT|CHECK THIS|HEADS UP|ESCALATE|DE-ESCALATE|REAL TALK)\]\s*\n?/, '').trim();
+
+  const msg = document.createElement('div');
+  msg.className = 'message karen';
+
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble';
+
+  if (tag && tagClass) {
+    const tagEl = document.createElement('div');
+    tagEl.className = `response-tag ${tagClass}`;
+    tagEl.textContent = tag;
+    bubble.appendChild(tagEl);
+  }
+
+  const textEl = document.createElement('div');
+  textEl.className = 'bubble-text';
+  textEl.textContent = body;
+  bubble.appendChild(textEl);
+  msg.appendChild(bubble);
+  return msg;
+}
+
+function addUserMessage(text) {
+  const msg = document.createElement('div');
+  msg.className = 'message user';
+  msg.innerHTML = `<div class="bubble"><div class="bubble-text">${text.replace(/</g,'&lt;')}</div></div>`;
+  document.getElementById('messages').appendChild(msg);
+  scrollToBottom();
+}
+
+function showTyping() {
+  const typing = document.createElement('div');
+  typing.className = 'message karen';
+  typing.id = 'typing-indicator';
+  typing.innerHTML = '<div class="typing"><span></span><span></span><span></span></div>';
+  document.getElementById('messages').appendChild(typing);
+  scrollToBottom();
+}
+
+function removeTyping() {
+  const t = document.getElementById('typing-indicator');
+  if (t) t.remove();
+}
+
+function scrollToBottom() {
+  const m = document.getElementById('messages');
+  m.scrollTop = m.scrollHeight;
+}
+
+async function sendMessage() {
+  const input = document.getElementById('input');
+  const text = input.value.trim();
+  if (!text || isLoading) return;
+
+  input.value = '';
+  autoResize(input);
+  document.getElementById('quick-prompts').style.display = 'none';
+  isLoading = true;
+  document.getElementById('send-btn').disabled = true;
+
+  addUserMessage(text);
+  history.push({ role: 'user', content: text });
+
+  showTyping();
+
+  try {
+    const response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
+        messages: history
+      })
+    });
+
+    const data = await response.json();
+    const reply = data.content?.[0]?.text || '[REAL TALK]\nSomething went wrong on my end. Try again.';
+
+    removeTyping();
+    history.push({ role: 'assistant', content: reply });
+
+    const msg = renderKarenMessage(reply);
+    document.getElementById('messages').appendChild(msg);
+    scrollToBottom();
+  } catch (e) {
+    removeTyping();
+    const msg = renderKarenMessage('[REAL TALK]\nLost the connection for a sec. Try that again.');
+    document.getElementById('messages').appendChild(msg);
+    scrollToBottom();
+  }
+
+  isLoading = false;
+  document.getElementById('send-btn').disabled = false;
+  input.focus();
+}
+
+function sendQuick(btn) {
+  document.getElementById('input').value = btn.textContent;
+  sendMessage();
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+</script>
+</body>
+</html>
