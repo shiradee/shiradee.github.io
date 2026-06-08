@@ -201,6 +201,7 @@
   }
 
   .nav-resume:hover { background: var(--accent); color: white; }
+  .nav-resume-mobile { display: none; }
 
   .hero {
     min-height: 85vh;
@@ -710,6 +711,7 @@
     .nav-resume { display: none; }
     .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--rule); padding: 20px 24px; flex-direction: column; gap: 20px; z-index: 999; }
     .nav-links.open { display: flex; }
+    .nav-resume-mobile { display: list-item; }
     nav { position: relative; }
     .hero { grid-template-columns: 1fr; }
     .hero-right { display: none; }
@@ -1384,7 +1386,7 @@
         <li><a href="#work">Work</a></li>
         <li><a href="#nerdy">Nerdy</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="#resume">Resume</a></li>
+        <li class="nav-resume-mobile"><a href="#resume">Resume</a></li>
       </ul>
       <a href="#resume" class="nav-resume" aria-label="View Shira Kates resume">Resume</a>
       <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
