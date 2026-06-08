@@ -1401,7 +1401,15 @@
 <!-- Mobile photo (shown on small screens only) -->
 <div class="hero-photo-mobile" aria-hidden="true">
   <div class="photo-frame">
-    <img src="photo.jpg" alt="Shira Kates">
+    <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <clipPath id="organic-clip-m">
+          <path d="M130,16 C187,14 240,49 246,101 C253,156 228,212 182,240 C136,270 75,257 42,221 C10,185 13,123 33,85 C55,43 78,18 130,16 Z"/>
+        </clipPath>
+      </defs>
+      <image href="photo.jpg" x="0" y="0" width="260" height="260" clip-path="url(#organic-clip-m)" preserveAspectRatio="xMidYMid slice"/>
+      <path d="M130,16 C187,14 240,49 246,101 C253,156 228,212 182,240 C136,270 75,257 42,221 C10,185 13,123 33,85 C55,43 78,18 130,16 Z" fill="none" stroke="#C4622D" stroke-width="2.5"/>
+    </svg>
   </div>
 </div>
 
@@ -1787,7 +1795,7 @@
 
   <header class="r1-hdr">
     <div>
-      <h1 class="r1-name">Shira Kates</h1>
+      <p class="r1-name">Shira Kates</p>
       <p class="r1-tagline">AI-Forward UX Leadership &nbsp;·&nbsp; Product Strategy &nbsp;·&nbsp; Enterprise &amp; Agentic UX</p>
     </div>
     <div class="r1-contact">
@@ -1993,7 +2001,7 @@
   <!-- HEADER -->
   <header class="r2-hdr">
     <div>
-      <h1 class="r2-name">Shira Kates</h1>
+      <p class="r2-name">Shira Kates</p>
       <p class="r2-tagline">Conversational AI Design &nbsp; · &nbsp; Agentic Interfaces</p>
     </div>
     <div class="r2-contact">
@@ -2199,9 +2207,8 @@
     <div class="contact-links">
       <a href="mailto:shiradee@gmail.com" class="contact-link contact-link-primary">Email me</a>
     </div>
-    <div class="contact-links" style="margin-top: 16px;">
+    <div class="contact-links">
       <a href="https://www.linkedin.com/in/shirakates" target="_blank" rel="noopener noreferrer" class="contact-link contact-link-secondary" aria-label="Shira Kates LinkedIn profile">LinkedIn</a>
-      <a href="Shira_Kates_Resume_2026.pdf" download class="contact-link contact-link-secondary" aria-label="Download Shira Kates resume">Download Resume</a>
     </div>
   </section>
 
