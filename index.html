@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Primary Meta -->
-<title>Shira Kates — AI/UX Strategy & Design Leadership</title>
+<title>Shira Kates · AI/UX Strategy & Design Leadership</title>
 <meta name="description" content="Shira Kates is a design executive and AI/UX strategist with 20+ years leading enterprise and AI-powered products. Expertise in agentic UX, conversational design, human-AI interaction, and design leadership.">
 <meta name="keywords" content="AI product design, conversational UX, enterprise UX, human-centered AI, design leadership, product strategy, agentic UX, UX manager, design executive, AI strategy">
 <meta name="author" content="Shira Kates">
@@ -15,14 +15,14 @@
 <!-- OpenGraph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.shirakates.com/">
-<meta property="og:title" content="Shira Kates — AI/UX Strategy & Design Leadership">
+<meta property="og:title" content="Shira Kates · AI/UX Strategy & Design Leadership">
 <meta property="og:description" content="Design executive and AI/UX strategist with 20+ years leading enterprise and AI-powered products. Expert in agentic UX, conversational design, and human-AI interaction.">
 <meta property="og:image" content="https://www.shirakates.com/slide-exec-summary.jpg">
 <meta property="og:site_name" content="Shira Kates Portfolio">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Shira Kates — AI/UX Strategy & Design Leadership">
+<meta name="twitter:title" content="Shira Kates · AI/UX Strategy & Design Leadership">
 <meta name="twitter:description" content="Design executive and AI/UX strategist with 20+ years leading enterprise and AI-powered products.">
 <meta name="twitter:image" content="https://www.shirakates.com/slide-exec-summary.jpg">
 
@@ -681,7 +681,7 @@
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
 
-  /* Mobile hamburger — hidden on desktop, shown on mobile */
+  /* Mobile hamburger, hidden on desktop, shown on mobile */
   .nav-hamburger {
     display: none;
     flex-direction: column;
@@ -706,7 +706,7 @@
 
   @media (max-width: 960px) {
     nav { padding: 16px 24px; }
-    header { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--rule); }
+    header[role="banner"] { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--rule); }
     .nav-hamburger { display: flex; }
     .nav-resume { display: none; }
     .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--rule); padding: 20px 24px; flex-direction: column; gap: 20px; z-index: 999; }
@@ -891,7 +891,6 @@
     align-items: center;
     gap: 0;
     margin-bottom: 32px;
-    border-bottom: 2px solid var(--rule);
     padding-bottom: 0;
   }
 
@@ -907,7 +906,6 @@
     color: var(--light);
     cursor: pointer;
     border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
     transition: all 0.2s;
   }
 
@@ -990,7 +988,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 28px;
-    border-bottom: 2px solid var(--rule);
   }
 
   .resume-tab {
@@ -1005,7 +1002,6 @@
     color: var(--light);
     cursor: pointer;
     border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
     transition: all 0.2s;
   }
 
@@ -1054,7 +1050,6 @@
     display: flex;
     align-items: center;
     margin-bottom: 28px;
-    border-bottom: 2px solid var(--rule);
   }
   .resume-tab {
     font-family: 'Inter', sans-serif;
@@ -1068,7 +1063,6 @@
     color: var(--light);
     cursor: pointer;
     border-bottom: 2px solid transparent;
-    margin-bottom: -2px;
     transition: all 0.2s;
   }
   .resume-tab:hover { color: var(--accent); }
@@ -1144,7 +1138,10 @@
   .r1-en { font-size: 10.5px; font-weight: 600; color: var(--ink); }
   .r1-ed { font-size: 9.5px; color: var(--light); }
 
-   .r1-page { border: none; padding: 28px 36px; max-width: 100%; } @page { size: letter; margin: 0; } }
+  @media print {
+    .r1-page { border: none; padding: 28px 36px; max-width: 100%; }
+    @page { size: letter; margin: 0; }
+  }
 
   /* ── RESUME 2: CONVERSATIONAL DESIGN ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1365,7 +1362,7 @@
   .r2-en { font-size: 10.5px; font-weight: 600; color: var(--ink); }
   .r2-ed { font-size: 9.5px; color: var(--light); }
 
-  
+  @media print {
     .r2-page { border: none; padding: 28px 36px; max-width: 100%; }
     @page { size: letter; margin: 0; }
   }
@@ -1419,7 +1416,7 @@
       <p class="hero-eyebrow">AI/UX · Design Leadership · Impact</p>
       <h1 class="hero-name">Shira<br><em>Kates</em></h1>
       <p class="hero-bio">
-        I work cross-functionally to align vision and create epic, impactful 0&#8209;1 products. I&rsquo;m a high-performance team-builder and a catalyst for innovation who understands market trends, business needs, and the user&rsquo;s world well enough to give them something they&rsquo;ll actually love to use &mdash; <strong>especially when they have no choice.</strong>
+        I work cross-functionally to align vision and create epic, impactful 0&#8209;1 products. I&rsquo;m a high-performance team-builder and a catalyst for innovation who understands market trends, business needs, and the user&rsquo;s world well enough to give them something they&rsquo;ll actually love to use, <strong>especially when they have no choice.</strong>
       </p>
       <div class="hero-cta">
         <a href="#work" class="btn-secondary">See My Work</a>
@@ -1574,7 +1571,7 @@
               <dd class="metric-value">1M+</dd>
             </div>
           </dl>
-          <a href="#contact" class="case-link">Request full case study &#8594;</a>
+          <a href="mailto:shiradee@gmail.com?subject=Request%3A%20Case%20Study%2001%2C%20Building%20a%20Vision%20Inside%20the%20Ambiguity&body=Name%3A%0ACompany%3A%0A%0APlease%20share%20your%20name%20and%20company%20to%20receive%20the%20password." class="case-link">Request password &#8594;</a>
         </div>
       </div>
       <figure class="case-images three-col">
@@ -1622,7 +1619,7 @@
               <dd class="metric-value">VP</dd>
             </div>
           </dl>
-          <a href="#contact" class="case-link">Request full case study &#8594;</a>
+          <a href="mailto:shiradee@gmail.com?subject=Request%3A%20Case%20Study%2002%2C%20The%20Future%20of%20Agentic%20Democratization%20in%20the%20Enterprise&body=Name%3A%0ACompany%3A%0A%0APlease%20share%20your%20name%20and%20company%20to%20receive%20the%20password." class="case-link">Request password &#8594;</a>
         </div>
       </div>
       <figure class="case-images three-col">
@@ -1632,11 +1629,11 @@
         </div>
         <div>
           <img src="images/case2b.jpg" alt="Adaptive UI showing agent interactions seamlessly adapting across mobile device, conversational interface while driving, and AR glasses in the field" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Adaptive UI in action: Agent interactions that meet users across mobile, voice, and AR — wherever work happens</figcaption>
+          <figcaption class="img-caption">Adaptive UI in action: Agent interactions that meet users across mobile, voice, and AR, wherever work happens</figcaption>
         </div>
         <div>
           <img src="images/case2d.jpg" alt="Frontline worker opportunity showing 70% of global workforce are frontline workers, with Gen Z adoption data and UXR study findings" class="case-img" loading="lazy">
-          <figcaption class="img-caption">The frontline opportunity: 1B+ workers, underserved by enterprise AI — and already reaching for workarounds</figcaption>
+          <figcaption class="img-caption">The frontline opportunity: 1B+ workers, underserved by enterprise AI, and already reaching for workarounds</figcaption>
         </div>
       </figure>
     </article>
@@ -1666,21 +1663,21 @@
               <dd class="metric-value">1st</dd>
             </div>
           </dl>
-          <a href="#contact" class="case-link">Request full case study &#8594;</a>
+          <a href="mailto:shiradee@gmail.com?subject=Request%3A%20Case%20Study%2003%2C%20Voice%20as%20Strategy%3A%20Delightful%20AI%20Interactions%20for%20Trust%20and%20Adoption&body=Name%3A%0ACompany%3A%0A%0APlease%20share%20your%20name%20and%20company%20to%20receive%20the%20password." class="case-link">Request password &#8594;</a>
         </div>
       </div>
       <figure class="case-images three-col">
         <div>
           <img src="images/case3a.png" alt="Duet AI in AppSheet showing conversational app creation where users describe their idea and the AI generates an app structure" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Duet AI in AppSheet: Natural language app creation — describe your idea, get a working app structure</figcaption>
+          <figcaption class="img-caption">Duet AI in AppSheet: Natural language app creation, describe your idea, get a working app structure</figcaption>
         </div>
         <div>
           <img src="images/case3b.gif" alt="Animated demo of Gemini-powered AI interaction in Google Chat showing the in-platform conversational experience" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Gemini in Google Chat: The first GenAI feature shipped out of Google Cloud — showing the platform-native experience</figcaption>
+          <figcaption class="img-caption">Gemini in Google Chat: The first GenAI feature shipped out of Google Cloud, showing the platform-native experience</figcaption>
         </div>
         <div>
           <img src="images/case3e.jpg" alt="Side-by-side comparison of conversational UI versus GUI showing how chat-only interfaces lack efficiency and helpful at-a-glance visuals" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Conversational UI vs GUI: Why chat-only agents fail at complex tasks — and what hybrid interaction solves</figcaption>
+          <figcaption class="img-caption">Conversational UI vs GUI: Why chat-only agents fail at complex tasks, and what hybrid interaction solves</figcaption>
         </div>
       </figure>
     </article>
@@ -1700,7 +1697,7 @@
         <span class="project-label">AI Agents</span>
         <div class="obsession-middle">
           <h3 class="project-title">Agents I&rsquo;ve Built</h3>
-          <p class="project-desc">I build agents to feel what it&rsquo;s like on the other side of the UX decisions I make. <strong>Cheddar</strong> explores delightful, habit-forming conversational design. <strong>Karen</strong> is a real-time co-pilot for retail store associates &mdash; built on a frontline worker agent playbook I developed at Google.</p>
+          <p class="project-desc">I build agents to feel what it&rsquo;s like on the other side of the UX decisions I make. <strong>Cheddar</strong> explores delightful, habit-forming conversational design. <strong>Karen</strong> is a real-time co-pilot for retail store associates, built on a frontline worker agent playbook I developed at Google.</p>
         </div>
         <div class="obsession-right">
           <a href="https://claude.ai/public/artifacts/2c5bf74a-da74-4570-b918-49a6287daf0d" target="_blank" rel="noopener noreferrer" class="project-link">Try Cheddar &rarr;</a>
@@ -1731,22 +1728,22 @@
         </div>
         <div class="obsession-right">
           <div class="book-grid">
-            <a href="https://www.goodreads.com/book/show/18050143-zero-to-one" target="_blank" rel="noopener noreferrer" title="Zero to One — Peter Thiel">
+            <a href="https://www.goodreads.com/book/show/18050143-zero-to-one" target="_blank" rel="noopener noreferrer" title="Zero to One, Peter Thiel">
               <img src="https://covers.openlibrary.org/b/isbn/0804139296-L.jpg" alt="Zero to One by Peter Thiel" class="book-cover" onerror="this.style.display='none'">
             </a>
-            <a href="https://www.goodreads.com/search?q=A+World+Appears+Michael+Pollan" target="_blank" rel="noopener noreferrer" title="A World Appears — Michael Pollan">
+            <a href="https://www.goodreads.com/search?q=A+World+Appears+Michael+Pollan" target="_blank" rel="noopener noreferrer" title="A World Appears, Michael Pollan">
               <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1757559798i/241471051.jpg" alt="A World Appears by Michael Pollan" class="book-cover" onerror="this.style.display='none'">
             </a>
-            <a href="https://www.goodreads.com/book/show/29513878-inner-engineering" target="_blank" rel="noopener noreferrer" title="Inner Engineering — Sadhguru">
+            <a href="https://www.goodreads.com/book/show/29513878-inner-engineering" target="_blank" rel="noopener noreferrer" title="Inner Engineering, Sadhguru">
               <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1484851488i/29513878.jpg" alt="Inner Engineering by Sadhguru" class="book-cover" onerror="this.style.display='none'">
             </a>
-            <a href="https://www.goodreads.com/book/show/25457082-the-surrender-experiment" target="_blank" rel="noopener noreferrer" title="The Surrender Experiment — Michael A. Singer">
+            <a href="https://www.goodreads.com/book/show/25457082-the-surrender-experiment" target="_blank" rel="noopener noreferrer" title="The Surrender Experiment, Michael A. Singer">
               <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1423601289i/23164946.jpg" alt="The Surrender Experiment by Michael A. Singer" class="book-cover" onerror="this.style.display='none'">
             </a>
-            <a href="https://www.goodreads.com/search?q=Heretical+Fishing+Haylock+Jobson" target="_blank" rel="noopener noreferrer" title="Heretical Fishing — Haylock Jobson">
+            <a href="https://www.goodreads.com/search?q=Heretical+Fishing+Haylock+Jobson" target="_blank" rel="noopener noreferrer" title="Heretical Fishing, Haylock Jobson">
               <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1707524477i/208099994.jpg" alt="Heretical Fishing by Haylock Jobson" class="book-cover" onerror="this.style.display='none'">
             </a>
-            <a href="https://www.goodreads.com/search?q=The+Land+and+Its+People+David+Sedaris" target="_blank" rel="noopener noreferrer" title="The Land and Its People — David Sedaris">
+            <a href="https://www.goodreads.com/search?q=The+Land+and+Its+People+David+Sedaris" target="_blank" rel="noopener noreferrer" title="The Land and Its People, David Sedaris">
               <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1765815225i/244934769.jpg" alt="The Land and Its People by David Sedaris" class="book-cover" onerror="this.style.display='none'">
             </a>
           </div>
@@ -1758,7 +1755,7 @@
         <span class="project-label">Craft</span>
         <div class="obsession-middle">
           <h3 class="project-title">Floral Design</h3>
-          <p class="project-desc">Flowers are my analog antidote to screens. I design and arrange bouquets for the pleasure of working with something that doesn&rsquo;t have a backlog.</p>
+          <p class="project-desc">Just for fun and relaxation, I&rsquo;ve been studying floral design under the fabulous and famous Michael Gaffney, and I love it.</p>
         </div>
         <div class="obsession-right">
           <img
@@ -2203,12 +2200,12 @@
 
   <!-- CONTACT -->
   <section aria-label="Contact Shira Kates" class="contact" id="contact">
-<h2 class="contact-title">Let&rsquo;s talk.</h2>
+    <h2 class="contact-title">Let&rsquo;s connect.</h2>
     <div class="contact-links">
-      <a href="mailto:shiradee@gmail.com" class="contact-link contact-link-primary">Email me</a>
-    </div>
-    <div class="contact-links">
+      <a href="mailto:shiradee@gmail.com" class="contact-link contact-link-primary">Email</a>
       <a href="https://www.linkedin.com/in/shirakates" target="_blank" rel="noopener noreferrer" class="contact-link contact-link-secondary" aria-label="Shira Kates LinkedIn profile">LinkedIn</a>
+      <a href="https://github.com/shiradee" target="_blank" rel="noopener noreferrer" class="contact-link contact-link-secondary" aria-label="Shira Kates GitHub profile">GitHub</a>
+      <a href="https://substack.com/@shirakates" target="_blank" rel="noopener noreferrer" class="contact-link contact-link-secondary" aria-label="Shira Kates Substack">Substack</a>
     </div>
   </section>
 
