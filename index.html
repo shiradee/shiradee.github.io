@@ -2650,7 +2650,7 @@
 
 <script>
 (function() {
-  const PROXY_URL = 'https://ama-proxy-lemzfxwh5-shira-kates-projects.vercel.app/api/chat';
+  const ANTHROPIC_KEY = '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';
   let amaMessages = [];
   let amaLoading = false;
 
@@ -2716,10 +2716,19 @@
     const typingEl = amaAddMsg('ama', '', true);
 
     try {
-      const res = await fetch(PROXY_URL, {
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: amaMessages })
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': ANTHROPIC_KEY,
+          'anthropic-version': '2023-06-01',
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT,
+          messages: amaMessages
+        })
       });
 
       const data = await res.json();
