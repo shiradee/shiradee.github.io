@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Primary Meta -->
-<title>Shira Kates · AI/UX Strategy & Design Leadership</title>
+<title>Shira Kates · AI/UX Strategy &amp; Design Leadership</title>
 <meta name="description" content="Shira Kates is a design executive and AI/UX strategist with 15+ years leading enterprise and AI-powered products. Expertise in agentic UX, conversational design, human-AI interaction, and design leadership.">
 <meta name="keywords" content="AI product design, conversational UX, enterprise UX, human-centered AI, design leadership, product strategy, agentic UX, UX manager, design executive, AI strategy">
 <meta name="author" content="Shira Kates">
@@ -134,10 +134,10 @@
     --mid: #444444;
     --light: #888888;
     --rule: #DDDDDD;
-    --accent: #C4622D;
-    --accent-light: #E07A45;
+    --accent: #1E5C3A;
+    --accent-light: #2E7D54;
     --bg-dark: #0F0F0F;
-    --bg-section: #F5EDE8;
+    --bg-section: #F5F5F3;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -267,6 +267,14 @@
     animation: fadeUp 0.8s ease forwards 0.8s;
   }
 
+  .inline-link {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+  }
+  .inline-link:hover { opacity: 0.75; }
+
   .btn-primary {
     display: inline-block;
     padding: 15px 32px;
@@ -359,7 +367,7 @@
 
   .case-studies {
     padding: 100px 60px;
-    background: var(--white);
+    background: var(--bg-section);
     border-top: 1px solid var(--rule);
   }
 
@@ -384,16 +392,85 @@
     line-height: 1.1;
   }
 
-  .case-study { margin-bottom: 120px; }
+
+  /* case study index */
+  .cs-menu { margin: -40px 0 48px; }
+  .cs-filters { display: flex; flex-wrap: wrap; gap: 8px; }
+  .filter-pill { font: inherit; font-size: 0.78rem; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--rule); background: var(--white); color: var(--near-black); cursor: pointer; transition: all .15s; }
+  .filter-pill:hover { border-color: var(--accent); color: var(--accent); }
+  .filter-pill.is-active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .cs-list { background: var(--white); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; }
+  .cs-row { display: grid; grid-template-columns: 48px 1fr auto; gap: 20px; align-items: center; padding: 18px 28px; border-top: 1px solid var(--rule); text-decoration: none; color: inherit; transition: background .15s; }
+  .cs-list > .cs-row:first-child { border-top: 0; }
+  .cs-row:hover { background: var(--bg-section); }
+  .cs-num { font-family: 'Outfit', sans-serif; font-size: 1.3rem; font-weight: 300; color: #aaa; }
+  .cs-main { display: flex; flex-direction: column; gap: 2px; }
+  .cs-title { font-size: 1rem; color: var(--near-black); }
+  .cs-co { font-size: 0.72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .cs-pills { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; list-style: none; margin: 0; padding: 0; max-width: 420px; }
+  .cs-pills .case-tag, .case-tags .case-tag { font-size: 0.68rem; letter-spacing: .02em; text-transform: none; padding: 3px 10px; border-radius: 999px; background: var(--bg-section); border: 1px solid var(--rule); color: #555; font-weight: 500; }
+  .cs-divider { padding: 10px 28px; background: var(--bg-section); border-top: 1px solid var(--rule); font-size: 0.7rem; letter-spacing: .15em; text-transform: uppercase; color: #888; font-weight: 600; }
+  .is-hidden { display: none !important; }
+  .case-tags { flex-direction: row !important; flex-wrap: wrap; list-style: none; padding: 0; }
+  /* collapsible work */
+  .case-work { margin-top: 8px; }
+  .case-work > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; border: 1px solid var(--rule); border-radius: 10px; font-size: 0.85rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); transition: background .15s; }
+  .case-work > summary::-webkit-details-marker { display: none; }
+  .case-work > summary:hover { background: var(--bg-section); }
+  .case-work > summary span:first-child::after { content: ' \2193'; }
+  .case-work[open] > summary span:first-child::after { content: ' \2191'; }
+  .case-work[open] > summary { margin-bottom: 28px; }
+  .case-work-count { font-weight: 400; color: #888; text-transform: none; letter-spacing: 0; }
+  /* earlier work */
+  .early-section { margin-top: 96px; }
+  .early-head { margin-bottom: 32px; }
+  .early-intro { margin-top: 8px; color: #666; }
+  .early-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .early-card { background: var(--white); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
+  .early-img { aspect-ratio: 16/10; overflow: hidden; background: var(--bg-section); border-bottom: 1px solid var(--rule); }
+  .early-img .case-img { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: top left; border: 0; padding: 0; }
+  .early-body { padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .early-body .case-company { margin: 0; }
+  .early-title { font-size: 1.15rem; font-weight: 400; line-height: 1.3; color: var(--near-black); }
+  .early-desc { font-size: 0.88rem; line-height: 1.6; color: #555; }
+  .early-stat { font-size: 0.85rem; font-weight: 600; color: var(--accent); }
+  .early-body .case-tags { margin-top: 4px; gap: 6px; }
+  .early-body .case-link { align-self: flex-start; margin-top: auto; padding-top: 8px; }
+  /* podcast card */
+  .pod-card { aspect-ratio: 16/9; width: 100%; border-radius: 8px; background: linear-gradient(135deg, #0F0F0F 0%, #1E5C3A 140%); color: #fff; padding: 22px 24px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; }
+  .pod-eyebrow { font-size: 0.62rem; letter-spacing: .18em; text-transform: uppercase; color: #C9A961; font-weight: 600; }
+  .pod-ep { position: absolute; top: 14px; right: 20px; font-family: 'Outfit', sans-serif; font-size: 2.6rem; font-weight: 200; color: rgba(255,255,255,.18); }
+  .pod-title { font-size: 1.25rem; line-height: 1.2; font-weight: 500; max-width: 80%; }
+  .pod-wave { display: flex; align-items: flex-end; gap: 3px; height: 28px; }
+  .pod-wave i { display: block; width: 4px; background: #2E7D54; border-radius: 2px; }
+  .pod-guest { font-size: 0.72rem; color: rgba(255,255,255,.7); }
+  @media (max-width: 960px) {
+    .cs-row { grid-template-columns: 36px 1fr; padding: 16px 18px; }
+    .cs-pills { grid-column: 2; justify-content: flex-start; }
+    .early-grid { grid-template-columns: 1fr; }
+  }
+
+  .case-study {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 56px;
+    margin-bottom: 48px;
+  }
   .case-study:last-child { margin-bottom: 0; }
+  .case-footer {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: flex-end;
+  }
 
   .case-top {
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 60px;
-    margin-bottom: 48px;
-    padding-bottom: 48px;
-    border-bottom: 1px solid var(--rule);
+    margin-bottom: 40px;
   }
 
   .case-number {
@@ -470,10 +547,15 @@
     color: var(--light);
   }
 
+  .case-cover { margin: 32px 0 8px; border-radius: 10px; overflow: hidden; }
+  .case-cover-img { display: block; width: 100%; height: auto; }
   .case-images { display: grid; gap: 20px; }
   .case-images.one-col { grid-template-columns: 1fr; }
   .case-images.two-col { grid-template-columns: 1fr 1fr; }
   .case-images.three-col { grid-template-columns: 1fr 1fr 1fr; }
+  .case-images + .case-images { margin-top: 20px; }
+  .case-images.one-col .case-img { max-height: none; }
+  .case-img-top { object-position: top; }
 
   .case-img {
     width: 100%;
@@ -573,6 +655,21 @@
   }
 
   .expertise-items { font-size: 0.95rem; color: var(--mid); line-height: 1.7; }
+
+  .recognition-inline {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--rule);
+    margin-top: 48px;
+    padding-top: 40px;
+  }
+  .recognition-inline-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
 
   .recognition {
     background: var(--white);
@@ -745,7 +842,8 @@
       animation: none;
     }
     .hero-left { padding: 32px 24px 60px; }
-    .case-studies { padding: 60px 24px; }
+    .case-studies { padding: 60px 16px; }
+    .case-study { padding: 28px 20px; border-radius: 10px; }
     .case-top { grid-template-columns: 1fr; gap: 24px; }
     .case-images.two-col { grid-template-columns: 1fr; }
     .case-images.three-col { grid-template-columns: 1fr; }
@@ -953,9 +1051,9 @@
 
   /* ── SCOPED RESUME STYLES ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
+  .resume-panel {
     --ink:    #1D1412; --mid:  #4B3C35; --light: #7A6A60;
-    --rule:   #D9CEC5; --accent: #C4601C; --pale: #FAF0E8;
+    --rule:   #D9CEC5; --accent: #1E5C3A; --pale: #EEF5F1;
     --bg:     #F5F0EB; --page-w: 860px;
   }
   .resume-r1 body { font-family: 'Inter', sans-serif; font-size: 12px; line-height: 1.5; color: var(--mid); background: var(--bg); padding: 32px 16px 48px; }
@@ -963,13 +1061,13 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
+  .resume-panel {
     --ink:      #1D1412;
     --mid:      #4B3C35;
     --light:    #7A6A60;
     --rule:     #D9CEC5;
-    --accent:   #C4601C;
-    --pale:     #FAF0E8;
+    --accent:   #1E5C3A;
+    --pale:     #EEF5F1;
     --bg:       #F5F0EB;
     --page-w:   860px;
   }
@@ -1111,9 +1209,9 @@
 
   /* ── RESUME 1: UX & AI LEADERSHIP ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
+  .resume-panel {
     --ink:    #1D1412; --mid:  #4B3C35; --light: #7A6A60;
-    --rule:   #D9CEC5; --accent: #C4601C; --pale: #FAF0E8;
+    --rule:   #D9CEC5; --accent: #1E5C3A; --pale: #EEF5F1;
     --bg:     #F5F0EB; --page-w: 860px;
   }
   .r1-page { max-width: var(--page-w); margin: 0 auto; background: #fff; padding: 44px 52px 44px; border: 1px solid var(--rule); }
@@ -1172,13 +1270,13 @@
   /* ── RESUME 2: CONVERSATIONAL DESIGN ── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
+  .resume-panel {
     --ink:      #1D1412;
     --mid:      #4B3C35;
     --light:    #7A6A60;
     --rule:     #D9CEC5;
-    --accent:   #C4601C;
-    --pale:     #FAF0E8;
+    --accent:   #1E5C3A;
+    --pale:     #EEF5F1;
     --bg:       #F5F0EB;
     --page-w:   860px;
   }
@@ -1400,6 +1498,102 @@
     .r2-contact { text-align: left; }
   }
 
+
+/* ── IDEAS SECTION ─────────────────────────────── */
+.ideas-section {
+  padding: 100px 48px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.ideas-list {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--rule);
+}
+.idea-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 280px;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+}
+.idea-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 4px;
+}
+.idea-type {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.idea-date {
+  font-size: 0.85rem;
+  color: var(--mid);
+}
+.idea-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--near-black);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.idea-org {
+  font-size: 0.85rem;
+  color: var(--mid);
+  margin-bottom: 10px;
+}
+.idea-desc {
+  font-size: 0.95rem;
+  color: var(--mid);
+  line-height: 1.65;
+}
+.idea-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.idea-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.idea-link:hover { text-decoration: underline; }
+.img-placeholder {
+  aspect-ratio: 16 / 9; width: 100%;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 12px; border: 1.5px dashed var(--rule); border-radius: 8px;
+  background: var(--bg-section); color: #888; font-size: 0.75rem; font-family: monospace;
+}
+.idea-image-wrap {
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-section);
+}
+.idea-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+@media (max-width: 900px) {
+  .ideas-section { padding: 60px 24px; }
+  .idea-row { grid-template-columns: 80px 1fr; gap: 24px; }
+  .idea-image-wrap { grid-column: 2; max-width: 280px; }
+}
+@media (max-width: 600px) {
+  .idea-row { grid-template-columns: 1fr; gap: 12px; }
+  .idea-image-wrap { max-width: 100%; }
+}
 </style>
 </head>
 <body>
@@ -1414,7 +1608,7 @@
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#work">Work</a></li>
-        <li><a href="#nerdy">Nerdy</a></li>
+        <li><a href="#ideas">Ideas</a></li>
         <li><a href="#contact">Contact</a></li>
         <li class="nav-resume-mobile"><a href="#resume">Resume</a></li>
       </ul>
@@ -1438,7 +1632,7 @@
         </clipPath>
       </defs>
       <image href="photo.jpg" x="0" y="0" width="260" height="260" clip-path="url(#organic-clip-m)" preserveAspectRatio="xMidYMid slice"/>
-      <path d="M130,16 C187,14 240,49 246,101 C253,156 228,212 182,240 C136,270 75,257 42,221 C10,185 13,123 33,85 C55,43 78,18 130,16 Z" fill="none" stroke="#C4622D" stroke-width="2.5"/>
+      <path d="M130,16 C187,14 240,49 246,101 C253,156 228,212 182,240 C136,270 75,257 42,221 C10,185 13,123 33,85 C55,43 78,18 130,16 Z" fill="none" stroke="#1E5C3A" stroke-width="2.5"/>
     </svg>
   </div>
 </div>
@@ -1449,7 +1643,7 @@
       <p class="hero-eyebrow">AI/UX Strategy</p>
       <h1 class="hero-name">Shira<br><em>Kates</em></h1>
       <p class="hero-bio">
-        I work cross-functionally to align vision and create epic, impactful 0&#8209;1 products. I&rsquo;m a high-performance team-builder and a catalyst for innovation who translates market trends, business needs, and the user&rsquo;s world into <strong>elegant, lovable product experiences.</strong>
+        Design leader and AI/UX strategist. I&rsquo;ve built teams, shipped products, and influenced roadmaps at VP level inside the world&rsquo;s most successful companies. I care about <strong>getting it right.</strong>
       </p>
       <div class="hero-cta">
         <a href="#work" class="btn-secondary">See My Work</a>
@@ -1465,12 +1659,12 @@
           </clipPath>
         </defs>
         <image href="photo.jpg" x="0" y="0" width="260" height="260" clip-path="url(#organic-clip)" preserveAspectRatio="xMidYMid slice"/>
-        <path d="M130,16 C187,14 240,49 246,101 C253,156 228,212 182,240 C136,270 75,257 42,221 C10,185 13,123 33,85 C55,43 78,18 130,16 Z" fill="none" stroke="#C4622D" stroke-width="2.5"/>
+        <path d="M130,16 C187,14 240,49 246,101 C253,156 228,212 182,240 C136,270 75,257 42,221 C10,185 13,123 33,85 C55,43 78,18 130,16 Z" fill="none" stroke="#1E5C3A" stroke-width="2.5"/>
       </svg>
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <div class="stat-number">20+</div>
+          <div class="stat-number">15+</div>
           <div class="stat-label">Years Leading</div>
         </div>
         <div class="stat">
@@ -1498,6 +1692,7 @@
         <p>I&rsquo;m a design leader and AI/UX strategist with 15+ years leading products from 0 to 1 across enterprise, consumer, and AI-powered experiences inside the world&rsquo;s most successful and innovative companies.</p>
         <p>At Google AppSheet I built a product vision that influenced roadmaps at the VP level across Google Cloud AI. Before that I won a $25M federal contract as design lead at CivicActions. Before that I led a UX team through a $640M acquisition at BrightRoll. And I ran my own design consultancy for a decade.</p>
         <p>I love to build elegant solutions with curious, best-in-craft teams.</p>
+        <p>I also build: <a href="https://claude.ai/public/artifacts/2c5bf74a-da74-4570-b918-49a6287daf0d" target="_blank" rel="noopener noreferrer" class="inline-link">Cheddar →</a> and <a href="karen.html" target="_blank" rel="noopener noreferrer" class="inline-link">Karen →</a>, two AI agents I made to explore conversational UX patterns.</p>
       </div>
       <a href="#resume" class="btn-primary">View Résumé ↓</a>
     </div>
@@ -1519,79 +1714,33 @@
           <dt class="expertise-label">Experience</dt>
           <dd class="expertise-items">Google · CivicActions · Yahoo/BrightRoll · Accenture · AT&amp;T Interactive · Entrepreneur · Coach</dd>
         </div>
+        <div class="expertise-item">
+          <dt class="expertise-label">Recognition</dt>
+          <dd class="expertise-items">Cloud Tech Impact Award x2 · Google Cloud (2023)</dd>
+        </div>
       </dl>
     </div>
   </section>
 
-  <!-- RECOGNITION -->
-  <section aria-label="Awards and recognition" class="recognition reveal">
-    <div class="section-header">
-      <span class="section-eyebrow">Recognition</span>
-      <h2 class="section-title">Awards &amp; Community</h2>
-    </div>
-    <ul class="recognition-grid">
-      <li class="recognition-item">
-        <p class="recognition-year">Sept 2026</p>
-        <h3 class="recognition-title">Podcast Guest: AI in Product Design</h3>
-        <p class="recognition-org"><a href="https://podcasts.apple.com/us/podcast/ai-in-product-design-how-teams-use-it-and-maintain/id1867232401?i=1000791539307" target="_blank" rel="noopener noreferrer" style="color:inherit;">Bot Boundaries, EP 40</a> &nbsp;·&nbsp; <a href="https://youtu.be/9_o8OnTEzjA?si=-EKAafwI2N-UROKs" target="_blank" rel="noopener noreferrer" style="color:inherit;">YouTube</a> &nbsp;·&nbsp; <a href="https://open.spotify.com/episode/5ONlVyuZFbQWGSgqpWxNyR?si=Zkmu6r10S_uaDq-w2wIl5w" target="_blank" rel="noopener noreferrer" style="color:inherit;">Spotify</a></p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">Sept 2026</p>
-        <h3 class="recognition-title">Panelist: Prototyping in the AI Era</h3>
-        <p class="recognition-org">SDXD San Diego</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2025–2026</p>
-        <h3 class="recognition-title">Speaking: UX and AI Talks</h3>
-        <p class="recognition-org">One Club for Creativity</p>
-        <p class="recognition-org" style="margin-top:4px;">SDXD San Diego · Disruptive AI-UX Summit</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2025</p>
-        <h3 class="recognition-title">Hudson Executive Coaching Certification</h3>
-        <p class="recognition-org">Hudson Institute</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2023</p>
-        <h3 class="recognition-title">Cloud Tech Impact Award x2</h3>
-        <p class="recognition-org">Google Cloud</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2015</p>
-        <h3 class="recognition-title">US Patent Application: Mobile Ad Campaign Management</h3>
-        <p class="recognition-org">US 077693-8019</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2014–16</p>
-        <h3 class="recognition-title">Professional Mentor, TechWomen Program</h3>
-        <p class="recognition-org">US State Department</p>
-      </li>
-      <li class="recognition-item">
-        <p class="recognition-year">2011</p>
-        <h3 class="recognition-title">Design Award: Social Impact</h3>
-        <p class="recognition-org">Core77</p>
-      </li>
-    </ul>
-  </section>
-
-  <!-- CASE STUDIES -->
+<!-- CASE STUDIES -->
   <section aria-label="Case studies and selected work" class="case-studies" id="work">
     <div class="section-header reveal">
       <span class="section-eyebrow">Case Studies</span>
       <h2 class="section-title">Work</h2>
     </div>
+    <div class="cs-menu reveal" role="navigation" aria-label="Case study index">
+      <div class="cs-filters" role="group" aria-label="Filter by topic">
+        <button class="filter-pill is-active" data-tag="all">All</button><button class="filter-pill" data-tag="Leadership">Leadership</button><button class="filter-pill" data-tag="Vision">Vision</button><button class="filter-pill" data-tag="Research">Research</button><button class="filter-pill" data-tag="Concept">Concept</button><button class="filter-pill" data-tag="User testing">User testing</button><button class="filter-pill" data-tag="AI agents">AI agents</button><button class="filter-pill" data-tag="Interaction patterns">Interaction patterns</button><button class="filter-pill" data-tag="Conversational design">Conversational design</button><button class="filter-pill" data-tag="Content">Content</button><button class="filter-pill" data-tag="Prototyping">Prototyping</button>
+      </div>
+    </div>
 
-    <article class="case-study reveal" aria-labelledby="case1-title">
+
+    <article class="case-study reveal" id="case-1" data-tags="Leadership|Vision|Research|User testing|Concept" aria-labelledby="case1-title">
       <div class="case-top">
         <div class="case-meta">
           <div class="case-number" aria-hidden="true">01</div>
           <p class="case-company">Google AppSheet</p>
-          <ul class="case-tags" aria-label="Project categories">
-            <li class="case-tag">Vision &amp; Strategy</li>
-            <li class="case-tag">Team Leadership</li>
-            <li class="case-tag">Enterprise UX</li>
-            <li class="case-tag">AI Product</li>
-          </ul>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Leadership</li><li class="case-tag">Vision</li><li class="case-tag">Research</li><li class="case-tag">User testing</li><li class="case-tag">Concept</li></ul>
         </div>
         <div class="case-content">
           <h3 class="case-title" id="case1-title">Building a Vision Inside the Ambiguity</h3>
@@ -1614,36 +1763,42 @@
               <dd class="metric-value">1M+</dd>
             </div>
           </dl>
-          <a href="mailto:shiradee@gmail.com?subject=Request%3A%20Case%20Study%2001%2C%20Building%20a%20Vision%20Inside%20the%20Ambiguity&body=Name%3A%0ACompany%3A%0A%0APlease%20share%20your%20name%20and%20company%20to%20receive%20the%20password." class="case-link">Request the full case study &#8594;</a>
         </div>
       </div>
-      <figure class="case-images three-col">
+            <details class="case-work">
+        <summary><span>See the work</span><span class="case-work-count">4 images</span></summary>
+        <figure class="case-images one-col">
         <div>
-          <img src="images/case1a.jpg" alt="AI-generated personalized views in AppSheet showing Gemini-powered generative UI that adapts to each user's needs and context" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Generative UI: AppSheet + Gemini generate personalized views tailored to each user's role and context</figcaption>
-        </div>
-        <div>
-          <img src="images/case1b.jpg" alt="Seamless collaboration between AppSheet and Google Workspace showing blurred boundaries between the two ecosystems" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Blurred boundaries: AppSheet solutions and Workspace products seamlessly interconnected through data</figcaption>
-        </div>
-        <div>
-          <img src="images/case1c.jpg" alt="Single pane of glass admin console for AppSheet Enterprise showing centralized governance and monitoring" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Single pane of glass: Centralized admin console for governance, licensing, and usage across the org</figcaption>
+          <img src="images/work-appsheet-methods.jpg" alt="Vision process: Gemini interview, review of explorations, How Might We brainstorming, hero scenario iterations, ideation and concept mapping, concept critique, offline critique" class="case-img" loading="lazy">
+          <figcaption class="img-caption">How the vision got built: two cross-functional workshops took the team from How Might We to hero scenarios to critiqued concepts, so the people who'd ship the vision helped write it</figcaption>
         </div>
       </figure>
+      <figure class="case-images three-col">
+        <div>
+          <img src="images/work-appsheet-prefab.jpg" alt="Prefab modules concept: reusable workflow modules on an AppSheet canvas, with Airbus and Globe Telecom quotes" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Customer top pick: prefab modules. Airbus: “I can see these being very useful”</figcaption>
+        </div>
+        <div>
+          <img src="images/case1a.jpg" alt="Generative UI concept: AppSheet mobile screens with Gemini-generated personalized views" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Customer top pick: Gemini-generated views personalized to each user's role</figcaption>
+        </div>
+        <div>
+          <img src="images/work-appsheet-admin.jpg" alt="Admin console concept showing license gaps and usage insights, with a Globe Telecom quote" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Admin insights reframed around the admin's goals, not upsell, after Globe Telecom's feedback</figcaption>
+        </div>
+      </figure>
+      </details>
+      <div class="case-footer">
+        <a href="https://docs.google.com/presentation/d/11trQ9Pc1WJtAG_ZBS7CTiIyz2eRATtahbBD8JjuX7Vs" target="_blank" rel="noopener noreferrer" class="case-link">View full case study &#8594;</a>
+      </div>
     </article>
 
-    <article class="case-study reveal" aria-labelledby="case2-title">
+    <article class="case-study reveal" id="case-2" data-tags="Vision|Concept|Research|AI agents|Interaction patterns" aria-labelledby="case2-title">
       <div class="case-top">
         <div class="case-meta">
           <div class="case-number" aria-hidden="true">02</div>
           <p class="case-company">Google Cloud AI</p>
-          <ul class="case-tags" aria-label="Project categories">
-            <li class="case-tag">Agentic UX</li>
-            <li class="case-tag">AI Vision</li>
-            <li class="case-tag">Frontline Workers</li>
-            <li class="case-tag">Original Research</li>
-          </ul>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Vision</li><li class="case-tag">Concept</li><li class="case-tag">Research</li><li class="case-tag">AI agents</li><li class="case-tag">Interaction patterns</li></ul>
         </div>
         <div class="case-content">
           <h3 class="case-title" id="case2-title">The Future of Agentic Democratization in the Enterprise</h3>
@@ -1662,36 +1817,42 @@
               <dd class="metric-value">VP</dd>
             </div>
           </dl>
-          <a href="mailto:shiradee@gmail.com?subject=Request%3A%20Case%20Study%2002%2C%20The%20Future%20of%20Agentic%20Democratization%20in%20the%20Enterprise&body=Name%3A%0ACompany%3A%0A%0APlease%20share%20your%20name%20and%20company%20to%20receive%20the%20password." class="case-link">Request the full case study &#8594;</a>
         </div>
       </div>
-      <figure class="case-images three-col">
+            <details class="case-work">
+        <summary><span>See the work</span><span class="case-work-count">4 images</span></summary>
+        <figure class="case-images one-col">
         <div>
-          <img src="images/case2a.jpg" alt="Evolution of Agents executive summary showing three fundamental shifts: channel-specific to adaptive UI, static to personalized, creator-user boundary to democratized authoring" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Evolution of Agents: Three fundamental shifts redefining how enterprise agentic experiences need to evolve</figcaption>
-        </div>
-        <div>
-          <img src="images/case2b.jpg" alt="Adaptive UI showing agent interactions seamlessly adapting across mobile device, conversational interface while driving, and AR glasses in the field" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Adaptive UI in action: Agent interactions that meet users across mobile, voice, and AR, wherever work happens</figcaption>
-        </div>
-        <div>
-          <img src="images/case2d.jpg" alt="Frontline worker opportunity showing 70% of global workforce are frontline workers, with Gen Z adoption data and UXR study findings" class="case-img" loading="lazy">
-          <figcaption class="img-caption">The frontline opportunity: 1B+ workers, underserved by enterprise AI, and already reaching for workarounds</figcaption>
+          <img src="images/case2b.jpg" alt="Adaptive UI: a delivery driver's route update on mobile, as voice while driving, and on AR glasses" class="case-img" loading="lazy">
+          <figcaption class="img-caption">One agent, three surfaces: Roni's route update follows him from phone to voice while driving to AR glasses at the store</figcaption>
         </div>
       </figure>
+      <figure class="case-images three-col">
+        <div>
+          <img src="images/work-agentic-guidance.jpg" alt="Same display-setup task shown as concise visual steps for an experienced merchandiser and as a training video for a new hire" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Same task, different person: Lee gets concise visual steps, Malcolm (a new hire) gets a training video and voice help</figcaption>
+        </div>
+        <div>
+          <img src="images/work-agentic-authoring.jpg" alt="Democratized authoring: the agent observes a worker's inter-store transfer workaround and updates the restocking flow" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Democratized authoring: the agent learns Lee's workaround and turns it into the new restocking flow for everyone</figcaption>
+        </div>
+        <div>
+          <img src="images/work-agentic-foundry.jpg" alt="AI Foundry solution blueprint: a plain-language problem becomes a proposed Retail Incident Manager" class="case-img" loading="lazy">
+          <figcaption class="img-caption">AI Foundry: describe the problem in plain language, get a blueprint. No blank page</figcaption>
+        </div>
+      </figure>
+      </details>
+      <div class="case-footer">
+        <a href="https://docs.google.com/presentation/d/1Ua-UfzuEbUpr2UorhSsAQekL6IuEJPRSDcTm0XEpfu8" target="_blank" rel="noopener noreferrer" class="case-link">View full case study &#8594;</a>
+      </div>
     </article>
 
-    <article class="case-study reveal" aria-labelledby="case3-title">
+    <article class="case-study reveal" id="case-3" data-tags="Conversational design|Content|AI agents|Interaction patterns" aria-labelledby="case3-title">
       <div class="case-top">
         <div class="case-meta">
           <div class="case-number" aria-hidden="true">03</div>
           <p class="case-company">Course Hero + Google AppSheet</p>
-          <ul class="case-tags" aria-label="Project categories">
-            <li class="case-tag">Conversational Design</li>
-            <li class="case-tag">AI Voice &amp; Tone</li>
-            <li class="case-tag">Brand Strategy</li>
-            <li class="case-tag">GenAI Product</li>
-          </ul>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Conversational design</li><li class="case-tag">Content</li><li class="case-tag">AI agents</li><li class="case-tag">Interaction patterns</li></ul>
         </div>
         <div class="case-content">
           <h3 class="case-title" id="case3-title">Voice as Strategy: Delightful AI Interactions for Trust and Adoption</h3>
@@ -1706,107 +1867,157 @@
               <dd class="metric-value">1st</dd>
             </div>
           </dl>
-          <a href="mailto:shiradee@gmail.com?subject=Request%3A%20Case%20Study%2003%2C%20Voice%20as%20Strategy%3A%20Delightful%20AI%20Interactions%20for%20Trust%20and%20Adoption&body=Name%3A%0ACompany%3A%0A%0APlease%20share%20your%20name%20and%20company%20to%20receive%20the%20password." class="case-link">Request the full case study &#8594;</a>
         </div>
       </div>
-      <figure class="case-images three-col">
+            <details class="case-work">
+        <summary><span>See the work</span><span class="case-work-count">3 images</span></summary>
+        <figure class="case-images one-col">
         <div>
-          <img src="images/case3a.png" alt="Duet AI in AppSheet showing conversational app creation where users describe their idea and the AI generates an app structure" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Duet AI in AppSheet: Natural language app creation, describe your idea, get a working app structure</figcaption>
-        </div>
-        <div>
-          <img src="images/case3b.gif" alt="Animated demo of Gemini-powered AI interaction in Google Chat showing the in-platform conversational experience" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Gemini in Google Chat: The first GenAI feature shipped out of Google Cloud, showing the platform-native experience</figcaption>
-        </div>
-        <div>
-          <img src="images/case3e.jpg" alt="Side-by-side comparison of conversational UI versus GUI showing how chat-only interfaces lack efficiency and helpful at-a-glance visuals" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Conversational UI vs GUI: Why chat-only agents fail at complex tasks, and what hybrid interaction solves</figcaption>
+          <img src="images/work-conv-hybrid.jpg" alt="Hybrid interaction paradigm: a sourcing request handled with a structured form inside chat on mobile and a step tracker on web" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Hybrid, not chat-only: structured UI appears inside the conversation when a form beats ten back-and-forth messages</figcaption>
         </div>
       </figure>
+      <figure class="case-images two-col">
+        <div>
+          <img src="images/work-conv-guardrails.jpg" alt="Personalization within guardrails: a user asks to skip a required approval step and the agent explains it can't" class="case-img" loading="lazy">
+          <figcaption class="img-caption">Personalization with guardrails: users can reshape their flow, but the agent holds the line on org-mandated steps</figcaption>
+        </div>
+        <div>
+          <img src="images/case3b.gif" alt="Animated demo of Gemini-powered AI interaction in Google Chat showing the in-platform conversational experience" class="case-img case-img-top" loading="lazy">
+          <figcaption class="img-caption">Gemini in Google Chat: the first GenAI feature shipped out of Google Cloud, designed to feel native to the platform</figcaption>
+        </div>
+      </figure>
+      </details>
+      <div class="case-footer">
+        <a href="https://docs.google.com/presentation/d/1WfOdaK4YW9I3h2XeR8uWU3MPGUj16ym2eCMSsJvWA2g" target="_blank" rel="noopener noreferrer" class="case-link">View full case study &#8594;</a>
+      </div>
     </article>
+
+    <div class="early-section">
+      <div class="early-head reveal">
+        <span class="section-eyebrow">Earlier work</span>
+        <p class="early-intro">Before Google: hands-on design, research and prototyping.</p>
+      </div>
+      <div class="early-grid">
+      <article class="early-card" id="early-1" data-tags="Leadership|Research|Prototyping|Content">
+        <div class="early-img"><img src="images/early-medicare.jpg" alt="Affinity clusters from research synthesis next to the Sam persona with current-state pain points" class="case-img" loading="lazy"></div>
+        <div class="early-body">
+          <p class="case-company">CivicActions · 2019</p>
+          <h3 class="early-title">Medicare Part D: an 8-day design challenge</h3>
+          <p class="early-desc">Led a 10-person team through research, a persona, wireframes and a prototype in the CMS design system to redesign Part D guidance on medicare.gov. We won the $25M contract.</p>
+          <p class="early-stat">$25M contract won · 8 working days</p>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Leadership</li><li class="case-tag">Research</li><li class="case-tag">Prototyping</li><li class="case-tag">Content</li></ul>
+          <a href="https://docs.google.com/presentation/d/1XROxNhQJMviUhiUEw3b2DTNggGGFB6EX1pCk9HMiCt4" target="_blank" rel="noopener noreferrer" class="case-link">View case study &#8594;</a>
+        </div>
+      </article>
+      <article class="early-card" id="early-2" data-tags="Leadership|Interaction patterns|Prototyping|User testing">
+        <div class="early-img"><img src="images/early-yahoo.jpg" alt="Nine numbered campaign setup prototype screens for the redesigned demand-side platform" class="case-img" loading="lazy"></div>
+        <div class="early-body">
+          <p class="case-company">BrightRoll / Yahoo · 2015–2018</p>
+          <h3 class="early-title">Ad platform redesign through two acquisitions</h3>
+          <p class="early-desc">Built a mobile campaign app on the side that won Yahoo’s hackathon and led to a patent, then redesigned the demand-side platform with a team that grew from 5 to 27.</p>
+          <p class="early-stat">20–30% faster task time · 50% faster optimization</p>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Leadership</li><li class="case-tag">Interaction patterns</li><li class="case-tag">Prototyping</li><li class="case-tag">User testing</li></ul>
+          <a href="https://docs.google.com/presentation/d/1f5gOaLltBeiNwW-GsLuW943f9KhNNklyZCIIB6tLPsg" target="_blank" rel="noopener noreferrer" class="case-link">View case study &#8594;</a>
+        </div>
+      </article>
+      <article class="early-card" id="early-3" data-tags="Research|User testing|Content">
+        <div class="early-img"><img src="images/early-orchid.jpg" alt="Orchid VPN app store listing with five app screens" class="case-img" loading="lazy"></div>
+        <div class="early-body">
+          <p class="case-company">Orchid · 2018</p>
+          <h3 class="early-title">Research for a product before it existed</h3>
+          <p class="early-desc">Led research for a decentralized VPN ahead of launch: 75+ remote sessions in 7 countries that shaped onboarding and a wallet-backup flow that won its A/B test.</p>
+          <p class="early-stat">Task time 3:58 → 2:32 · 75+ sessions</p>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Research</li><li class="case-tag">User testing</li><li class="case-tag">Content</li></ul>
+          <a href="https://docs.google.com/presentation/d/1SkdZyp5RTIJWVH1XfwHUSdiGkD9M5XkcgEb03i8BNjc" target="_blank" rel="noopener noreferrer" class="case-link">View case study &#8594;</a>
+        </div>
+      </article>
+      </div>
+    </div>
+
   </section>
 
-
-  <!-- SIDE PROJECTS & OBSESSIONS -->
-  <section aria-label="Side projects and obsessions" class="side-projects" id="nerdy">
+  <!-- IDEAS: TALKS & MEDIA -->
+  <section aria-label="Talks and media" class="ideas-section" id="ideas">
     <div class="section-header reveal">
-      <span class="section-eyebrow">Current Obsessions</span>
-      <h2 class="section-title">Nerdy</h2>
+      <span class="section-eyebrow">Talks &amp; Media</span>
+      <h2 class="section-title">Ideas</h2>
     </div>
-    <div class="obsessions-list">
+    <div class="ideas-list">
 
-      <!-- AI Agents -->
-      <div class="obsession-row reveal">
-        <span class="project-label">AI Agents</span>
-        <div class="obsession-middle">
-          <h3 class="project-title">Agents I&rsquo;ve Built</h3>
-          <p class="project-desc"><strong>Cheddar</strong> explores delightful, habit-forming conversational design. <strong>Karen</strong> is a real-time co-pilot for retail store associates, built on a frontline worker agent playbook I developed at Google.</p>
+      <!-- Bot Boundaries Podcast -->
+      <div class="idea-row reveal">
+        <div class="idea-meta">
+          <span class="idea-type">Podcast</span>
+          <span class="idea-date">2026</span>
         </div>
-        <div class="obsession-right">
-          <a href="https://claude.ai/public/artifacts/2c5bf74a-da74-4570-b918-49a6287daf0d" target="_blank" rel="noopener noreferrer" class="project-link">Try Cheddar &rarr;</a>
-          <a href="karen.html" target="_blank" rel="noopener noreferrer" class="project-link">Try Karen &rarr;</a>
-        </div>
-      </div>
-
-      <!-- Duolingo -->
-      <div class="obsession-row reveal">
-        <span class="project-label">Language Learning</span>
-        <div class="obsession-middle">
-          <h3 class="project-title">Duolingo</h3>
-          <p class="project-desc">Keeping the streak alive. There&rsquo;s something about a gamified daily habit that appeals to the UX person in me almost as much as the language nerd.</p>
-          <a href="https://invite.duolingo.com/profile-share/shiradee?via=share_profile_qr" target="_blank" rel="noopener noreferrer" class="project-link">Be my friend &rarr;</a>
-        </div>
-        <div class="obsession-right">
-          <img src="images/duolingo.jpg" alt="1011 day streak on Duolingo" style="width:100%; max-height:220px; object-fit:contain; background:var(--bg-section); border-radius:8px;">
-        </div>
-      </div>
-
-      <!-- Reading -->
-      <div class="obsession-row reveal">
-        <span class="project-label">Reading</span>
-        <div class="obsession-middle">
-          <h3 class="project-title">Currently Reading</h3>
-          <p class="project-desc">Books on repeat: design, psychology, business, the occasional sweeping biography. Always on walks, always on Audible.</p>
-          <a href="https://www.goodreads.com/user/show/25920204" target="_blank" rel="noopener noreferrer" class="project-link">See all on Goodreads &rarr;</a>
-        </div>
-        <div class="obsession-right">
-          <div class="book-grid">
-            <a href="https://www.goodreads.com/book/show/18050143-zero-to-one" target="_blank" rel="noopener noreferrer" title="Zero to One, Peter Thiel">
-              <img src="https://covers.openlibrary.org/b/isbn/0804139296-L.jpg" alt="Zero to One by Peter Thiel" class="book-cover" onerror="this.style.display='none'">
-            </a>
-            <a href="https://www.goodreads.com/search?q=A+World+Appears+Michael+Pollan" target="_blank" rel="noopener noreferrer" title="A World Appears, Michael Pollan">
-              <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1757559798i/241471051.jpg" alt="A World Appears by Michael Pollan" class="book-cover" onerror="this.style.display='none'">
-            </a>
-            <a href="https://www.goodreads.com/book/show/29513878-inner-engineering" target="_blank" rel="noopener noreferrer" title="Inner Engineering, Sadhguru">
-              <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1484851488i/29513878.jpg" alt="Inner Engineering by Sadhguru" class="book-cover" onerror="this.style.display='none'">
-            </a>
-            <a href="https://www.goodreads.com/book/show/25457082-the-surrender-experiment" target="_blank" rel="noopener noreferrer" title="The Surrender Experiment, Michael A. Singer">
-              <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1423601289i/23164946.jpg" alt="The Surrender Experiment by Michael A. Singer" class="book-cover" onerror="this.style.display='none'">
-            </a>
-            <a href="https://www.goodreads.com/search?q=Heretical+Fishing+Haylock+Jobson" target="_blank" rel="noopener noreferrer" title="Heretical Fishing, Haylock Jobson">
-              <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1707524477i/208099994.jpg" alt="Heretical Fishing by Haylock Jobson" class="book-cover" onerror="this.style.display='none'">
-            </a>
-            <a href="https://www.goodreads.com/search?q=The+Land+and+Its+People+David+Sedaris" target="_blank" rel="noopener noreferrer" title="The Land and Its People, David Sedaris">
-              <img src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1765815225i/244934769.jpg" alt="The Land and Its People by David Sedaris" class="book-cover" onerror="this.style.display='none'">
-            </a>
+        <div class="idea-body">
+          <h3 class="idea-title">Bot Boundaries, EP 40</h3>
+          <p class="idea-org">Bot Boundaries</p>
+          <p class="idea-desc">On how product teams are actually using AI, why human judgment still matters in design and prototyping, and what the future of AI in leadership really looks like.</p>
+          <div class="idea-links">
+            <a href="https://podcasts.apple.com/us/podcast/ai-in-product-design-how-teams-use-it-and-maintain/id1867232401?i=1000791539307" target="_blank" rel="noopener noreferrer" class="idea-link">Apple Podcasts &rarr;</a>
           </div>
         </div>
+        <div class="idea-image-wrap">
+          <img src="images/panel-botboundaries.png" alt="Bot Boundaries podcast, episode 40: Product design is the new moat, with guest Shira Kates" class="idea-img" loading="lazy">
+        </div>
       </div>
 
-      <!-- Floral Design -->
-      <div class="obsession-row reveal">
-        <span class="project-label">Craft</span>
-        <div class="obsession-middle">
-          <h3 class="project-title">Floral Design</h3>
-          <p class="project-desc">Just for fun and relaxation, I&rsquo;ve been studying floral design under the fabulous and famous Michael Gaffney.</p>
+      <!-- SDXD Prototyping -->
+      <div class="idea-row reveal">
+        <div class="idea-meta">
+          <span class="idea-type">Panel</span>
+          <span class="idea-date">Sept 2026</span>
         </div>
-        <div class="obsession-right">
-          <img
-            src="images/floral.jpg"
-            alt="A bouquet of peach carnations, lavender roses, alstroemeria and greenery in a white ribbed vase"
-            class="project-card-img"
-            onclick="openLightbox(this)"
-          >
+        <div class="idea-body">
+          <h3 class="idea-title">Prototyping in the AI Era</h3>
+          <p class="idea-org">SDXD San Diego</p>
+          <p class="idea-desc">Prototypes are now fast and cheap, which means UX has to be more discerning, not less. The gift of abundance only matters if you know what you're building toward.</p>
+          <div class="idea-links">
+            <a href="https://lu.ma/97d62jwd" target="_blank" rel="noopener noreferrer" class="idea-link">Event page &rarr;</a>
+          </div>
+        </div>
+        <div class="idea-image-wrap">
+          <img src="images/panel-sdxd-sept26.png" alt="Prototyping in the AI Era panel card, SDXD San Diego, September 2026" class="idea-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'img-placeholder',textContent:'Image: '+this.getAttribute('src')}))">
+        </div>
+      </div>
+
+      <!-- One Club for Creativity -->
+      <div class="idea-row reveal">
+        <div class="idea-meta">
+          <span class="idea-type">Panel</span>
+          <span class="idea-date">May 2026</span>
+        </div>
+        <div class="idea-body">
+          <h3 class="idea-title">Creatives Who Ride the Algorithm Win</h3>
+          <p class="idea-org">The One Club for Creativity, San Diego</p>
+          <p class="idea-desc">Don't resist AI because it feels soulless. Use it to go faster, synthesize smarter, and deliver more. But protect what makes your human intelligence irreplaceable, or find a career that's AI-proof. Both are legitimate choices.</p>
+          <div class="idea-links">
+            <a href="https://eventship.com/event/creatives-who-ride-the-algorithm-win" target="_blank" rel="noopener noreferrer" class="idea-link">Event page &rarr;</a>
+          </div>
+        </div>
+        <div class="idea-image-wrap">
+          <img src="images/panel-oneclub-may26.png" alt="Creatives Who Ride the Algorithm Win panel event, The One Club for Creativity San Diego, May 2026" class="idea-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'img-placeholder',textContent:'Image: '+this.getAttribute('src')}))">
+        </div>
+      </div>
+
+      <!-- SDXD Enterprise vs Consumer -->
+      <div class="idea-row reveal">
+        <div class="idea-meta">
+          <span class="idea-type">Panel</span>
+          <span class="idea-date">Mar 2025</span>
+        </div>
+        <div class="idea-body">
+          <h3 class="idea-title">Enterprise vs. Consumer Design</h3>
+          <p class="idea-org">SDXD San Diego</p>
+          <p class="idea-desc">Consumer gives you craft respect and direct user impact. Enterprise gives you complexity, systems thinking, and a clearer line to revenue. Know which one feeds you.</p>
+          <div class="idea-links">
+            <a href="https://www.meetup.com/s-d-x-d/events/306526408/" target="_blank" rel="noopener noreferrer" class="idea-link">Event page &rarr;</a>
+          </div>
+        </div>
+        <div class="idea-image-wrap">
+          <img src="images/panel-sdxd-mar25.png" alt="Enterprise vs. Consumer Design panel card, SDXD San Diego, March 2025" class="idea-img" loading="lazy" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'img-placeholder',textContent:'Image: '+this.getAttribute('src')}))">
         </div>
       </div>
 
@@ -1815,7 +2026,10 @@
 
 
   <!-- RESUME -->
-  <section aria-label="Resume" class="resume-section" id="resume">
+<section aria-label="Resume" class="resume-section" id="resume">
+
+
+
     <div class="section-header reveal">
       <span class="section-eyebrow">Experience</span>
       <h2 class="section-title">Résumé</h2>
@@ -2135,5 +2349,24 @@
 
 
 
+
+<script>
+(function(){
+  const pills=document.querySelectorAll('.filter-pill');
+  const items=document.querySelectorAll('.cs-row[data-tags], .case-study[data-tags], .early-card[data-tags]');
+  const divider=document.querySelector('.cs-divider'), earlySec=document.querySelector('.early-section');
+  pills.forEach(p=>p.addEventListener('click',()=>{
+    pills.forEach(x=>x.classList.toggle('is-active',x===p));
+    const t=p.dataset.tag;
+    items.forEach(el=>el.classList.toggle('is-hidden', t!=='all' && !el.dataset.tags.split('|').includes(t)));
+    const anyEarly=[...document.querySelectorAll('.early-card')].some(e=>!e.classList.contains('is-hidden'));
+    if(divider) divider.classList.toggle('is-hidden',!anyEarly);
+    if(earlySec) earlySec.classList.toggle('is-hidden',!anyEarly);
+  }));
+  document.querySelectorAll('.cs-row').forEach(r=>r.addEventListener('click',()=>{
+    const el=document.querySelector(r.getAttribute('href')); const d=el&&el.querySelector('details'); if(d) d.open=true;
+  }));
+})();
+</script>
 </body>
 </html>
