@@ -31,7 +31,8 @@
 
   /* nav */
   .nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 18px 60px; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
-  .nav-name { font-family: Georgia, 'Times New Roman', serif; font-size: 1.25rem; color: var(--near-black); text-decoration: none; }
+  .nav-name { display: inline-flex; align-items: center; gap: 10px; font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--near-black); text-decoration: none; }
+  .nav-mark { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; }
   .nav-back { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: var(--accent); }
 
   /* hero */
@@ -155,7 +156,7 @@
 <body>
 
 <nav class="nav" aria-label="Main navigation">
-  <a href="/" class="nav-name">Shira Kates</a>
+  <a href="/" class="nav-name"><span class="nav-mark" aria-hidden="true">SK</span>Shira Kates</a>
   <a href="/#work" class="nav-back">&larr; All work</a>
 </nav>
 
@@ -341,7 +342,7 @@
 
 <div class="next">
   <div class="wrap">
-    <a href="conversational.html"><span><small>Next case study</small><span class="t">Voice as Strategy: Delightful AI Interactions for Trust and Adoption</span></span><span class="arr">&rarr;</span></a>
+    <a href="conversational.html"><span><small>Next case study</small><span class="t">Strategic Voice for Trust and Adoption</span></span><span class="arr">&rarr;</span></a>
   </div>
 </div>
 

@@ -31,7 +31,8 @@
 
   /* nav */
   .nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 18px 60px; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
-  .nav-name { font-family: Georgia, 'Times New Roman', serif; font-size: 1.25rem; color: var(--near-black); text-decoration: none; }
+  .nav-name { display: inline-flex; align-items: center; gap: 10px; font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--near-black); text-decoration: none; }
+  .nav-mark { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; }
   .nav-back { font-size: .78rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; color: var(--accent); }
 
   /* hero */
@@ -176,15 +177,15 @@
 <body>
 
 <nav class="nav" aria-label="Main navigation">
-  <a href="/" class="nav-name">Shira Kates</a>
+  <a href="/" class="nav-name"><span class="nav-mark" aria-hidden="true">SK</span>Shira Kates</a>
   <a href="/#work" class="nav-back">&larr; All work</a>
 </nav>
 
 <header class="hero">
   <div class="wrap">
     <p class="eyebrow">Case study &middot; Course Hero + Google AppSheet &middot; 2021&ndash;2026</p>
-    <h1>Voice as Strategy: Delightful AI Interactions for Trust and Adoption</h1>
-    <p class="dek">Interaction design was always a conversation. AI made it literal. I design the rules that promote trust, control, enjoyment and error recovery, everywhere AI talks to people.</p>
+    <h1>Strategic Voice for Trust and Adoption</h1>
+    <p class="dek">Interaction design was always a conversation. Now AI brings brands to life 24/7. I design the rules that promote brand trust, control, enjoyment, and error recovery.</p>
     <ul class="pills" aria-label="Topics">
       <li>Conversational design</li><li>Content</li><li>AI agents</li><li>Interaction patterns</li>
     </ul>
@@ -277,6 +278,10 @@
     <figure>
       <img src="images/work-conv-hybrid.jpg" alt="Hybrid interaction paradigm: a sourcing request handled with a structured form inside chat on mobile and a step tracker on web" loading="lazy">
       <figcaption>Chat and graphical UI blended: a form appears right in the conversation, and progress is tracked visually.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/work-conv-guardrails.jpg" alt="Personalization with guardrails: a user reshapes their flow while required organization steps stay locked" loading="lazy">
+      <figcaption>Personalization with guardrails: users can reshape their flow, but the agent holds the line on steps the organization requires.</figcaption>
     </figure>
   </div>
 </section>
