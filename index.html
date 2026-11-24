@@ -81,7 +81,7 @@
         }
       ],
       "award": [
-        "Cloud Tech Impact Award x2, Google Cloud 2023",
+        "Google Cloud Tech Impact Awards (2), 2023",
         "US Patent: Mobile Ad Campaign Management",
         "Core77 Design Award: Social Impact 2011"
       ]
@@ -113,7 +113,7 @@
     {
       "@type": "CreativeWork",
       "@id": "https://www.shirakates.com/#case3",
-      "name": "Voice as Strategy: Delightful AI Interactions for Trust and Adoption",
+      "name": "Strategic Voice for Trust and Adoption",
       "description": "How treating conversational AI voice and personality as a strategic asset drives adoption and builds brand trust.",
       "author": {"@id": "https://www.shirakates.com/#person"},
       "about": ["Conversational Design", "AI Voice and Tone", "Human-AI Interaction", "Brand Strategy"]
@@ -136,6 +136,7 @@
     --rule: #DDDDDD;
     --accent: #1E5C3A;
     --accent-light: #2E7D54;
+    --accent-2: #A4532F;
     --bg-dark: #0F0F0F;
     --bg-section: #F5F5F3;
   }
@@ -166,12 +167,8 @@
     border-bottom: 1px solid var(--rule);
   }
 
-  .nav-name {
-    font-family: 'Instrument Serif', serif;
-    font-size: 1.3rem;
-    color: var(--near-black);
-    text-decoration: none;
-  }
+  .nav-name { display: inline-flex; align-items: center; gap: 10px; font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--near-black); text-decoration: none; }
+  .nav-mark { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; }
 
   .nav-right { display: flex; align-items: center; gap: 40px; }
   .nav-links { display: flex; gap: 36px; list-style: none; }
@@ -223,7 +220,7 @@
   }
 
   .hero-eyebrow {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
@@ -235,9 +232,9 @@
 
   .hero-name {
     font-family: 'Outfit', sans-serif;
-    font-size: clamp(4.5rem, 7vw, 7.5rem);
+    font-size: clamp(3rem, 4.6vw, 5rem);
     font-weight: 300;
-    line-height: 0.92;
+    line-height: 1.02;
     letter-spacing: -0.02em;
     color: var(--near-black);
     margin-bottom: 36px;
@@ -306,7 +303,7 @@
   .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
   .hero-right {
-    background: var(--bg-section);
+    background: var(--white);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -333,7 +330,11 @@
   .hero-stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px;
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    overflow: hidden;
     width: 100%;
     max-width: 380px;
     opacity: 0;
@@ -378,7 +379,7 @@
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-2);
     margin-bottom: 16px;
     display: block;
   }
@@ -426,6 +427,7 @@
   .early-head { margin-bottom: 32px; }
   .early-intro { margin-top: 8px; color: #666; }
   .early-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .exp-grid { grid-template-columns: repeat(2, 1fr); }
   .early-card { background: var(--white); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; }
   .early-img { aspect-ratio: 16/10; overflow: hidden; background: var(--bg-section); border-bottom: 1px solid var(--rule); }
   .early-img .case-img { width: 100%; height: 100%; max-height: none; object-fit: cover; object-position: top left; border: 0; padding: 0; }
@@ -459,12 +461,21 @@
   }
   .case-study:last-child { margin-bottom: 0; }
   .case-footer {
-    margin-top: 40px;
-    padding-top: 28px;
-    border-top: 1px solid var(--rule);
-    display: flex;
-    justify-content: flex-end;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
   }
+  .case-footer .case-link { grid-column: 2; justify-self: start; }
+  @media (max-width: 960px) { .case-footer { grid-template-columns: 1fr; } .case-footer .case-link { grid-column: 1; } }
+  .case-footer .case-link {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: #fff; border: 0; border-radius: 10px;
+    padding: 16px 28px; font-size: 0.85rem; letter-spacing: 0.08em;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .case-footer .case-link:hover { opacity: 1; background: #154530; transform: translateY(-2px); }
+  .case-footer .case-link:focus-visible { outline: 3px solid var(--accent-2); outline-offset: 3px; }
 
   .case-top {
     display: grid;
@@ -488,7 +499,7 @@
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-2);
     margin-bottom: 8px;
   }
 
@@ -527,7 +538,7 @@
     flex-wrap: wrap;
   }
 
-  .metric { border-left: 3px solid var(--accent); padding-left: 18px; }
+  .metric { border-left: 3px solid var(--accent-2); padding-left: 18px; }
 
   .metric-value {
     font-family: 'Outfit', sans-serif;
@@ -608,7 +619,7 @@
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-2);
     margin-bottom: 24px;
   }
 
@@ -827,21 +838,21 @@
     .nav-links.open { display: flex; }
     .nav-resume-mobile { display: list-item; }
     nav { position: relative; }
-    .hero { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; min-height: 0; padding-top: 0; }
     .hero-right { display: none; }
     .hero-photo-mobile {
       display: flex;
       justify-content: center;
-      padding: 80px 24px 0;
-      background: var(--bg-section);
+      padding: 96px 24px 0;
+      background: var(--white);
     }
     .hero-photo-mobile .photo-frame {
       width: 160px;
-      height: 200px;
+      height: 160px;
       opacity: 1;
       animation: none;
     }
-    .hero-left { padding: 32px 24px 60px; }
+    .hero-left { padding: 28px 24px 60px; }
     .case-studies { padding: 60px 16px; }
     .case-study { padding: 28px 20px; border-radius: 10px; }
     .case-top { grid-template-columns: 1fr; gap: 24px; }
@@ -1603,7 +1614,7 @@
 
 <header role="banner">
   <nav aria-label="Main navigation">
-    <a href="/" class="nav-name" aria-label="Shira Kates home">Shira Kates</a>
+    <a href="/" class="nav-name" aria-label="Shira Kates home"><span class="nav-mark" aria-hidden="true">SK</span>Shira Kates</a>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -1628,11 +1639,11 @@
     <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <clipPath id="organic-clip-m">
-          <path d="M130,16 C187,14 240,49 246,101 C253,156 228,212 182,240 C136,270 75,257 42,221 C10,185 13,123 33,85 C55,43 78,18 130,16 Z"/>
+          <circle cx="130" cy="130" r="127"/>
         </clipPath>
       </defs>
       <image href="photo.jpg" x="0" y="0" width="260" height="260" clip-path="url(#organic-clip-m)" preserveAspectRatio="xMidYMid slice"/>
-      <path d="M130,16 C187,14 240,49 246,101 C253,156 228,212 182,240 C136,270 75,257 42,221 C10,185 13,123 33,85 C55,43 78,18 130,16 Z" fill="none" stroke="#1E5C3A" stroke-width="2.5"/>
+      <circle cx="130" cy="130" r="127" fill="none" stroke="#1E5C3A" stroke-width="2.5"/>
     </svg>
   </div>
 </div>
@@ -1640,10 +1651,9 @@
   <!-- HERO -->
   <section aria-label="Introduction" class="hero">
     <div class="hero-left">
-      <p class="hero-eyebrow">AI/UX Strategy</p>
-      <h1 class="hero-name">Shira<br><em>Kates</em></h1>
+      <h1 class="hero-name">AI/UX strategy <em>and design leadership</em></h1>
       <p class="hero-bio">
-        Design leader and AI/UX strategist. I&rsquo;ve built teams and shipped products inside the world&rsquo;s most successful companies.
+        I design AI products people trust, and build the teams that ship them. Most recently at Google, where I led design for the first generative AI product shipped from Google Cloud.
       </p>
       <div class="hero-cta">
         <a href="#work" class="btn-secondary">See My Work</a>
@@ -1655,11 +1665,11 @@
         <svg viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <clipPath id="organic-clip">
-            <path d="M130,16 C187,14 240,49 246,101 C253,156 228,212 182,240 C136,270 75,257 42,221 C10,185 13,123 33,85 C55,43 78,18 130,16 Z"/>
+            <circle cx="130" cy="130" r="127"/>
           </clipPath>
         </defs>
         <image href="photo.jpg" x="0" y="0" width="260" height="260" clip-path="url(#organic-clip)" preserveAspectRatio="xMidYMid slice"/>
-        <path d="M130,16 C187,14 240,49 246,101 C253,156 228,212 182,240 C136,270 75,257 42,221 C10,185 13,123 33,85 C55,43 78,18 130,16 Z" fill="none" stroke="#1E5C3A" stroke-width="2.5"/>
+        <circle cx="130" cy="130" r="127" fill="none" stroke="#1E5C3A" stroke-width="2.5"/>
       </svg>
       </div>
       <div class="hero-stats">
@@ -1677,7 +1687,7 @@
         </div>
         <div class="stat">
           <div class="stat-number">2x</div>
-          <div class="stat-label">Cloud Impact Awards</div>
+          <div class="stat-label">Google Cloud Tech Impact Awards</div>
         </div>
       </div>
     </div>
@@ -1687,11 +1697,9 @@
   <section aria-label="About Shira Kates" class="about" id="about">
     <div class="about-text reveal">
       <p class="about-eyebrow">About</p>
-      <h2 class="about-title">I care about<br>getting it <em>right</em></h2>
+      <h2 class="about-title">From ambiguity to vision, <em>shipped</em></h2>
       <div class="about-body">
-        <p>At Google AppSheet I built a product vision that influenced roadmaps at the VP level across Google Cloud AI. Before that I won a $25M federal contract as design lead at CivicActions. Before that I led a UX team through a $640M acquisition at BrightRoll. And I ran my own design consultancy for a decade.</p>
-        <p>I love to build elegant solutions with curious, best-in-craft teams.</p>
-        <p>I also build: <a href="https://claude.ai/public/artifacts/2c5bf74a-da74-4570-b918-49a6287daf0d" target="_blank" rel="noopener noreferrer" class="inline-link">Cheddar →</a> and <a href="karen.html" target="_blank" rel="noopener noreferrer" class="inline-link">Karen →</a>, two AI agents I made to explore conversational UX patterns.</p>
+        <p>At Google AppSheet I built an agent vision that Google Cloud&rsquo;s engineering and product VPs added to the future roadmap. Before that I won a $25M federal contract as design lead at CivicActions. Before that I led a UX team through a $640M acquisition at BrightRoll. And I ran my own design consultancy for a decade.</p>
       </div>
       <a href="#resume" class="btn-primary">View Résumé ↓</a>
     </div>
@@ -1715,7 +1723,7 @@
         </div>
         <div class="expertise-item">
           <dt class="expertise-label">Recognition</dt>
-          <dd class="expertise-items">Cloud Tech Impact Award x2 · Google Cloud (2023)</dd>
+          <dd class="expertise-items">Google Cloud Tech Impact Awards (2), 2023</dd>
         </div>
       </dl>
     </div>
@@ -1727,11 +1735,6 @@
       <span class="section-eyebrow">Case Studies</span>
       <h2 class="section-title">Work</h2>
     </div>
-    <div class="cs-menu reveal" role="navigation" aria-label="Case study index">
-      <div class="cs-filters" role="group" aria-label="Filter by topic">
-        <button class="filter-pill is-active" data-tag="all">All</button><button class="filter-pill" data-tag="Leadership">Leadership</button><button class="filter-pill" data-tag="Vision">Vision</button><button class="filter-pill" data-tag="Research">Research</button><button class="filter-pill" data-tag="Concept">Concept</button><button class="filter-pill" data-tag="User testing">User testing</button><button class="filter-pill" data-tag="AI agents">AI agents</button><button class="filter-pill" data-tag="Interaction patterns">Interaction patterns</button><button class="filter-pill" data-tag="Conversational design">Conversational design</button><button class="filter-pill" data-tag="Content">Content</button><button class="filter-pill" data-tag="Prototyping">Prototyping</button>
-      </div>
-    </div>
 
 
     <article class="case-study reveal" id="case-1" data-tags="Leadership|Vision|Research|User testing|Concept" aria-labelledby="case1-title">
@@ -1739,7 +1742,7 @@
         <div class="case-meta">
           <div class="case-number" aria-hidden="true">01</div>
           <p class="case-company">Google AppSheet</p>
-          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Leadership</li><li class="case-tag">Vision</li><li class="case-tag">Research</li><li class="case-tag">User testing</li><li class="case-tag">Concept</li></ul>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Leadership</li><li class="case-tag">Vision</li><li class="case-tag">Research</li></ul>
         </div>
         <div class="case-content">
           <h3 class="case-title" id="case1-title">Building a Vision Inside the Ambiguity</h3>
@@ -1760,29 +1763,6 @@
           </dl>
         </div>
       </div>
-            <details class="case-work">
-        <summary><span>See the work</span><span class="case-work-count">4 images</span></summary>
-        <figure class="case-images one-col">
-        <div>
-          <img src="images/work-appsheet-methods.jpg" alt="Vision process: Gemini interview, review of explorations, How Might We brainstorming, hero scenario iterations, ideation and concept mapping, concept critique, offline critique" class="case-img" loading="lazy">
-          <figcaption class="img-caption">How the vision got built: two cross-functional workshops took the team from How Might We to hero scenarios to critiqued concepts, so the people who'd ship the vision helped write it</figcaption>
-        </div>
-      </figure>
-      <figure class="case-images three-col">
-        <div>
-          <img src="images/work-appsheet-prefab.jpg" alt="Prefab modules concept: reusable workflow modules on an AppSheet canvas, with Airbus and Globe Telecom quotes" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Customer top pick: prefab modules. Airbus: “I can see these being very useful”</figcaption>
-        </div>
-        <div>
-          <img src="images/case1a.jpg" alt="Generative UI concept: AppSheet mobile screens with Gemini-generated personalized views" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Customer top pick: Gemini-generated views personalized to each user's role</figcaption>
-        </div>
-        <div>
-          <img src="images/work-appsheet-admin.jpg" alt="Admin console concept showing license gaps and usage insights, with a Globe Telecom quote" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Admin insights reframed around the admin's goals, not upsell, after Globe Telecom's feedback</figcaption>
-        </div>
-      </figure>
-      </details>
       <div class="case-footer">
         <a href="appsheet.html" class="case-link">View full case study &#8594;</a>
       </div>
@@ -1793,7 +1773,7 @@
         <div class="case-meta">
           <div class="case-number" aria-hidden="true">02</div>
           <p class="case-company">Google Cloud AI</p>
-          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Vision</li><li class="case-tag">Concept</li><li class="case-tag">Research</li><li class="case-tag">AI agents</li><li class="case-tag">Interaction patterns</li></ul>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Vision</li><li class="case-tag">AI agents</li><li class="case-tag">Research</li></ul>
         </div>
         <div class="case-content">
           <h3 class="case-title" id="case2-title">The Future of Agentic Democratization in the Enterprise</h3>
@@ -1814,29 +1794,6 @@
           </dl>
         </div>
       </div>
-            <details class="case-work">
-        <summary><span>See the work</span><span class="case-work-count">4 images</span></summary>
-        <figure class="case-images one-col">
-        <div>
-          <img src="images/case2b.jpg" alt="Adaptive UI: a delivery driver's route update on mobile, as voice while driving, and on AR glasses" class="case-img" loading="lazy">
-          <figcaption class="img-caption">One agent, three surfaces: Roni's route update follows him from phone to voice while driving to AR glasses at the store</figcaption>
-        </div>
-      </figure>
-      <figure class="case-images three-col">
-        <div>
-          <img src="images/work-agentic-guidance.jpg" alt="Same display-setup task shown as concise visual steps for an experienced merchandiser and as a training video for a new hire" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Same task, different person: Lee gets concise visual steps, Malcolm (a new hire) gets a training video and voice help</figcaption>
-        </div>
-        <div>
-          <img src="images/work-agentic-authoring.jpg" alt="Democratized authoring: the agent observes a worker's inter-store transfer workaround and updates the restocking flow" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Democratized authoring: the agent learns Lee's workaround and turns it into the new restocking flow for everyone</figcaption>
-        </div>
-        <div>
-          <img src="images/work-agentic-foundry.jpg" alt="AI Foundry solution blueprint: a plain-language problem becomes a proposed Retail Incident Manager" class="case-img" loading="lazy">
-          <figcaption class="img-caption">AI Foundry: describe the problem in plain language, get a blueprint. No blank page</figcaption>
-        </div>
-      </figure>
-      </details>
       <div class="case-footer">
         <a href="agentic.html" class="case-link">View full case study &#8594;</a>
       </div>
@@ -1847,15 +1804,15 @@
         <div class="case-meta">
           <div class="case-number" aria-hidden="true">03</div>
           <p class="case-company">Course Hero + Google AppSheet</p>
-          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Conversational design</li><li class="case-tag">Content</li><li class="case-tag">AI agents</li><li class="case-tag">Interaction patterns</li></ul>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Conversational design</li><li class="case-tag">Content</li><li class="case-tag">AI agents</li></ul>
         </div>
         <div class="case-content">
-          <h3 class="case-title" id="case3-title">Voice as Strategy: Delightful AI Interactions for Trust and Adoption</h3>
-          <p class="case-summary">Most companies treat conversational AI as a technology and protocol problem. Get the rules right, keep humans in the loop, handle the edge cases. All of that matters. But adoption lives or dies on something simpler too: is this agent worth talking to? In 2021 I was pushing back on hiding AI from users when that was the industry default. At Google I was arguing that the prompt is not how humans naturally think. They start from problems, questions, documents. The companies that win on AI adoption will be the ones that treated the voice and personality of their agents as a strategic asset, not an afterthought.</p>
+          <h3 class="case-title" id="case3-title">Strategic Voice for Trust and Adoption</h3>
+          <p class="case-summary">Interaction design was always a conversation. Now AI brings brands to life 24/7. I design the rules that promote brand trust, control, enjoyment, and error recovery.</p>
           <dl class="case-metrics">
             <div class="metric">
-              <dt class="metric-label">Ahead of industry on AI transparency</dt>
-              <dd class="metric-value">2021</dd>
+              <dt class="metric-label">AI usage increase after adding &ldquo;review and revise&rdquo;</dt>
+              <dd class="metric-value">4x</dd>
             </div>
             <div class="metric">
               <dt class="metric-label">GenAI feature out of Google Cloud</dt>
@@ -1864,29 +1821,37 @@
           </dl>
         </div>
       </div>
-            <details class="case-work">
-        <summary><span>See the work</span><span class="case-work-count">3 images</span></summary>
-        <figure class="case-images one-col">
-        <div>
-          <img src="images/work-conv-hybrid.jpg" alt="Hybrid interaction paradigm: a sourcing request handled with a structured form inside chat on mobile and a step tracker on web" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Hybrid, not chat-only: structured UI appears inside the conversation when a form beats ten back-and-forth messages</figcaption>
-        </div>
-      </figure>
-      <figure class="case-images two-col">
-        <div>
-          <img src="images/work-conv-guardrails.jpg" alt="Personalization within guardrails: a user asks to skip a required approval step and the agent explains it can't" class="case-img" loading="lazy">
-          <figcaption class="img-caption">Personalization with guardrails: users can reshape their flow, but the agent holds the line on org-mandated steps</figcaption>
-        </div>
-        <div>
-          <img src="images/case3b.gif" alt="Animated demo: a user describes a travel request app in AppSheet for Google Chat, reviews and edits the generated tables, creates the app and opens it in the AppSheet editor" class="case-img case-img-top" loading="lazy">
-          <figcaption class="img-caption">Gemini app creation in AppSheet for Google Chat, the first GenAI feature shipped out of Google Cloud: describe your app, review and change its structure, then open it in the editor</figcaption>
-        </div>
-      </figure>
-      </details>
       <div class="case-footer">
         <a href="conversational.html" class="case-link">View full case study &#8594;</a>
       </div>
     </article>
+
+    <div class="early-section" id="experiments">
+      <div class="early-head reveal">
+        <span class="section-eyebrow">Concepts &amp; experiments</span>
+        <p class="early-intro">Hands-on AI work since Google: agents I&rsquo;ve built and tested to work through conversational design problems.</p>
+      </div>
+      <div class="early-grid exp-grid">
+      <article class="early-card">
+        <div class="early-body">
+          <p class="case-company">Working agent · Built with Claude</p>
+          <h3 class="early-title">Cheddar: an assistant for bank tellers</h3>
+          <p class="early-desc">A teller co-pilot that never bends on compliance, like flagging cash deposits structured to avoid reporting, while staying flexible and friendly everywhere else. Color-coded response types tell the teller what kind of answer they&rsquo;re getting.</p>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Conversational design</li><li class="case-tag">AI agents</li></ul>
+          <a href="https://claude.ai/public/artifacts/2c5bf74a-da74-4570-b918-49a6287daf0d" target="_blank" rel="noopener noreferrer" class="case-link">Try Cheddar &#8599;</a>
+        </div>
+      </article>
+      <article class="early-card">
+        <div class="early-body">
+          <p class="case-company">Working agent · Built in Google AI Studio</p>
+          <h3 class="early-title">Karen: a co-pilot for retail associates</h3>
+          <p class="early-desc">Real-time help on the sales floor: product knowledge, six fixed rules for returns, pickup ID and loss prevention, and tagged responses that say when to check the system or call a manager. Tested against edge cases before release.</p>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Conversational design</li><li class="case-tag">AI agents</li></ul>
+          <a href="karen.html" target="_blank" rel="noopener noreferrer" class="case-link">Try Karen &#8599;</a>
+        </div>
+      </article>
+      </div>
+    </div>
 
     <div class="early-section">
       <div class="early-head reveal">
@@ -1901,7 +1866,7 @@
           <h3 class="early-title">Medicare Part D: an 8-day design challenge</h3>
           <p class="early-desc">Led a 10-person team through research, a persona, wireframes and a prototype in the CMS design system to redesign Part D guidance on medicare.gov. We won the $25M contract.</p>
           <p class="early-stat">$25M contract won · 8 working days</p>
-          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Leadership</li><li class="case-tag">Research</li><li class="case-tag">Prototyping</li><li class="case-tag">Content</li></ul>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Leadership</li><li class="case-tag">Research</li><li class="case-tag">Prototyping</li></ul>
           <a href="https://docs.google.com/presentation/d/1XROxNhQJMviUhiUEw3b2DTNggGGFB6EX1pCk9HMiCt4" target="_blank" rel="noopener noreferrer" class="case-link">View case study &#8594;</a>
         </div>
       </article>
@@ -1912,7 +1877,7 @@
           <h3 class="early-title">Ad platform redesign through two acquisitions</h3>
           <p class="early-desc">Built a mobile campaign app on the side that won Yahoo’s hackathon and led to a patent, then redesigned the demand-side platform with a team that grew from 5 to 27.</p>
           <p class="early-stat">20–30% faster task time · 50% faster optimization</p>
-          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Leadership</li><li class="case-tag">Interaction patterns</li><li class="case-tag">Prototyping</li><li class="case-tag">User testing</li></ul>
+          <ul class="case-tags" aria-label="Topics"><li class="case-tag">Leadership</li><li class="case-tag">Prototyping</li><li class="case-tag">User testing</li></ul>
           <a href="https://docs.google.com/presentation/d/1f5gOaLltBeiNwW-GsLuW943f9KhNNklyZCIIB6tLPsg" target="_blank" rel="noopener noreferrer" class="case-link">View case study &#8594;</a>
         </div>
       </article>
@@ -2075,7 +2040,7 @@
 
         <div class="r2-stats">
           <span class="r2-pill">1st GenAI from Google Cloud</span>
-          <span class="r2-pill">400% AI usage increase</span>
+          <span class="r2-pill">4x AI feature usage</span>
           <span class="r2-pill">2,000+ AI-built apps</span>
           <span class="r2-pill">1,500 Gemini tasks/day</span>
           <span class="r2-pill">4x MAU growth</span>
@@ -2084,13 +2049,23 @@
 
         <ul>
           <li><strong>Led UX platform-wide</strong> for the multidisciplinary team (interaction, research, content) through 4x MAU growth and 40%+ sustained YoY growth; made UX a strategic partner to product and engineering. 2025 manager ratings 4.58–4.93 of 5; one report promoted to L6; team presented at Cloud NEXT and Google I/O.</li>
-          <li><strong>Led design for Gemini-powered app creation,</strong> the first generative AI product shipped from Google Cloud: natural language to a functional app, with real-time schema editing from a conversational prompt. 2,000+ active AI-built apps, 80M Vertex AI tokens in a month, and a 400% increase in AI feature usage (1,500 Gemini tasks/day, 95% positive satisfaction).</li>
+          <li><strong>Led design for Gemini-powered app creation,</strong> the first generative AI product shipped from Google Cloud: natural language to a functional app, with real-time schema editing from a conversational prompt. 2,000+ active AI-built apps, 80M Vertex AI tokens in a month, and 4x AI feature usage after a redesign that let people review and revise before editing (1,500 Gemini tasks/day, 95% positive satisfaction).</li>
           <li><strong>Led UX for Chat Apps in Google Workspace</strong> (1,800+ monthly deployments) and AppSheet Database (38% lift in 28-day MAU); both won Cloud Tech Impact Awards.</li>
           <li><strong>Designed the conversational experience</strong> as it moved from rule-based dialogue to LLM-powered tools: intent taxonomy, response patterns, error recovery, and confirmation strategies merging conversational and visual editing in one surface.</li>
-          <li><strong>Authored the Evolved Agents / Frontline Worker vision,</strong> a multimodal model where agents adapt their surface (voice, thin UI, rich UI) to context. Presented AI/UX strategy to the Google Cloud CEO; shaped VP-level Cloud AI roadmaps.</li>
-          <li><strong>Defined AI Verbs,</strong> natural language automation primitives letting users express complex logic conversationally: 200% usage increase, 2M+ AI tokens across 70+ apps.</li>
-          <li><strong>Founded and ran EQ Week,</strong> a bi-yearly AI innovation hackathon: 35+ participants, 18 projects, 7 advanced to roadmap, including AI Verbs, which debuted at Cloud NEXT.</li>
+          <li><strong>Authored the Evolved Agents / Frontline Worker vision,</strong> a multimodal model where agents adapt their surface (voice, thin UI, rich UI) to context. Pitched to Cloud AI engineering and product VPs and added to the future roadmap.</li>
+          <li><strong>Founded and ran EQ Week,</strong> a bi-yearly AI innovation hackathon: 35+ participants, 18 projects, 7 advanced to the roadmap in a single event.</li>
         </ul>
+      </div>
+
+      <hr class="r2-div">
+
+      <div class="r2-prior">
+        <div class="r2-jh">
+          <span class="r2-jt">Content Strategist / UX Architect</span>
+          <span class="r2-jd">Nov 2021 – May 2022</span>
+        </div>
+        <p class="r2-jo">Charles Schwab · Contract</p>
+        <p>Content strategy and UX architecture in Schwab Creative Center (C2), the internal agency for institutional and private wealth products. Designed portions of the public and signed-in client experience across mobile app, mobile web and desktop, including registration and onboarding flows.</p>
       </div>
 
       <hr class="r2-div">
@@ -2104,6 +2079,8 @@
         <p>Established the conversational AI design practice for an AI homework help product: UX writing guidelines, interaction patterns, and design system components for human-AI interaction, validated through user research.</p>
       </div>
 
+      <hr class="r2-div">
+
       <!-- CIVICACTIONS -->
       <div class="r2-prior">
         <div class="r2-jh">
@@ -2111,7 +2088,7 @@
           <span class="r2-jd">Sep 2019 – Jun 2021</span>
         </div>
         <p class="r2-jo">CivicActions · Remote</p>
-        <p>Hired as Content Designer; promoted to CDO within a year. Led UX, content strategy, design systems, and accessibility for federal programs including the VA, CMS, NSF, and USDS. UX lead on the winning bid for a $25M CMS contract; designed and prototyped a working experience in 10 days.</p>
+        <p>Hired as Content Designer; promoted to CDO within a year. Led UX, content strategy, design systems, and accessibility for federal programs including the VA, CMS, NSF, and USDS. UX lead on the winning bid for a $25M CMS contract; designed and prototyped a working experience in 8 working days.</p>
       </div>
 
       <hr class="r2-div">
@@ -2230,7 +2207,7 @@
 
       <p class="r2-sec">Recognition</p>
 
-      <div class="r2-aw"><div class="r2-dot"></div><div>Google Cloud Tech Impact Awards ×2 (2023)</div></div>
+      <div class="r2-aw"><div class="r2-dot"></div><div>Google Cloud Tech Impact Awards (2), 2023</div></div>
       <div class="r2-aw"><div class="r2-dot"></div><div>US Patent: Managing Ad Campaigns via Mobile Devices (2015)</div></div>
       <div class="r2-aw"><div class="r2-dot"></div><div>Speaker: AI Talks / One Club for Creativity (2026)</div></div>
       <div class="r2-aw"><div class="r2-dot"></div><div>Podcast: Bot Boundaries EP40 (Sept 2026)</div></div>
@@ -2347,17 +2324,6 @@
 
 <script>
 (function(){
-  const pills=document.querySelectorAll('.filter-pill');
-  const items=document.querySelectorAll('.cs-row[data-tags], .case-study[data-tags], .early-card[data-tags]');
-  const divider=document.querySelector('.cs-divider'), earlySec=document.querySelector('.early-section');
-  pills.forEach(p=>p.addEventListener('click',()=>{
-    pills.forEach(x=>x.classList.toggle('is-active',x===p));
-    const t=p.dataset.tag;
-    items.forEach(el=>el.classList.toggle('is-hidden', t!=='all' && !el.dataset.tags.split('|').includes(t)));
-    const anyEarly=[...document.querySelectorAll('.early-card')].some(e=>!e.classList.contains('is-hidden'));
-    if(divider) divider.classList.toggle('is-hidden',!anyEarly);
-    if(earlySec) earlySec.classList.toggle('is-hidden',!anyEarly);
-  }));
   document.querySelectorAll('.cs-row').forEach(r=>r.addEventListener('click',()=>{
     const el=document.querySelector(r.getAttribute('href')); const d=el&&el.querySelector('details'); if(d) d.open=true;
   }));
